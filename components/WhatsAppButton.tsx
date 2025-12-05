@@ -13,10 +13,12 @@ export default function WhatsAppOrder({
   measurements,
   className = "",
 }: Props) {
-  const phone = "916006491824"; // your number
+  const phone = "916006491824"; // your WhatsApp number
 
   const message = encodeURIComponent(
-    `Hello, I want to order:\n${productName}\nColor: ${color ?? "Default"}\n${
+    `Hello, I want to order:\n${productName}\nColor: ${
+      color ?? "Default"
+    }\n${
       measurements
         ? "\nMeasurements:\n" +
           Object.entries(measurements)
@@ -33,9 +35,21 @@ export default function WhatsAppOrder({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`whatsapp-btn ${className}`}
+      className={`
+        flex items-center justify-center 
+        gap-2
+        w-full h-12
+        rounded-lg
+        bg-green-600 text-white 
+        font-medium text-sm
+        shadow-md
+        hover:bg-green-700 
+        hover:shadow-lg
+        transition-all
+        ${className}
+      `}
     >
-      <span className="whatsapp-icon">💬</span>
+      <span className="text-lg">💬</span>
       Order on WhatsApp
     </a>
   );

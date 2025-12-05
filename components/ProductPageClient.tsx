@@ -50,18 +50,18 @@ export default function ProductPageClient({ productId }: Props) {
   );
 
   return (
-    <div className="bg-cream min-h-screen fade-smooth text-gray-900">
-      {/** ----------------------------------------------------
-       * LUXURY HERO BANNER
-       * -------------------------------------------------- */}
+    <div className="bg-cream min-h-screen fade-smooth">
+
+      {/* -------------------------------------------------- */}
+      {/* ✨ LUXURY HERO BANNER */}
+      {/* -------------------------------------------------- */}
       <div className="relative w-full h-[280px] md:h-[360px] lg:h-[430px] overflow-hidden">
         <img
           src={`/images/collections/${product.category}-banner.jpg`}
           className="absolute inset-0 w-full h-full object-cover scale-110 opacity-90"
         />
 
-        {/** Subtle luxury overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/30 to-white/10 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/10 backdrop-blur-[1px]" />
 
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <div className="space-y-3">
@@ -82,20 +82,20 @@ export default function ProductPageClient({ productId }: Props) {
         </div>
       </div>
 
-      {/** ----------------------------------------------------
-       * MAIN GRID
-       * -------------------------------------------------- */}
+      {/* -------------------------------------------------- */}
+      {/* MAIN GRID */}
+      {/* -------------------------------------------------- */}
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
-        
-        {/** LEFT — GALLERY */}
+
+        {/* LEFT — PRODUCT GALLERY */}
         <div className="w-full max-w-[620px] mx-auto">
           <ProductGallery product={product} selectedColor={selectedColor} />
         </div>
 
-        {/** RIGHT — LUXURY INFO PANEL */}
+        {/* RIGHT — INFO PANEL */}
         <div className="space-y-10 relative">
 
-          {/** ---------------- PRICE & TITLE */}
+          {/* PRODUCT TITLE + PRICE */}
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-amber-900 leading-tight">
               {product.name}
@@ -124,12 +124,13 @@ export default function ProductPageClient({ productId }: Props) {
             </div>
           </div>
 
-          {/** ---------------- COLOR SELECTOR */}
+          {/* COLOR SELECTOR */}
           {product.colors && (
             <div>
               <h4 className="text-sm font-medium tracking-wide mb-3 text-amber-800">
                 Colour Variants
               </h4>
+
               <ColorSelector
                 colors={product.colors}
                 selected={selectedColor}
@@ -138,7 +139,7 @@ export default function ProductPageClient({ productId }: Props) {
             </div>
           )}
 
-          {/** ---------------- DESCRIPTION */}
+          {/* DESCRIPTION */}
           <div className="space-y-4">
             <h4 className="text-lg font-serif text-amber-900">Description</h4>
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">
@@ -146,32 +147,36 @@ export default function ProductPageClient({ productId }: Props) {
             </p>
           </div>
 
-          {/** ---------------- CARE CARD */}
+          {/* CARE CARD */}
           <div className="bg-white p-6 rounded-2xl shadow-xl border border-amber-100 space-y-3">
             <h4 className="font-medium text-gray-900 flex items-center gap-2">
-              <span className="text-amber-700 text-xl">✦</span> Care Instructions
+              <span className="text-amber-700 text-xl">✦</span>
+              Care Instructions
             </h4>
-            <ul className="text-sm text-gray-700 leading-relaxed list-disc ml-5 space-y-1">
+
+            <ul className="list-disc ml-5 text-sm space-y-1 text-gray-700">
               <li>Dry clean only.</li>
               <li>Store wrapped in soft cotton/muslin.</li>
               <li>Avoid perfume & direct sunlight.</li>
             </ul>
           </div>
 
-          {/** ---------------- ACTION PANEL */}
+          {/* ----------------------------------------------- */}
+          {/* STICKY ACTION PANEL (Fixes WhatsApp disappearing) */}
+          {/* ----------------------------------------------- */}
           <div className="
             sticky top-6 z-40 
-            bg-white/80 backdrop-blur-xl 
+            bg-white/90 backdrop-blur-xl 
             p-5 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)]
-            border border-amber-100/60 space-y-4
+            border border-amber-100 space-y-4
           ">
             <button
               onClick={() => setMeasureOpen(true)}
               className="
-                w-full px-6 py-3 
-                rounded-md border border-amber-200 
-                bg-white hover:bg-amber-50 
-                text-sm font-medium transition-all shadow-sm
+                w-full px-6 py-3 rounded-md 
+                border border-amber-300 bg-white 
+                hover:bg-amber-50 text-sm font-medium 
+                transition shadow-sm
               "
             >
               Add Custom Measurements
@@ -187,15 +192,16 @@ export default function ProductPageClient({ productId }: Props) {
 
           {savedMeasurements && (
             <p className="text-sm text-green-700">
-              ✓ Your measurements have been saved
+              ✓ Measurements saved
             </p>
           )}
 
-          {/** ---------------- MATCHING SET */}
+          {/* MATCHING SET */}
           {product.matchingSet && (
             <MatchingSet productId={product.id} />
           )}
 
+          {/* BACK TO COLLECTION */}
           <a
             href={`/collection/${product.category}`}
             className="text-sm text-amber-700 hover:underline"
@@ -205,10 +211,10 @@ export default function ProductPageClient({ productId }: Props) {
         </div>
       </div>
 
-      {/** ----------------------------------------------------
-       * RELATED PRODUCTS
-       * -------------------------------------------------- */}
-      <div className="max-w-7xl mx-auto px-6 pb-20">
+      {/* -------------------------------------------------- */}
+      {/* RELATED PRODUCTS */}
+      {/* -------------------------------------------------- */}
+      <div className="max-w-7xl mx-auto px-6 pb-24">
         <h3 className="text-2xl font-serif font-bold text-amber-900 mb-8">
           You May Also Like
         </h3>
@@ -220,12 +226,12 @@ export default function ProductPageClient({ productId }: Props) {
         </div>
       </div>
 
-      {/** MODAL */}
+      {/* MEASUREMENTS MODAL */}
       <MeasurementsModal
         open={measureOpen}
         onClose={() => setMeasureOpen(false)}
         product={product}
-        onSave={(m) => setSavedMeasurements(m)}
+        onSave={(vals) => setSavedMeasurements(vals)}
       />
     </div>
   );

@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "Poshkaar – The Threads of Paradise",
@@ -33,6 +34,9 @@ export default function RootLayout({
 
         {/* Floating WhatsApp */}
         <FloatingWhatsApp />
+
+        {/* Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   );

@@ -30,7 +30,16 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------------- */}
       {/*                             HERO SECTION                               */}
       {/* ---------------------------------------------------------------------- */}
-      <section className="relative w-full min-h-[88vh] flex items-center justify-center overflow-hidden">
+      <section
+        className="
+          relative w-full 
+          min-h-[65vh]            /* MOBILE */
+          md:min-h-[75vh]         /* TABLET */
+          lg:min-h-[88vh]         /* DESKTOP */
+          flex items-center justify-center 
+          overflow-hidden
+        "
+      >
 
         {/* SLIDES */}
         {heroImages.map((img, idx) => (
@@ -52,7 +61,7 @@ export default function HomePage() {
         <div className="absolute inset-0 animate-shimmer opacity-30" />
 
         {/* CONTENT */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 md:py-24 grid md:grid-cols-2 gap-12 items-center">
 
           {/* LEFT TEXT */}
           <div className="fade-smooth">
@@ -93,9 +102,15 @@ export default function HomePage() {
 
             {/* TRUST BADGES */}
             <div className="mt-6 flex flex-wrap gap-3 text-xs text-gray-300">
-              <span className="px-3 py-1 border border-white/30 rounded-full">Hand-embroidered in Kashmir</span>
-              <span className="px-3 py-1 border border-white/30 rounded-full">Made-to-order available</span>
-              <span className="px-3 py-1 border border-white/30 rounded-full">Worldwide shipping</span>
+              <span className="px-3 py-1 border border-white/30 rounded-full">
+                Hand-embroidered in Kashmir
+              </span>
+              <span className="px-3 py-1 border border-white/30 rounded-full">
+                Made-to-order available
+              </span>
+              <span className="px-3 py-1 border border-white/30 rounded-full">
+                Worldwide shipping
+              </span>
             </div>
           </div>
 
@@ -179,7 +194,12 @@ export default function HomePage() {
               className="group bg-white rounded-xl overflow-hidden border shadow hover:shadow-xl transition"
             >
               <div className="relative h-40">
-                <Image src={c.img} alt={c.title} fill className="object-cover group-hover:scale-105 transition" />
+                <Image
+                  src={c.img}
+                  alt={c.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition"
+                />
               </div>
 
               <div className="p-4">
@@ -276,7 +296,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* IMAGE (THIS WAS MISSING BEFORE) */}
+          {/* IMAGE */}
           <div className="rounded-2xl overflow-hidden shadow-2xl relative h-80 md:h-full">
             <Image
               src="/images/artists.jpg"

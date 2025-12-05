@@ -50,51 +50,59 @@ export default function ProductPageClient({ productId }: Props) {
   );
 
   return (
-    <div className="bg-cream min-h-screen fade-smooth">
-      {/* HERO — FIXED HEIGHT, LUXURY SECTION */}
-      <div
-        className="
-          w-full 
-          h-[260px] md:h-[360px] lg:h-[420px]
-          relative flex items-center justify-center 
-          overflow-hidden rounded-b-3xl
-        "
-        style={{
-          backgroundImage: `url('/images/collections/${product.category}-banner.jpg')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 to-white/20" />
+    <div className="bg-cream min-h-screen fade-smooth text-gray-900">
+      {/** ----------------------------------------------------
+       * LUXURY HERO BANNER
+       * -------------------------------------------------- */}
+      <div className="relative w-full h-[280px] md:h-[360px] lg:h-[430px] overflow-hidden">
+        <img
+          src={`/images/collections/${product.category}-banner.jpg`}
+          className="absolute inset-0 w-full h-full object-cover scale-110 opacity-90"
+        />
 
-        <h1
-          className="
-            relative z-10 
-            text-4xl md:text-6xl 
-            font-serif font-bold text-amber-900 
-            drop-shadow-lg tracking-wide
-          "
-        >
-          {product.name}
-        </h1>
+        {/** Subtle luxury overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/30 to-white/10 backdrop-blur-[1px]" />
+
+        <div className="absolute inset-0 flex items-center justify-center text-center px-6">
+          <div className="space-y-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-amber-700">
+              Poshkaar Kashmir
+            </p>
+
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-amber-900 drop-shadow-xl">
+              {product.name}
+            </h1>
+
+            {subtitle && (
+              <p className="text-sm md:text-base text-gray-700 font-light">
+                {subtitle}
+              </p>
+            )}
+          </div>
+        </div>
       </div>
 
-      {/* MAIN GRID */}
+      {/** ----------------------------------------------------
+       * MAIN GRID
+       * -------------------------------------------------- */}
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* LEFT — GALLERY */}
+        
+        {/** LEFT — GALLERY */}
         <div className="w-full max-w-[620px] mx-auto">
           <ProductGallery product={product} selectedColor={selectedColor} />
         </div>
 
-        {/* RIGHT — INFO & STICKY ACTION */}
-        <div className="space-y-8 relative">
-          <div className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-serif font-bold text-amber-900">
+        {/** RIGHT — LUXURY INFO PANEL */}
+        <div className="space-y-10 relative">
+
+          {/** ---------------- PRICE & TITLE */}
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-amber-900 leading-tight">
               {product.name}
             </h2>
 
-            <div className="flex items-center justify-between mt-1">
-              <p className="text-2xl font-semibold text-amber-700">
+            <div className="flex items-center justify-between">
+              <p className="text-3xl font-semibold text-amber-700 tracking-wide">
                 {product.price}
               </p>
 
@@ -104,7 +112,7 @@ export default function ProductPageClient({ productId }: Props) {
                 </span>
               )}
               {product.stockStatus === "low-stock" && (
-                <span className="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs">
+                <span className="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-xs animate-pulse">
                   Low stock
                 </span>
               )}
@@ -114,56 +122,57 @@ export default function ProductPageClient({ productId }: Props) {
                 </span>
               )}
             </div>
-
-            {subtitle && (
-              <p className="text-sm text-gray-600">{subtitle}</p>
-            )}
-
-            {product.colors && (
-              <>
-                <h4 className="text-sm font-medium mb-2">
-                  Available Colours
-                </h4>
-                <ColorSelector
-                  colors={product.colors}
-                  selected={selectedColor}
-                  onSelect={setSelectedColor}
-                />
-              </>
-            )}
-
-            <p className="text-gray-700 leading-relaxed">
-              {product.description}
-            </p>
-
-            {/* CARE */}
-            <div className="bg-white p-4 rounded-lg shadow-sm detail-card">
-              <h4 className="font-medium text-gray-800 mb-2">
-                Care Instructions
-              </h4>
-              <ul className="text-sm text-gray-700 list-disc ml-5 space-y-1">
-                <li>Dry clean only.</li>
-                <li>
-                  Store wrapped in muslin or cotton in a cool, dry place.
-                </li>
-                <li>
-                  Avoid perfumes, deodorants and direct sunlight.
-                </li>
-              </ul>
-            </div>
           </div>
 
-          {/* ACTION PANEL */}
-          <div
-            className="
-              sticky top-6 z-40 bg-white/90 backdrop-blur-lg 
-              p-4 rounded-xl shadow-xl border border-amber-100 
-              flex flex-col gap-3
-            "
-          >
+          {/** ---------------- COLOR SELECTOR */}
+          {product.colors && (
+            <div>
+              <h4 className="text-sm font-medium tracking-wide mb-3 text-amber-800">
+                Colour Variants
+              </h4>
+              <ColorSelector
+                colors={product.colors}
+                selected={selectedColor}
+                onSelect={setSelectedColor}
+              />
+            </div>
+          )}
+
+          {/** ---------------- DESCRIPTION */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-serif text-amber-900">Description</h4>
+            <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+              {product.description}
+            </p>
+          </div>
+
+          {/** ---------------- CARE CARD */}
+          <div className="bg-white p-6 rounded-2xl shadow-xl border border-amber-100 space-y-3">
+            <h4 className="font-medium text-gray-900 flex items-center gap-2">
+              <span className="text-amber-700 text-xl">✦</span> Care Instructions
+            </h4>
+            <ul className="text-sm text-gray-700 leading-relaxed list-disc ml-5 space-y-1">
+              <li>Dry clean only.</li>
+              <li>Store wrapped in soft cotton/muslin.</li>
+              <li>Avoid perfume & direct sunlight.</li>
+            </ul>
+          </div>
+
+          {/** ---------------- ACTION PANEL */}
+          <div className="
+            sticky top-6 z-40 
+            bg-white/80 backdrop-blur-xl 
+            p-5 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+            border border-amber-100/60 space-y-4
+          ">
             <button
               onClick={() => setMeasureOpen(true)}
-              className="px-6 py-3 rounded-md border border-gray-300 bg-white hover:bg-gray-100 text-sm font-medium shadow-sm"
+              className="
+                w-full px-6 py-3 
+                rounded-md border border-amber-200 
+                bg-white hover:bg-amber-50 
+                text-sm font-medium transition-all shadow-sm
+              "
             >
               Add Custom Measurements
             </button>
@@ -178,10 +187,11 @@ export default function ProductPageClient({ productId }: Props) {
 
           {savedMeasurements && (
             <p className="text-sm text-green-700">
-              ✓ Measurements saved successfully
+              ✓ Your measurements have been saved
             </p>
           )}
 
+          {/** ---------------- MATCHING SET */}
           {product.matchingSet && (
             <MatchingSet productId={product.id} />
           )}
@@ -195,17 +205,22 @@ export default function ProductPageClient({ productId }: Props) {
         </div>
       </div>
 
-      {/* RELATED */}
-      <div className="max-w-7xl mx-auto px-6 pb-16">
-        <h3 className="text-2xl font-semibold mb-6">You May Also Like</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/** ----------------------------------------------------
+       * RELATED PRODUCTS
+       * -------------------------------------------------- */}
+      <div className="max-w-7xl mx-auto px-6 pb-20">
+        <h3 className="text-2xl font-serif font-bold text-amber-900 mb-8">
+          You May Also Like
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {related.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
       </div>
 
-      {/* MODAL */}
+      {/** MODAL */}
       <MeasurementsModal
         open={measureOpen}
         onClose={() => setMeasureOpen(false)}

@@ -259,3 +259,30 @@ html, body {
 .parallax {
   background-attachment: fixed;
 }
+.cinematic-backdrop {
+  @apply bg-black/80 flex items-center justify-center backdrop-blur-sm;
+}
+
+.cinematic-img {
+  @apply max-h-[90vh] transition duration-500;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #f3f3f3 0%,
+    #e8e8e8 50%,
+    #f3f3f3 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerMove 1.4s infinite;
+}
+
+@keyframes shimmerMove {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.lux-arrow {
+  @apply absolute top-1/2 -translate-y-1/2 text-4xl text-white bg-black/30 hover:bg-black/60 px-3 py-1 rounded-full transition;
+}

@@ -2,16 +2,21 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
+// ----------------------------------------------------------------------------
+// PAGE-LEVEL METADATA (SEO)
+// ----------------------------------------------------------------------------
 export const metadata: Metadata = {
-  title: "Kashmiri Embroidery Collections – Tilla, Zari, Aari & Dabka | Poshkaar",
+  title:
+    "Kashmiri Embroidery Collections – Tilla, Zari, Aari & Dabka | Poshkaar",
   description:
-    "Explore Poshkaar’s handcrafted Kashmiri embroidery collections – Tilla, Zari, Aari, and Dabka. Each piece is artisan-made with heritage techniques.",
+    "Explore Poshkaar’s handcrafted Kashmiri embroidery collections – Tilla, Zari, Aari, and Dabka. Each masterpiece is crafted by Kashmiri artisans using heritage embroidery techniques.",
   openGraph: {
     title: "Kashmiri Embroidery Collections | Poshkaar",
     description:
       "Handcrafted Kashmiri Tilla, Zari, Aari & Dabka embroidery collections. Explore premium traditional fashion curated from master artisans.",
-    url: "https://poshkaar.in/collection",
+    url: "https://www.poshkaar.com/collection",
     siteName: "Poshkaar Kashmir",
+    type: "website",
     images: [
       {
         url: "/images/collections/collection-banner.jpg",
@@ -20,47 +25,58 @@ export const metadata: Metadata = {
         alt: "Poshkaar Kashmiri Embroidery Collections",
       },
     ],
-    locale: "en_IN",
-    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kashmiri Embroidery Collections | Poshkaar",
+    description:
+      "Handcrafted Kashmiri Tilla, Zari, Aari & Dabka couture made by master artisans.",
+    images: ["/images/collections/collection-banner.jpg"],
   },
   alternates: {
-    canonical: "https://poshkaar.in/collection",
+    canonical: "https://www.poshkaar.com/collection",
   },
 };
 
-// Structured Data (JSON-LD)
+// ----------------------------------------------------------------------------
+// JSON-LD STRUCTURED DATA FOR COLLECTIONS (GOOGLE SEO)
+// ----------------------------------------------------------------------------
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Poshkaar Kashmiri Embroidery Collections",
   description:
-    "Shop handcrafted Kashmiri embroidery: Tilla, Zari, Aari, and Dabka collections made by master artisans.",
-  url: "https://poshkaar.in/collection",
-  image: "https://poshkaar.in/images/collections/collection-banner.jpg",
+    "Shop handcrafted Kashmiri embroidery: Tilla, Zari, Aari, and Dabka collections crafted by expert artisans.",
+  url: "https://www.poshkaar.com/collection",
+  image: "https://www.poshkaar.com/images/collections/collection-banner.jpg",
+
   hasPart: [
     {
       "@type": "Collection",
       name: "Tilla Collection",
-      url: "https://poshkaar.in/collection/tilla",
+      url: "https://www.poshkaar.com/collection/tilla",
     },
     {
       "@type": "Collection",
       name: "Zari Collection",
-      url: "https://poshkaar.in/collection/zari",
+      url: "https://www.poshkaar.com/collection/zari",
     },
     {
       "@type": "Collection",
       name: "Aari Collection",
-      url: "https://poshkaar.in/collection/aari",
+      url: "https://www.poshkaar.com/collection/aari",
     },
     {
       "@type": "Collection",
       name: "Dabka Collection",
-      url: "https://poshkaar.in/collection/dabka",
+      url: "https://www.poshkaar.com/collection/dabka",
     },
   ],
 };
 
+// ----------------------------------------------------------------------------
+// COLLECTION GRID DATA
+// ----------------------------------------------------------------------------
 const collections = [
   {
     title: "Tilla Collection",
@@ -78,30 +94,35 @@ const collections = [
     title: "Aari Collection",
     slug: "aari",
     image: "/images/collections/aari-banner.jpg",
-    description: "Exquisite hand needlework crafted by master artisans.",
+    description: "Exquisite hand needlework crafted by Kashmiri master artisans.",
   },
   {
     title: "Dabka Collection",
     slug: "dabka",
     image: "/images/collections/dabka-banner.jpg",
-    description: "Rich coiled embroidery with royal texture and shine.",
+    description: "Rich coiled embroidery with royal depth, texture and shine.",
   },
 ];
 
+// ----------------------------------------------------------------------------
+// PAGE COMPONENT
+// ----------------------------------------------------------------------------
 export default function CollectionIndexPage() {
   return (
     <main className="bg-cream min-h-screen fade-smooth">
 
-      {/* ---------------- JSON-LD SEO ---------------- */}
+      {/* Structured Data for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ---------------- HERO ---------------- */}
+      {/* ---------------------------------------------------------------------- */}
+      {/* HERO SECTION */}
+      {/* ---------------------------------------------------------------------- */}
       <section
         className="
-          relative w-full h-64 md:h-80 flex flex-col items-center justify-center 
+          relative w-full h-64 md:h-80 flex flex-col items-center justify-center
           text-white text-center
         "
         style={{
@@ -110,7 +131,10 @@ export default function CollectionIndexPage() {
           backgroundSize: "cover",
         }}
       >
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/45 backdrop-blur-[2px]" />
+
+        {/* Soft gold shimmer overlay */}
         <div className="absolute inset-0 animate-shimmer opacity-30 pointer-events-none" />
 
         <h1 className="text-4xl md:text-5xl font-bold z-10 drop-shadow-xl">
@@ -121,7 +145,9 @@ export default function CollectionIndexPage() {
         </p>
       </section>
 
-      {/* ---------------- COLLECTION GRID ---------------- */}
+      {/* ---------------------------------------------------------------------- */}
+      {/* COLLECTION GRID */}
+      {/* ---------------------------------------------------------------------- */}
       <section className="max-w-7xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
 
@@ -130,18 +156,19 @@ export default function CollectionIndexPage() {
               key={col.slug}
               href={`/collection/${col.slug}`}
               className="
-                group block bg-white rounded-3xl overflow-hidden shadow-xl 
+                group block bg-white rounded-3xl overflow-hidden shadow-xl
                 border border-yellow-700/30 transition-all duration-700
                 hover:-translate-y-2 hover:shadow-yellow-900/40 hover:shadow-2xl
               "
             >
-
-              {/* Glow overlay */}
-              <div className="
-                absolute inset-0 rounded-3xl pointer-events-none
-                bg-gradient-to-br from-yellow-400/10 to-yellow-700/20
-                opacity-0 group-hover:opacity-100 transition duration-700
-              " />
+              {/* Gold glow on hover */}
+              <div
+                className="
+                  absolute inset-0 rounded-3xl pointer-events-none
+                  bg-gradient-to-br from-yellow-400/10 to-yellow-700/20
+                  opacity-0 group-hover:opacity-100 transition duration-700
+                "
+              />
 
               {/* Image */}
               <div className="h-60 overflow-hidden relative rounded-t-3xl">
@@ -149,15 +176,17 @@ export default function CollectionIndexPage() {
                   src={col.image}
                   alt={col.title}
                   className="
-                    w-full h-full object-cover 
+                    w-full h-full object-cover
                     transition duration-700 group-hover:scale-110
                   "
                 />
 
-                <span className="
-                  absolute top-4 left-4 px-4 py-1 text-xs tracking-wider 
-                  bg-black/60 text-white rounded-full backdrop-blur-sm shadow-md
-                ">
+                <span
+                  className="
+                    absolute top-4 left-4 px-4 py-1 text-xs tracking-wider
+                    bg-black/60 text-white rounded-full backdrop-blur-sm shadow-md
+                  "
+                >
                   Handcrafted
                 </span>
               </div>
@@ -172,14 +201,15 @@ export default function CollectionIndexPage() {
                   {col.description}
                 </p>
 
-                <p className="
-                  text-yellow-800 font-semibold tracking-wide
-                  group-hover:underline group-hover:text-yellow-900 transition
-                ">
+                <p
+                  className="
+                    text-yellow-800 font-semibold tracking-wide
+                    group-hover:underline group-hover:text-yellow-900 transition
+                  "
+                >
                   View Collection →
                 </p>
               </div>
-
             </Link>
           ))}
 

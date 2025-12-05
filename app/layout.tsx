@@ -11,8 +11,10 @@ export const metadata = {
     default: "Poshkaar – The Threads of Paradise",
     template: "%s | Poshkaar",
   },
+
   description:
-    "Luxury handcrafted Tilla, Zari, Aari & Dabka fashion from Kashmir — slow-made, heritage-rich, artisan-crafted pieces for modern wardrobes.",
+    "Luxury handcrafted Tilla, Zari, Aari & Dabka couture from Kashmir. Artisan-made, heritage-rich embroidery with custom measurements available.",
+
   keywords: [
     "Poshkaar",
     "Kashmir embroidery",
@@ -21,37 +23,43 @@ export const metadata = {
     "Aari embroidery",
     "Dabka couture",
     "Kashmiri pheran",
-    "handcrafted fashion",
-    "traditional Kashmiri clothing",
+    "handcrafted pheran",
+    "Kashmir fashion",
+    "Kashmiri traditional clothing",
   ],
+
   openGraph: {
     title: "Poshkaar – Luxury Handcrafted Tilla, Zari, Aari & Dabka Couture",
     description:
-      "Explore handcrafted Kashmiri couture — Tilla, Zari, Aari & Dabka masterpieces designed for timeless elegance.",
+      "Explore premium Kashmiri couture crafted by artisans — Tilla, Zari, Aari & Dabka embroidery for timeless elegance.",
     url: "https://www.poshkaar.com",
     siteName: "Poshkaar",
     images: [
       {
-        url: "/og-banner.jpg",
+        url: "https://www.poshkaar.com/og-banner.jpg",
         width: 1200,
         height: 630,
-        alt: "Poshkaar Luxury Kashmiri Couture",
+        alt: "Poshkaar Kashmiri Couture",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Poshkaar – Kashmiri Luxury Handcrafted Couture",
     description:
-      "Handcrafted Tilla, Zari, Aari & Dabka fashion inspired by Kashmir’s heritage.",
-    images: ["/og-banner.jpg"],
+      "Handcrafted Tilla, Zari, Aari & Dabka pieces inspired by Kashmir’s heritage.",
+    images: ["https://www.poshkaar.com/og-banner.jpg"],
   },
+
   robots: {
     index: true,
     follow: true,
+    nocache: false,
   },
+
   alternates: {
     canonical: "https://www.poshkaar.com",
   },
@@ -62,6 +70,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // JSON-LD Schema.org (Organization)
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -79,7 +88,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth bg-cream-50">
       <head>
-        {/* Preload Fonts for Performance */}
+        {/* Preload custom fonts for performance */}
         <link
           rel="preload"
           href="/fonts/serif.woff2"
@@ -88,7 +97,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* JSON-LD structured data */}
+        {/* Structured Data for Google Knowledge Graph */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
@@ -96,10 +105,10 @@ export default function RootLayout({
       </head>
 
       <body className="text-gray-900 antialiased fade-smooth">
-        {/* Navbar */}
+        {/* Navigation */}
         <Nav />
 
-        {/* Main Page Content */}
+        {/* Page Content */}
         <main className="pt-20 min-h-screen">{children}</main>
 
         {/* Footer */}
@@ -108,7 +117,7 @@ export default function RootLayout({
         {/* Floating WhatsApp Button */}
         <FloatingWhatsApp />
 
-        {/* Vercel Analytics */}
+        {/* Analytics */}
         <Analytics />
       </body>
     </html>

@@ -1,6 +1,65 @@
 // app/collection/page.tsx
-
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kashmiri Embroidery Collections – Tilla, Zari, Aari & Dabka | Poshkaar",
+  description:
+    "Explore Poshkaar’s handcrafted Kashmiri embroidery collections – Tilla, Zari, Aari, and Dabka. Each piece is artisan-made with heritage techniques.",
+  openGraph: {
+    title: "Kashmiri Embroidery Collections | Poshkaar",
+    description:
+      "Handcrafted Kashmiri Tilla, Zari, Aari & Dabka embroidery collections. Explore premium traditional fashion curated from master artisans.",
+    url: "https://poshkaar.in/collection",
+    siteName: "Poshkaar Kashmir",
+    images: [
+      {
+        url: "/images/collections/collection-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Poshkaar Kashmiri Embroidery Collections",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://poshkaar.in/collection",
+  },
+};
+
+// Structured Data (JSON-LD)
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Poshkaar Kashmiri Embroidery Collections",
+  description:
+    "Shop handcrafted Kashmiri embroidery: Tilla, Zari, Aari, and Dabka collections made by master artisans.",
+  url: "https://poshkaar.in/collection",
+  image: "https://poshkaar.in/images/collections/collection-banner.jpg",
+  hasPart: [
+    {
+      "@type": "Collection",
+      name: "Tilla Collection",
+      url: "https://poshkaar.in/collection/tilla",
+    },
+    {
+      "@type": "Collection",
+      name: "Zari Collection",
+      url: "https://poshkaar.in/collection/zari",
+    },
+    {
+      "@type": "Collection",
+      name: "Aari Collection",
+      url: "https://poshkaar.in/collection/aari",
+    },
+    {
+      "@type": "Collection",
+      name: "Dabka Collection",
+      url: "https://poshkaar.in/collection/dabka",
+    },
+  ],
+};
 
 const collections = [
   {
@@ -33,6 +92,13 @@ export default function CollectionIndexPage() {
   return (
     <main className="bg-cream min-h-screen fade-smooth">
 
+      {/* ---------------- JSON-LD SEO ---------------- */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* ---------------- HERO ---------------- */}
       <section
         className="
           relative w-full h-64 md:h-80 flex flex-col items-center justify-center 
@@ -55,6 +121,7 @@ export default function CollectionIndexPage() {
         </p>
       </section>
 
+      {/* ---------------- COLLECTION GRID ---------------- */}
       <section className="max-w-7xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
 
@@ -68,12 +135,15 @@ export default function CollectionIndexPage() {
                 hover:-translate-y-2 hover:shadow-yellow-900/40 hover:shadow-2xl
               "
             >
+
+              {/* Glow overlay */}
               <div className="
                 absolute inset-0 rounded-3xl pointer-events-none
                 bg-gradient-to-br from-yellow-400/10 to-yellow-700/20
                 opacity-0 group-hover:opacity-100 transition duration-700
               " />
 
+              {/* Image */}
               <div className="h-60 overflow-hidden relative rounded-t-3xl">
                 <img
                   src={col.image}
@@ -92,6 +162,7 @@ export default function CollectionIndexPage() {
                 </span>
               </div>
 
+              {/* Text */}
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-2 text-gray-900">
                   {col.title}
@@ -108,12 +179,12 @@ export default function CollectionIndexPage() {
                   View Collection →
                 </p>
               </div>
+
             </Link>
           ))}
 
         </div>
       </section>
-
     </main>
   );
 }

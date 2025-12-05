@@ -53,7 +53,7 @@ export default function HomePage() {
                 href="/collection"
                 className="btn-gold text-gray-900 shadow-xl"
               >
-                Explore Collections
+                Shop Collections
               </Link>
 
               <Link

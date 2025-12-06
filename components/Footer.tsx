@@ -33,13 +33,13 @@ export default function Footer() {
 
           {/* SOCIAL ICONS */}
           <div className="flex gap-4 mt-5">
-            <Social icon={<FaInstagram />} link="https://instagram.com/poshkaar" />
+            <Social icon={<FaInstagram />} link="https://instagram.com/posh__kaar" />
             <Social icon={<FaFacebookF />} link="https://facebook.com/poshkaar" />
             <Social icon={<FaWhatsapp />} link="https://wa.me/916006491824" />
             <Social icon={<FaYoutube />} link="https://youtube.com/@poshkaar" />
-            <Social icon={<FaPinterestP />} link="https://pinterest.com/poshkaar" />
-            <Social icon={<FaLinkedinIn />} link="https://linkedin.com/company/poshkaar" />
-            <Social icon={<FaXTwitter />} link="https://twitter.com/poshkaar" />
+            <Social icon={<FaPinterestP />} link="https://pinterest.com/poshkaarkashmir" />
+            <Social icon={<FaLinkedinIn />} link="https://linkedin.com/company/poshkaar-kashmir" />
+            <Social icon={<FaXTwitter />} link="https://twitter.com/poshkaarkashmir" />
           </div>
 
           {/* BADGE */}

@@ -124,10 +124,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "Luxury handcrafted Kashmiri couture featuring Tilla, Zari, Aari & Dabka embroidery.",
     telephone: PHONE,
     sameAs: [
-      "https://www.instagram.com/poshkaar",
+      "https://www.instagram.com/posh__kaar",
       "https://www.facebook.com/poshkaar",
       "https://www.linkedin.com/company/poshkaar",
-      "https://twitter.com/poshkaar",
+      "https://twitter.com/poshkaarkashmir",
     ],
   };
 
@@ -187,7 +187,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "https://www.instagram.com/posh__kaar",
       "https://www.facebook.com/poshkaar",
       "https://www.linkedin.com/company/poshkaar",
-      "https://twitter.com/poshkaar",
+      "https://twitter.com/poshkaarkashmir",
     ],
   };
 

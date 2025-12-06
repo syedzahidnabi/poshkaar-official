@@ -20,13 +20,14 @@ export const metadata = {
   description:
     "Luxury handcrafted Tilla, Zari, Aari & Dabka couture from Kashmir. Artisan-made, heritage-rich embroidery with custom measurements and worldwide shipping.",
 
-  // ⭐ ALL KEYWORDS MERGED (Expanded Block)
+  // ⭐ ALL KEYWORDS (Expanded for maximum ranking)
   keywords: [
     // Brand
     "Poshkaar",
     "Poshkaar Kashmir",
     "Poshkaar clothing",
-    // Main crafts
+
+    // Crafts
     "Kashmir embroidery",
     "Kashmiri embroidery",
     "Tilla work",
@@ -35,6 +36,7 @@ export const metadata = {
     "Dabka embroidery",
     "Dabka couture",
     "handcrafted embroidery Kashmir",
+
     // Products
     "Kashmiri pheran",
     "handcrafted pheran",
@@ -43,6 +45,7 @@ export const metadata = {
     "bridal shawl Kashmir",
     "Kashmiri shawls",
     "wedding couture Kashmir",
+
     // Fashion terms
     "Kashmir fashion",
     "Kashmiri traditional clothing",
@@ -54,8 +57,8 @@ export const metadata = {
   openGraph: {
     title: "Poshkaar – Luxury Handcrafted Tilla, Zari, Aari & Dabka Couture",
     description:
-      "Explore premium Kashmiri couture crafted by artisans  Tilla, Zari, Aari & Dabka embroidery for timeless elegance.",
-    url: "https://www.poshkaar.com",
+      "Explore premium Kashmiri couture crafted by artisans — Tilla, Zari, Aari & Dabka embroidery for timeless elegance.",
+    url: "https://www.poshkaarkashmir.com",
     siteName: "Poshkaar",
     images: [
       {
@@ -74,7 +77,7 @@ export const metadata = {
     title: "Poshkaar – Kashmiri Luxury Handcrafted Couture",
     description:
       "Handcrafted Tilla, Zari, Aari & Dabka pieces inspired by Kashmir’s heritage.",
-    images: ["https://www.poshkaar.com/og-banner.jpg"],
+    images: ["https://www.poshkaarkashmir.com/og-banner.jpg"],
   },
 
   robots: {
@@ -91,32 +94,25 @@ export const metadata = {
 // --------------------------------------------------
 // ⭐ LAYOUT WRAPPER
 // --------------------------------------------------
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  // -----------------------------
-  // BUSINESS / LOCATION DETAILS
-  // -----------------------------
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const SITE_URL = "https://www.poshkaarkashmir.com";
   const ORG_NAME = "Poshkaar Kashmir";
   const PHONE = "+916006491824";
-  const EMAIL = "hello@poshkaar.com";
+  const EMAIL = "poshkaarkashmir@gmail.com";
 
-  // Address
+  // Address details
   const STREET = "Pachahara, Rajpora, Pulwama";
   const CITY = "Srinagar";
   const REGION = "Jammu & Kashmir";
   const POSTAL = "192301";
   const COUNTRY = "IN";
 
-  // GPS Coordinates (Improves Google Maps ranking)
+  // Coordinates
   const LAT = "34.083656";
   const LNG = "74.792550";
 
   // ------------------------------------------------------
-  // ⭐ ORGANIZATION SCHEMA (Knowledge Graph)
+  // ⭐ ORGANIZATION SCHEMA
   // ------------------------------------------------------
   const orgSchema = {
     "@context": "https://schema.org",
@@ -130,18 +126,20 @@ export default function RootLayout({
     sameAs: [
       "https://www.instagram.com/poshkaar",
       "https://www.facebook.com/poshkaar",
+      "https://www.linkedin.com/company/poshkaar",
+      "https://twitter.com/poshkaar",
     ],
   };
 
   // ------------------------------------------------------
-  // ⭐ LOCAL BUSINESS SCHEMA (Boosts Local SEO + Google Maps)
+  // ⭐ LOCAL BUSINESS SCHEMA
   // ------------------------------------------------------
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ClothingStore",
     name: ORG_NAME,
     description:
-      "Poshkaar: handcrafted Tilla, Zari, Aari & Dabka couture from Kashmir with custom sizing and global shipping.",
+      "Poshkaar: handcrafted Tilla, Zari, Aari & Dabka couture from Kashmir with custom sizing and worldwide shipping.",
     url: SITE_URL,
     telephone: PHONE,
     email: EMAIL,
@@ -186,8 +184,10 @@ export default function RootLayout({
     ],
 
     sameAs: [
-      "https://www.instagram.com/poshkaar",
+      "https://www.instagram.com/posh__kaar",
       "https://www.facebook.com/poshkaar",
+      "https://www.linkedin.com/company/poshkaar",
+      "https://twitter.com/poshkaar",
     ],
   };
 
@@ -203,17 +203,28 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Insert Structured Data (Knowledge Graph + Local SEO) */}
+        {/* JSON-LD SEO */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(orgSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+
+        {/* ⭐ Google Analytics 4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9ZL3YRLQ7"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-P9ZL3YRLQ7', { page_path: window.location.pathname });
+            `,
           }}
         />
       </head>

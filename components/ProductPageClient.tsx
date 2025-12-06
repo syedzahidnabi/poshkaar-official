@@ -10,9 +10,23 @@ import WhatsAppOrder from "./WhatsAppOrder";
 import ProductCard from "./ProductCard";
 import MatchingSet from "./MatchingSet";
 
-type Props = { productId: string };
+type RatingData = {
+  rating: number;
+  count: number;
+  sampleReviews: {
+    author: string;
+    rating: number;
+    text: string;
+    date: string;
+  }[];
+};
 
-export default function ProductPageClient({ productId }: Props) {
+type Props = {
+  productId: string;
+  ratingData: RatingData;
+};
+
+export default function ProductPageClient({ productId, ratingData }: Props) {
   const product: Product | null = useMemo(
     () => products.find((p) => p.id === productId) || null,
     [productId]
@@ -48,6 +62,24 @@ export default function ProductPageClient({ productId }: Props) {
         .slice(0, 6),
     [product]
   );
+
+  // Helper to show golden stars
+  const renderStars = (val: number) => {
+    return (
+      <div className="flex gap-1">
+        {[1, 2, 3, 4, 5].map((i) => (
+          <span
+            key={i}
+            className={`text-xl ${
+              i <= val ? "text-amber-600" : "text-gray-300"
+            }`}
+          >
+            ★
+          </span>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="bg-cream min-h-screen fade-smooth">
@@ -95,11 +127,20 @@ export default function ProductPageClient({ productId }: Props) {
         {/* RIGHT — INFO PANEL */}
         <div className="space-y-10 relative">
 
-          {/* PRODUCT TITLE + PRICE */}
+          {/* PRODUCT TITLE + PRICE + ⭐ RATING */}
           <div className="space-y-4">
+
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-amber-900 leading-tight">
               {product.name}
             </h2>
+
+            {/* ⭐ RATING DISPLAY */}
+            <div className="flex items-center gap-3">
+              {renderStars(Math.round(ratingData.rating))}
+              <p className="text-sm text-gray-700">
+                {ratingData.rating.toFixed(1)} ({ratingData.count} reviews)
+              </p>
+            </div>
 
             <div className="flex items-center justify-between">
               <p className="text-3xl font-semibold text-amber-700 tracking-wide">
@@ -161,23 +202,21 @@ export default function ProductPageClient({ productId }: Props) {
             </ul>
           </div>
 
-          {/* ----------------------------------------------- */}
-          {/* STICKY ACTION PANEL (Fixes WhatsApp disappearing) */}
-          {/* ----------------------------------------------- */}
-          <div className="
+          {/* ACTION BUTTONS */}
+          <div
+            className="
             sticky top-6 z-40 
             bg-white/90 backdrop-blur-xl 
             p-5 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)]
-            border border-amber-100 space-y-4
-          ">
+            border border-amber-100 space-y-4"
+          >
             <button
               onClick={() => setMeasureOpen(true)}
               className="
                 w-full px-6 py-3 rounded-md 
                 border border-amber-300 bg-white 
                 hover:bg-amber-50 text-sm font-medium 
-                transition shadow-sm
-              "
+                transition shadow-sm"
             >
               Add Custom Measurements
             </button>
@@ -191,23 +230,48 @@ export default function ProductPageClient({ productId }: Props) {
           </div>
 
           {savedMeasurements && (
-            <p className="text-sm text-green-700">
-              ✓ Measurements saved
-            </p>
+            <p className="text-sm text-green-700">✓ Measurements saved</p>
           )}
 
           {/* MATCHING SET */}
-          {product.matchingSet && (
-            <MatchingSet productId={product.id} />
-          )}
+          {product.matchingSet && <MatchingSet productId={product.id} />}
 
-          {/* BACK TO COLLECTION */}
+          {/* BACK LINK */}
           <a
             href={`/collection/${product.category}`}
             className="text-sm text-amber-700 hover:underline"
           >
             ← Back to {product.category.toUpperCase()} Collection
           </a>
+        </div>
+      </div>
+
+      {/* -------------------------------------------------- */}
+      {/* ⭐ CUSTOMER REVIEWS SECTION */}
+      {/* -------------------------------------------------- */}
+      <div className="max-w-5xl mx-auto px-6 pb-20">
+        <h3 className="text-2xl font-serif font-bold text-amber-900 mb-6">
+          Customer Reviews
+        </h3>
+
+        <div className="space-y-6">
+          {ratingData.sampleReviews.map((r, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-xl p-6 shadow border border-amber-100"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <p className="font-medium text-gray-900">{r.author}</p>
+                {renderStars(r.rating)}
+              </div>
+
+              <p className="text-gray-700 text-sm leading-relaxed">
+                {r.text}
+              </p>
+
+              <p className="text-xs text-gray-500 mt-2">{r.date}</p>
+            </div>
+          ))}
         </div>
       </div>
 

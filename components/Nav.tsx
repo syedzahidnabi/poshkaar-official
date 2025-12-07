@@ -1,14 +1,10 @@
+
+
 "use client";
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import {
-  HiMenu,
-  HiX,
-  HiHome,
-} from "react-icons/hi";
-import { MdCollections } from "react-icons/md";
-import { FaBlog, FaInfoCircle, FaEnvelope } from "react-icons/fa";
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,104 +34,58 @@ export default function Nav() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
-          {/* ✅ FIX 1: TOP ROW WRAPPED PROPERLY */}
-          <div className="h-20 flex items-center justify-between">
+          {/* ===== LOGO SECTION ===== */}
+          <Link href="/" className="flex items-center gap-3 relative group">
+            <img
+              src="/logo.png"
+              alt="Poshkaar Logo"
+              className={`h-12 w-auto transition-all duration-500 ${
+                scrolled ? "scale-[0.9] opacity-90" : "scale-100 opacity-100"
+              }`}
+            />
 
-            {/* ===== LOGO SECTION ===== */}
-            <Link href="/" className="flex items-center gap-3 relative group">
-              <img
-                src="/logo.png"
-                alt="Poshkaar Logo"
-                className={`h-12 w-auto transition-all duration-500 ${
-                  scrolled ? "scale-[0.9] opacity-90" : "scale-100 opacity-100"
-                }`}
-              />
+            <div className="flex flex-col leading-tight">
+              <span className="text-[20px] font-serif font-bold text-amber-900 tracking-wide relative">
+                Poshkaar
+                <span className="absolute inset-0 animate-logoShimmer opacity-0 bg-gradient-to-r from-transparent via-amber-300/70 to-transparent"></span>
+              </span>
 
-              <div className="flex flex-col leading-tight">
-                <span className="text-[20px] font-serif font-bold text-amber-900 tracking-wide relative">
-                  Poshkaar
-                  <span className="absolute inset-0 animate-logoShimmer opacity-0 bg-gradient-to-r from-transparent via-amber-300/70 to-transparent"></span>
-                </span>
-
-                <span
-                  className="text-[18px] -mt-[1px] text-[#b8860b]"
-                  style={{
-                    fontFamily:
-                      `'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif`,
-                    fontWeight: 400,
-                    lineHeight: "1.1",
-                  }}
-                >
-                  پوشکار  کشمیر
-                </span>
-              </div>
-            </Link>
-
-            {/* ===== DESKTOP MENU ===== */}
-            <div className="hidden md:flex items-center gap-10 text-[15px] font-medium">
-              {menuItems.map((item) => (
-                <Link key={item} href={getHref(item)} className="relative group">
-                  {item}
-                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-600 group-hover:w-full transition-all duration-300" />
-                </Link>
-              ))}
+              <span
+                className="text-[18px] -mt-[1px] text-[#b8860b]"
+                style={{
+                  fontFamily:
+                    `'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif`,
+                  fontWeight: 400,
+                  lineHeight: "1.1",
+                }}
+              >
+                پوشکار  کشمیر
+              </span>
             </div>
+          </Link>
 
-            {/* ===== PREMIUM HAMBURGER BUTTON ===== */}
-            <button
-              onClick={() => setOpen(true)}
-              className="md:hidden relative w-11 h-11 flex items-center justify-center rounded-full bg-[#faf7f1] shadow-md hover:shadow-xl transition"
-            >
-              <HiMenu className="text-2xl text-amber-900" />
-              <span className="absolute inset-0 rounded-full ring-1 ring-amber-200"></span>
-            </button>
+          {/* ===== DESKTOP MENU ===== */}
+          <div className="hidden md:flex items-center gap-10 text-[15px] font-medium">
+            {menuItems.map((item) => (
+              <Link key={item} href={getHref(item)} className="relative group">
+                {item}
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-600 group-hover:w-full transition-all duration-300" />
+              </Link>
+            ))}
           </div>
 
-          {/* ✅ ✅ ✅ ICON-ONLY MOBILE NAVBAR — UNCHANGED */}
-          <div className="md:hidden px-6 pb-3 flex justify-between items-center text-amber-900">
-            <Link
-              href="/"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-            >
-              <HiHome className="text-lg" />
-            </Link>
-
-            <Link
-              href="/collection"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-            >
-              <MdCollections className="text-lg" />
-            </Link>
-
-            <Link
-              href="/blog"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-            >
-              <FaBlog className="text-sm" />
-            </Link>
-
-            <Link
-              href="/about"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-            >
-              <FaInfoCircle className="text-sm" />
-            </Link>
-
-            <Link
-              href="/contact"
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-            >
-              <FaEnvelope className="text-sm" />
-            </Link>
-          </div>
-
+          {/* ===== PREMIUM HAMBURGER BUTTON ===== */}
+          <button
+            onClick={() => setOpen(true)}
+            className="md:hidden relative w-11 h-11 flex items-center justify-center rounded-full bg-[#faf7f1] shadow-md hover:shadow-xl transition"
+          >
+            <HiMenu className="text-2xl text-amber-900" />
+            <span className="absolute inset-0 rounded-full ring-1 ring-amber-200"></span>
+          </button>
         </div>
       </nav>
-
-      {/* ✅ FIX 2: PUSH CONTENT DOWN SO NOTHING OVERLAPS */}
-      <div className="h-[112px] md:h-20" />
 
       {/* ================= MOBILE OVERLAY ================= */}
       {open && (
@@ -191,3 +141,5 @@ export default function Nav() {
     </>
   );
 }
+
+

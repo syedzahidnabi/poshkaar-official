@@ -2,13 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import {
-  HiMenu,
-  HiX,
-  HiHome,
-} from "react-icons/hi";
-import { MdCollections } from "react-icons/md";
-import { FaBlog, FaInfoCircle, FaEnvelope } from "react-icons/fa";
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -88,44 +82,6 @@ export default function Nav() {
             <HiMenu className="text-2xl text-amber-900" />
             <span className="absolute inset-0 rounded-full ring-1 ring-amber-200"></span>
           </button>
-        </div>
-
-        {/* ✅ ✅ ✅ ICON-ONLY MOBILE NAVBAR — ADDED, NOTHING REMOVED */}
-        <div className="md:hidden px-6 pb-3 flex justify-between items-center text-amber-900">
-          <Link
-            href="/"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-          >
-            <HiHome className="text-lg" />
-          </Link>
-
-          <Link
-            href="/collection"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-          >
-            <MdCollections className="text-lg" />
-          </Link>
-
-          <Link
-            href="/blog"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-          >
-            <FaBlog className="text-sm" />
-          </Link>
-
-          <Link
-            href="/about"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-          >
-            <FaInfoCircle className="text-sm" />
-          </Link>
-
-          <Link
-            href="/contact"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 backdrop-blur border border-amber-100"
-          >
-            <FaEnvelope className="text-sm" />
-          </Link>
         </div>
       </nav>
 

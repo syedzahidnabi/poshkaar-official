@@ -126,7 +126,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     sameAs: [
       "https://www.instagram.com/posh__kaar",
       "https://www.facebook.com/poshkaar",
-      "https://www.linkedin.com/company/poshkaar",
+      "https://www.linkedin.com/company/poshkaar-kashmir",
       "https://twitter.com/poshkaarkashmir",
     ],
   };
@@ -186,7 +186,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     sameAs: [
       "https://www.instagram.com/posh__kaar",
       "https://www.facebook.com/poshkaar",
-      "https://www.linkedin.com/company/poshkaar",
+      "https://www.linkedin.com/company/poshkaar-kashmir",
       "https://twitter.com/poshkaarkashmir",
     ],
   };

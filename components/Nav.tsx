@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
@@ -19,6 +20,8 @@ export default function Nav() {
     return `/${item.toLowerCase()}`;
   };
 
+  const menuItems = ["Home", "Collections", "Blog", "About", "Contact"];
+
   return (
     <>
       <nav
@@ -29,10 +32,10 @@ export default function Nav() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
+          
           {/* LOGO SECTION */}
           <Link href="/" className="flex items-center gap-3 relative group">
-
+            
             {/* GOLD P LOGO */}
             <img
               src="/logo.png"
@@ -51,7 +54,7 @@ export default function Nav() {
                 <span className="absolute inset-0 animate-logoShimmer opacity-0 bg-gradient-to-r from-transparent via-amber-300/70 to-transparent"></span>
               </span>
 
-              {/* URDU NAME — پوشکار — کشمیر */}
+              {/* URDU NAME */}
               <span
                 className="text-[18px] -mt-[1px] text-[#b8860b]"
                 style={{
@@ -60,16 +63,15 @@ export default function Nav() {
                   lineHeight: "1.1",
                 }}
               >
-                پوشکار — کشمیر
+                پوشکار  کشمیر
               </span>
 
             </div>
-
           </Link>
 
           {/* DESKTOP MENU */}
           <div className="hidden md:flex items-center gap-10 text-[15px] font-medium">
-            {["Home", "Collections", "About", "Contact"].map((item) => (
+            {menuItems.map((item) => (
               <Link key={item} href={getHref(item)} className="relative group">
                 {item}
                 <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-amber-600 group-hover:w-full transition-all duration-300" />
@@ -92,6 +94,7 @@ export default function Nav() {
       {open && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 fade-smooth">
           <div className="absolute right-0 top-0 bg-white h-full w-64 shadow-xl p-6 space-y-6">
+            
             <button
               onClick={() => setOpen(false)}
               className="text-3xl text-gray-700 mb-6"
@@ -99,7 +102,7 @@ export default function Nav() {
               <HiX />
             </button>
 
-            {["Home", "Collections", "About", "Contact"].map((item) => (
+            {menuItems.map((item) => (
               <Link
                 key={item}
                 href={getHref(item)}
@@ -109,10 +112,10 @@ export default function Nav() {
                 {item}
               </Link>
             ))}
+
           </div>
         </div>
       )}
-
     </>
   );
 }

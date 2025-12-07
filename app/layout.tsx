@@ -1,6 +1,7 @@
 // app/layout.tsx
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"; // ✅ ADDED
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -20,14 +21,22 @@ export const metadata = {
   description:
     "Luxury handcrafted Tilla, Zari, Aari & Dabka couture from Kashmir. Artisan-made, heritage-rich embroidery with custom measurements and worldwide shipping.",
 
-  // ⭐ ALL KEYWORDS (Expanded for maximum ranking)
   keywords: [
-    // Brand
+    "Kashmiri pheran",
+    "handcrafted pheran",
+    "designer pheran",
+    "Kashmiri kurta",
+    "bridal shawl Kashmir",
+    "Kashmiri shawls",
+    "wedding couture Kashmir",
+    "Kashmir fashion",
+    "Kashmiri traditional clothing",
+    "luxury Kashmiri outfits",
+    "artisan-made fashion",
+    "slow fashion Kashmir",
     "Poshkaar",
     "Poshkaar Kashmir",
     "Poshkaar clothing",
-
-    // Crafts
     "Kashmir embroidery",
     "Kashmiri embroidery",
     "Tilla work",
@@ -36,22 +45,7 @@ export const metadata = {
     "Dabka embroidery",
     "Dabka couture",
     "handcrafted embroidery Kashmir",
-
-    // Products
-    "Kashmiri pheran",
-    "handcrafted pheran",
-    "designer pheran",
-    "Kashmiri kurta",
-    "bridal shawl Kashmir",
-    "Kashmiri shawls",
-    "wedding couture Kashmir",
-
-    // Fashion terms
-    "Kashmir fashion",
-    "Kashmiri traditional clothing",
-    "luxury Kashmiri outfits",
-    "artisan-made fashion",
-    "slow fashion Kashmir",
+    ,
   ],
 
   openGraph: {
@@ -100,20 +94,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const PHONE = "+916006491824";
   const EMAIL = "poshkaarkashmir@gmail.com";
 
-  // Address details
   const STREET = "Pachahara, Rajpora, Pulwama";
   const CITY = "Srinagar";
   const REGION = "Jammu & Kashmir";
   const POSTAL = "192301";
   const COUNTRY = "IN";
 
-  // Coordinates
   const LAT = "34.083656";
   const LNG = "74.792550";
 
-  // ------------------------------------------------------
-  // ⭐ ORGANIZATION SCHEMA
-  // ------------------------------------------------------
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -131,9 +120,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ],
   };
 
-  // ------------------------------------------------------
-  // ⭐ LOCAL BUSINESS SCHEMA
-  // ------------------------------------------------------
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ClothingStore",
@@ -194,7 +180,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="scroll-smooth bg-cream-50">
       <head>
-        {/* Preload fonts */}
         <link
           rel="preload"
           href="/fonts/serif.woff2"
@@ -203,7 +188,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
 
-        {/* JSON-LD SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
@@ -215,7 +199,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
 
-        {/* ⭐ Google Analytics 4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9ZL3YRLQ7"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -234,11 +217,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-20 min-h-screen">{children}</main>
         <Footer />
 
-        {/* WhatsApp Floating Button */}
         <FloatingWhatsApp phone={PHONE} />
 
-        {/* Analytics */}
+        {/* ✅ Analytics */}
         <Analytics />
+
+        {/* ✅ Speed Insights */}
+        <SpeedInsights />
       </body>
     </html>
   );

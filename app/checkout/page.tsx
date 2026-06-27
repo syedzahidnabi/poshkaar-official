@@ -293,7 +293,7 @@ export default function CheckoutPage() {
           customer: form.fullName,
         },
         theme: {
-          color: "#b8861d",
+          color: "#8a1538",
         },
         handler: async (response) => {
           setPaymentState("verifying");
@@ -337,16 +337,14 @@ export default function CheckoutPage() {
 
   if (confirmation) {
     return (
-      <main className="bg-cream min-h-screen px-6 py-16">
+      <main className="min-h-screen bg-[#f7f4ef] px-6 py-16 text-[#171412]">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mx-auto mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-700">
+          <div className="mx-auto mb-6 inline-flex h-16 w-16 items-center justify-center rounded-md bg-green-100 text-green-700">
             <ShieldCheck className="h-8 w-8" aria-hidden="true" />
           </div>
-          <h1 className="text-3xl font-serif font-bold text-amber-950">
-            Payment Verified
-          </h1>
-          <p className="mt-3 text-gray-700">
-            Thank you for shopping with Poshkaar. Your order reference is{" "}
+          <h1 className="font-serif text-4xl font-bold">Payment verified</h1>
+          <p className="mt-4 text-gray-700">
+            Your order reference is{" "}
             <span className="font-semibold">{confirmation.orderRef}</span>.
           </p>
           <p className="mt-2 text-sm text-gray-500">
@@ -355,15 +353,15 @@ export default function CheckoutPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/collection"
-              className="inline-flex h-12 items-center justify-center rounded-md bg-amber-700 px-6 text-sm font-semibold text-white transition hover:bg-amber-800"
+              className="inline-flex h-12 items-center justify-center rounded-md bg-[#171412] px-5 text-sm font-bold text-white transition hover:bg-[#8a1538]"
             >
-              Continue Shopping
+              Continue shopping
             </Link>
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-green-600 px-6 text-sm font-semibold text-green-700 transition hover:bg-green-50"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-green-600 px-5 text-sm font-bold text-green-700 transition hover:bg-green-50"
             >
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
               Share on WhatsApp
@@ -376,7 +374,7 @@ export default function CheckoutPage() {
 
   if (!isLoaded) {
     return (
-      <main className="bg-cream min-h-screen px-6 py-16">
+      <main className="min-h-screen bg-[#f7f4ef] px-6 py-16">
         <div className="mx-auto max-w-6xl text-center text-gray-600">
           Loading checkout...
         </div>
@@ -386,50 +384,44 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
     return (
-      <main className="bg-cream min-h-screen px-6 py-16">
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-3xl font-serif font-bold text-amber-950">
-            Your cart is empty
-          </h1>
-          <p className="mt-3 text-gray-600">
-            Add pieces to your cart before starting checkout.
-          </p>
-          <Link
-            href="/collection"
-            className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-amber-700 px-6 text-sm font-semibold text-white transition hover:bg-amber-800"
-          >
-            Explore Collections
-          </Link>
-        </div>
+      <main className="min-h-screen bg-[#f7f4ef] px-6 py-16 text-center text-[#171412]">
+        <h1 className="font-serif text-4xl font-bold">Your cart is empty</h1>
+        <p className="mt-3 text-gray-600">
+          Add pieces to your cart before starting checkout.
+        </p>
+        <Link
+          href="/collection"
+          className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-[#171412] px-5 text-sm font-bold text-white transition hover:bg-[#8a1538]"
+        >
+          Explore collections
+        </Link>
       </main>
     );
   }
 
   return (
-    <main className="bg-cream min-h-screen px-6 py-12">
+    <main className="min-h-screen bg-[#f7f4ef] px-6 py-12 text-[#171412]">
       <div className="mx-auto max-w-7xl">
         <Link
           href="/cart"
-          className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-amber-800 hover:underline"
+          className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-[#8a1538] hover:text-[#171412]"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Back to cart
         </Link>
 
         <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.28em] text-amber-700">
-            Secure Checkout
+          <p className="text-sm font-semibold uppercase text-[#8a1538]">
+            Secure checkout
           </p>
-          <h1 className="mt-2 text-3xl font-serif font-bold text-amber-950 md:text-4xl">
-            Complete Your Order
+          <h1 className="mt-2 font-serif text-4xl font-bold">
+            Complete your order
           </h1>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_390px]">
-          <section className="rounded-lg border border-amber-100 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-gray-950">
-              Delivery Details
-            </h2>
+        <div className="grid gap-8 lg:grid-cols-[1fr_400px]">
+          <section className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-black/10">
+            <h2 className="font-serif text-2xl font-bold">Delivery details</h2>
 
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {(Object.keys(initialForm) as Array<keyof CheckoutForm>).map(
@@ -447,7 +439,7 @@ export default function CheckoutPage() {
                       key={name}
                       className={isWide ? "md:col-span-2" : undefined}
                     >
-                      <span className="text-sm font-medium text-gray-700">
+                      <span className="text-sm font-semibold text-gray-700">
                         {fieldLabel(name)}
                         {required ? " *" : ""}
                       </span>
@@ -458,7 +450,7 @@ export default function CheckoutPage() {
                             updateForm(name, event.target.value)
                           }
                           rows={name === "address" ? 3 : 2}
-                          className="mt-2 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
+                          className="mt-2 w-full rounded-md border border-black/15 bg-white px-3 py-2 text-sm outline-none transition focus:border-[#8a1538] focus:ring-2 focus:ring-[#8a1538]/20"
                         />
                       ) : (
                         <input
@@ -473,7 +465,7 @@ export default function CheckoutPage() {
                               ? "tel"
                               : "text"
                           }
-                          className="mt-2 h-11 w-full rounded-md border border-gray-300 bg-white px-3 text-sm outline-none transition focus:border-amber-700 focus:ring-2 focus:ring-amber-700/20"
+                          className="mt-2 h-11 w-full rounded-md border border-black/15 bg-white px-3 text-sm outline-none transition focus:border-[#8a1538] focus:ring-2 focus:ring-[#8a1538]/20"
                         />
                       )}
                     </label>
@@ -482,28 +474,26 @@ export default function CheckoutPage() {
               )}
             </div>
 
-            <div className="mt-8 rounded-md bg-amber-50 p-4 text-sm text-amber-950">
+            <div className="mt-8 rounded-md bg-[#f7f4ef] p-4 text-sm text-gray-700">
               <div className="flex items-start gap-3">
-                <Lock className="mt-0.5 h-5 w-5" aria-hidden="true" />
+                <Lock className="mt-0.5 h-5 w-5 text-[#0f6f68]" aria-hidden="true" />
                 <p>
-                  Payment opens through Razorpay or your UPI app. Poshkaar will
-                  confirm availability, custom measurements and delivery timing
+                  Payment opens through Razorpay or your UPI app. Poshkaar
+                  confirms availability, custom measurements and delivery timing
                   before dispatch.
                 </p>
               </div>
             </div>
           </section>
 
-          <aside className="h-fit rounded-lg border border-amber-100 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-gray-950">
-              Order Summary
-            </h2>
+          <aside className="h-fit rounded-lg bg-white p-6 shadow-sm ring-1 ring-black/10">
+            <h2 className="font-serif text-2xl font-bold">Order summary</h2>
 
             <div className="mt-5 space-y-4">
               {items.map((item) => (
                 <div
                   key={item.id}
-                  className="grid grid-cols-[64px_1fr] gap-3 border-b border-gray-100 pb-4 last:border-b-0 last:pb-0"
+                  className="grid grid-cols-[64px_1fr] gap-3 border-b border-black/10 pb-4 last:border-b-0 last:pb-0"
                 >
                   <img
                     src={item.image}
@@ -511,7 +501,7 @@ export default function CheckoutPage() {
                     className="h-16 w-16 rounded-md object-cover"
                   />
                   <div>
-                    <p className="text-sm font-semibold text-gray-950">
+                    <p className="text-sm font-bold text-[#171412]">
                       {item.quantity} x {item.name}
                     </p>
                     {item.color && (
@@ -519,7 +509,7 @@ export default function CheckoutPage() {
                         Colour: {item.color}
                       </p>
                     )}
-                    <p className="mt-1 text-sm font-semibold text-amber-800">
+                    <p className="mt-1 text-sm font-bold text-[#8a1538]">
                       {formatCurrency(item.unitPrice * item.quantity)}
                     </p>
                   </div>
@@ -527,18 +517,18 @@ export default function CheckoutPage() {
               ))}
             </div>
 
-            <div className="mt-6 space-y-3 border-t border-gray-200 pt-5 text-sm">
+            <div className="mt-6 space-y-3 border-t border-black/10 pt-5 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-600">Subtotal</span>
-                <span className="font-medium">{formatCurrency(subtotal)}</span>
+                <span className="font-semibold">{formatCurrency(subtotal)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Offer discount</span>
-                <span className="font-medium text-green-700">
+                <span className="font-semibold text-green-700">
                   -{formatCurrency(discount)}
                 </span>
               </div>
-              <div className="flex justify-between text-lg font-bold text-gray-950">
+              <div className="flex justify-between text-lg font-bold">
                 <span>Total</span>
                 <span>{formatCurrency(total)}</span>
               </div>
@@ -549,20 +539,20 @@ export default function CheckoutPage() {
                 type="button"
                 onClick={handleRazorpayPayment}
                 disabled={paymentState !== "idle"}
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-gray-950 px-6 text-sm font-semibold text-white transition hover:bg-amber-800 disabled:cursor-wait disabled:bg-gray-400"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-[#171412] px-5 text-sm font-bold text-white transition hover:bg-[#8a1538] disabled:cursor-wait disabled:bg-gray-400"
               >
                 <CreditCard className="h-4 w-4" aria-hidden="true" />
                 {paymentState === "creating"
-                  ? "Starting Payment..."
+                  ? "Starting payment..."
                   : paymentState === "verifying"
                   ? "Verifying..."
-                  : "Pay by Card or Wallet"}
+                  : "Pay by card or wallet"}
               </button>
 
               <button
                 type="button"
                 onClick={handleUpiPayment}
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-amber-700 px-6 text-sm font-semibold text-white transition hover:bg-amber-800"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-[#8a1538] px-5 text-sm font-bold text-white transition hover:bg-[#6f102d]"
               >
                 <Smartphone className="h-4 w-4" aria-hidden="true" />
                 Pay with UPI
@@ -572,7 +562,7 @@ export default function CheckoutPage() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-green-600 px-6 text-sm font-semibold text-green-700 transition hover:bg-green-50"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-green-600 px-5 text-sm font-bold text-green-700 transition hover:bg-green-50"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 Order on WhatsApp

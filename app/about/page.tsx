@@ -1,166 +1,117 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, BadgeCheck } from "lucide-react";
+
+const values = [
+  "Direct artisan-led work in Kashmir",
+  "Small batches and made-to-order production",
+  "Traditional techniques shaped for modern wardrobes",
+  "Practical custom sizing and event-order support",
+];
 
 export default function AboutPage() {
   return (
-    <main className="bg-white text-gray-900">
-
-      {/* ===================== HERO ===================== */}
+    <main className="bg-[#f7f4ef] text-[#171412]">
       <section
-        className="relative w-full h-[55vh] md:h-[65vh] flex items-center justify-center"
+        className="relative flex min-h-[48svh] items-center overflow-hidden px-6 py-16 text-white"
         style={{
           backgroundImage: "url('/images/gul.jpg')",
-          backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
       >
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
-
-        <div className="relative text-center px-6 max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg tracking-wide">
-            About Poshkaar
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/44 to-black/12" />
+        <div className="relative mx-auto w-full max-w-7xl">
+          <p className="text-sm font-semibold uppercase text-[#d8b862]">
+            Our story
+          </p>
+          <h1 className="mt-3 max-w-3xl font-serif text-4xl font-bold md:text-6xl">
+            Kashmiri craft, built for lasting wardrobes
           </h1>
-          <p className="text-gray-200 text-lg md:text-xl leading-relaxed">
-            The Threads of Paradise — celebrating Kashmir’s heritage through
-            handcrafted Tilla, Zari, Aari & Dabka embroidery.
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-white/82">
+            Poshkaar works with the language of Tilla, Zari, Aari and Dabka to
+            create pieces that hold cultural memory without feeling stuck in the
+            past.
           </p>
         </div>
       </section>
 
-      {/* ===================== OUR STORY ===================== */}
-      <section className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-        <div className="grid md:grid-cols-2 gap-14 items-center">
+      <section className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center">
+        <div>
+          <p className="text-sm font-semibold uppercase text-[#8a1538]">
+            Philosophy
+          </p>
+          <h2 className="mt-2 font-serif text-3xl font-bold md:text-5xl">
+            Slow work is the point
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-gray-700">
+            Every piece begins with material, motif and use-case. Some customers
+            need a winter pheran. Some need a wedding outfit. Some need a family
+            set that feels coordinated without looking generic. Poshkaar keeps
+            those details central.
+          </p>
+          <p className="mt-4 text-lg leading-8 text-gray-700">
+            The result is a practical luxury: detailed embroidery, clear
+            communication, and pieces made to be worn, preserved and re-worn.
+          </p>
+        </div>
+        <div className="relative min-h-[420px] overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-black/10">
+          <Image
+            src="/images/gess.jpg"
+            alt="Artisan embroidery work"
+            fill
+            className="object-cover"
+          />
+        </div>
+      </section>
 
-          {/* TEXT */}
-          <div>
-            <p className="text-xs tracking-[0.25em] uppercase text-yellow-700 mb-3">
-              Our Story
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Born in Kashmir. Crafted with soul.
-            </h2>
-
-            <p className="text-gray-700 text-lg leading-relaxed mb-4">
-              Poshkaar represents the heart of Kashmir — where each motif carries
-              stories of mountains, rivers, and generations of master artisans.
-            </p>
-
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Every Tilla, Zari, Aari and Dabka piece is a collaboration of
-              skill, patience and heritage. We bring classical embroidery into
-              modern silhouettes, creating timeless, wearable artistry.
-            </p>
-          </div>
-
-          {/* IMAGE */}
-          <div className="relative h-[380px] rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="/images/gess.jpg"
-              alt="Artisan crafting embroidery"
-              fill
-              className="object-cover"
-            />
+      <section className="bg-white py-14">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="font-serif text-3xl font-bold">What Poshkaar stands for</h2>
+          <div className="mt-7 grid gap-4 md:grid-cols-4">
+            {values.map((value) => (
+              <div key={value} className="rounded-lg bg-[#f7f4ef] p-5 ring-1 ring-black/10">
+                <BadgeCheck className="h-5 w-5 text-[#0f6f68]" aria-hidden="true" />
+                <p className="mt-3 text-sm font-semibold leading-6 text-gray-700">
+                  {value}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===================== HERITAGE CRAFT ===================== */}
-      <section className="max-w-7xl mx-auto px-6 pb-16 md:pb-20">
-        <div className="grid md:grid-cols-2 gap-14 items-center">
-
-          {/* IMAGE */}
-          <div className="relative h-[380px] rounded-2xl overflow-hidden shadow-2xl md:order-first order-last">
-            <Image
-              src="/images/shan.jpg"
-              alt="Heritage Kashmiri craftsmanship"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* TEXT */}
-          <div>
-            <p className="text-xs tracking-[0.25em] uppercase text-yellow-700 mb-3">
-              Craftsmanship
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              The Art of Patience
-            </h2>
-
-            <p className="text-gray-700 text-lg leading-relaxed mb-4">
-              Each piece takes anywhere from 40 to 120 hours of meticulous
-              handwork — every thread placed with intention and precision.
-            </p>
-
-            <p className="text-gray-700 text-lg leading-relaxed">
-              By working directly with local artisans, we support livelihoods,
-              preserve rare craft skills, and keep Kashmir’s artistic heritage
-              alive.
-            </p>
-          </div>
-
+      <section className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="relative min-h-[380px] overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-black/10">
+          <Image
+            src="/images/shan.jpg"
+            alt="Kashmiri craftsmanship"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div>
+          <p className="text-sm font-semibold uppercase text-[#8a1538]">
+            Craft process
+          </p>
+          <h2 className="mt-2 font-serif text-3xl font-bold md:text-5xl">
+            Detail before volume
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-gray-700">
+            Embroidery timelines vary by density and technique. Ready pieces can
+            move quickly, while custom and heavily worked garments need more
+            time. That timeline is part of the quality control, not an
+            afterthought.
+          </p>
+          <Link
+            href="/collection"
+            className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#171412] px-5 text-sm font-bold text-white transition hover:bg-[#8a1538]"
+          >
+            Explore collections
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
       </section>
-
-      {/* ===================== OUR VALUES ===================== */}
-      <section className="bg-gray-50 py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-6">
-
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Values
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              The philosophy that guides every thread and motif at Poshkaar.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10 text-center">
-
-            {/* Value */}
-            <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold text-yellow-700 mb-2">
-                Authenticity
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Every piece is handcrafted by Kashmiri artisans using
-                centuries-old techniques.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold text-yellow-700 mb-2">
-                Sustainability
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Slow fashion, made-to-order, ethical production, and meaningful
-                craftsmanship.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold text-yellow-700 mb-2">
-                Heritage
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Preserving Kashmir’s cultural legacy through every motif and
-                stitch.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== CTA ===================== */}
-      <section className="py-16 md:py-20 text-center">
-        <a
-          href="/collection"
-          className="inline-block bg-yellow-500 text-gray-900 px-10 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-yellow-400 transition"
-        >
-          Explore Our Collection
-        </a>
-      </section>
-
     </main>
   );
 }

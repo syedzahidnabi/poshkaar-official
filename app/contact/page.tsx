@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import { Phone, Mail, Instagram } from "lucide-react";
+import { Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { whatsappNumber } from "@/data/commerce";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -11,138 +11,141 @@ export default function ContactPage() {
     message: "",
   });
 
-  const whatsappNumber = "6006491824";
-
-  const handleChange = (e: any) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const updateForm = (name: keyof typeof form, value: string) => {
+    setForm((current) => ({ ...current, [name]: value }));
   };
 
   const handleWhatsApp = () => {
-    const text = `Hello Poshkaar,%0A%0AI would like to make an inquiry.%0A%0AName: ${form.name}%0APhone: ${form.phone}%0AMessage: ${form.message}`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${text}`, "_blank");
+    const text = [
+      "Hello Poshkaar",
+      "",
+      "I would like to make an inquiry.",
+      "",
+      form.name ? `Name: ${form.name}` : "",
+      form.phone ? `Phone: ${form.phone}` : "",
+      form.message ? `Message: ${form.message}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`,
+      "_blank"
+    );
   };
 
   return (
-    <main className="bg-white text-gray-900">
-      {/* ===================== HERO BANNER ===================== */}
+    <main className="bg-[#f7f4ef] text-[#171412]">
       <section
-        className="relative w-full h-[55vh] md:h-[60vh] flex items-center justify-center"
+        className="relative flex min-h-[42svh] items-center overflow-hidden px-6 py-16 text-white"
         style={{
           backgroundImage: "url('/images/hero-main.jpg')",
-          backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-
-        <div className="relative text-center px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
-            Contact Us
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/44 to-black/12" />
+        <div className="relative mx-auto w-full max-w-7xl">
+          <p className="text-sm font-semibold uppercase text-[#d8b862]">
+            Contact
+          </p>
+          <h1 className="mt-3 max-w-3xl font-serif text-4xl font-bold md:text-6xl">
+            Custom orders, sizing and appointments
           </h1>
-          <p className="text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed">
-            For custom orders, collaborations, or appointments  our team is happy to assist.
-            We usually respond within minutes on WhatsApp.
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-white/82">
+            Use WhatsApp for the fastest response. Share product names, event
+            dates, preferred colors and measurements if available.
           </p>
         </div>
       </section>
 
-      {/* ===================== FORM & DETAILS ===================== */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-14 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-black/10">
+          <h2 className="font-serif text-3xl font-bold">Send an inquiry</h2>
+          <div className="mt-6 grid gap-4">
+            <label>
+              <span className="text-sm font-semibold text-gray-700">Name</span>
+              <input
+                type="text"
+                value={form.name}
+                onChange={(event) => updateForm("name", event.target.value)}
+                className="mt-2 h-11 w-full rounded-md border border-black/15 px-3 text-sm outline-none focus:border-[#8a1538] focus:ring-2 focus:ring-[#8a1538]/20"
+                placeholder="Your full name"
+              />
+            </label>
 
-          {/* FORM SECTION */}
-          <div className="p-8 rounded-2xl shadow-xl border border-gray-200 bg-white">
-            <h2 className="text-2xl font-semibold mb-6">Send us a message</h2>
+            <label>
+              <span className="text-sm font-semibold text-gray-700">Phone</span>
+              <input
+                type="tel"
+                value={form.phone}
+                onChange={(event) => updateForm("phone", event.target.value)}
+                className="mt-2 h-11 w-full rounded-md border border-black/15 px-3 text-sm outline-none focus:border-[#8a1538] focus:ring-2 focus:ring-[#8a1538]/20"
+                placeholder="+91..."
+              />
+            </label>
 
-            <div className="space-y-5">
-              <div>
-                <label className="text-gray-700 font-medium">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  className="w-full border rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-yellow-600"
-                  placeholder="Your full name"
-                />
-              </div>
+            <label>
+              <span className="text-sm font-semibold text-gray-700">Message</span>
+              <textarea
+                rows={5}
+                value={form.message}
+                onChange={(event) => updateForm("message", event.target.value)}
+                className="mt-2 w-full rounded-md border border-black/15 px-3 py-2 text-sm outline-none focus:border-[#8a1538] focus:ring-2 focus:ring-[#8a1538]/20"
+                placeholder="Tell us what you need."
+              />
+            </label>
 
-              <div>
-                <label className="text-gray-700 font-medium">Phone</label>
-                <input
-                  type="text"
-                  name="phone"
-                  value={form.phone}
-                  onChange={handleChange}
-                  className="w-full border rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-yellow-600"
-                  placeholder="+91…"
-                />
-              </div>
-
-              <div>
-                <label className="text-gray-700 font-medium">Message</label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  value={form.message}
-                  onChange={handleChange}
-                  className="w-full border rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-yellow-600"
-                  placeholder="How can we help you?"
-                ></textarea>
-              </div>
-
-              <button
-                onClick={handleWhatsApp}
-                className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-green-700 transition"
-              >
-                Send via WhatsApp
-              </button>
-            </div>
-          </div>
-
-          {/* DIRECT CONTACT INFO */}
-          <div className="p-8 rounded-2xl shadow-xl border border-gray-200 bg-gray-50">
-            <h2 className="text-2xl font-semibold mb-6">Reach us directly</h2>
-
-            <p className="text-gray-700 leading-relaxed mb-6 text-lg">
-              Based in Kashmir, crafting luxury Tilla, Zari, Aari & Dabka fashion with
-              heritage precision and an artisan-first philosophy.
-            </p>
-
-            <div className="space-y-5 text-gray-800">
-              <p className="flex items-center gap-3">
-                <Phone className="text-yellow-700 w-5 h-5" />
-                +91 {whatsappNumber}
-              </p>
-
-              <p className="flex items-center gap-3">
-                <Mail className="text-yellow-700 w-5 h-5" />
-                <a href="mailto:poshkaarofficial@gmail.com" className="text-yellow-700">
-                  poshkaarofficial@gmail.com
-                </a>
-              </p>
-
-              <p className="flex items-center gap-3">
-                <Instagram className="text-yellow-700 w-5 h-5" />
-                <a href="https://instagram.com/" target="_blank" className="text-yellow-700">
-                  posh__kaar
-                </a>
-              </p>
-            </div>
-
-            <div className="mt-8">
-              <a
-                href={`https://wa.me/${whatsappNumber}`}
-                target="_blank"
-                className="inline-flex items-center gap-3 bg-yellow-600 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition"
-              >
-                <img src="/icons/whatsapp.svg" className="w-5 h-5" />
-                Chat on WhatsApp
-              </a>
-            </div>
+            <button
+              type="button"
+              onClick={handleWhatsApp}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-green-600 px-5 text-sm font-bold text-white transition hover:bg-green-700"
+            >
+              <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              Send via WhatsApp
+            </button>
           </div>
         </div>
+
+        <aside className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-black/10">
+          <h2 className="font-serif text-3xl font-bold">Reach directly</h2>
+          <p className="mt-4 leading-7 text-gray-700">
+            Poshkaar is based in Kashmir and supports custom orders, bridal
+            inquiries, family sets and product availability checks.
+          </p>
+
+          <div className="mt-7 space-y-4 text-sm">
+            <a
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-md bg-[#f7f4ef] p-3 font-semibold hover:text-[#8a1538]"
+            >
+              <Phone className="h-5 w-5 text-[#8a1538]" aria-hidden="true" />
+              +91 6006491824
+            </a>
+            <a
+              href="mailto:poshkaarofficial@gmail.com"
+              className="flex items-center gap-3 rounded-md bg-[#f7f4ef] p-3 font-semibold hover:text-[#8a1538]"
+            >
+              <Mail className="h-5 w-5 text-[#8a1538]" aria-hidden="true" />
+              poshkaarofficial@gmail.com
+            </a>
+            <a
+              href="https://instagram.com/posh__kaar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-md bg-[#f7f4ef] p-3 font-semibold hover:text-[#8a1538]"
+            >
+              <Instagram className="h-5 w-5 text-[#8a1538]" aria-hidden="true" />
+              @posh__kaar
+            </a>
+            <p className="flex items-center gap-3 rounded-md bg-[#f7f4ef] p-3 font-semibold">
+              <MapPin className="h-5 w-5 text-[#8a1538]" aria-hidden="true" />
+              Srinagar, Kashmir
+            </p>
+          </div>
+        </aside>
       </section>
     </main>
   );

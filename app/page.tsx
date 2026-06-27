@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-import type { Metadata } from "next";
-import HomePage from "./HomePage";
-
-// ------------------------------------------------------
-// ⭐ HOMEPAGE METADATA (SEO)
-// ------------------------------------------------------
-export const metadata: Metadata = {
-  title: "Poshkaar – Luxury Kashmiri Tilla, Zari, Aari & Dabka Couture",
-  description:
-    "Handcrafted Kashmiri couture featuring Tilla, Zari, Aari and Dabka embroidery. Heritage-rich, artisan-made fashion inspired by generations of craftsmanship.",
-  keywords: [
-    "Kashmiri Tilla work",
-    "Zari embroidery",
-    "Aari embroidery",
-    "Dabka work",
-    "Kashmiri pheran",
-    "handcrafted Kashmir fashion",
-    "Kashmiri couture",
-    "Poshkaar Kashmir",
-  ],
-  alternates: { canonical: "https://www.poshkaar.com" },
-=======
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, MessageCircle, Sparkles } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
@@ -34,83 +11,9 @@ import {
 } from "@/data/commerce";
 
 const featuredProducts = getProductsByIds(featuredProductIds);
->>>>>>> 4c42ba2 (Describe your changes)
 
-  openGraph: {
-    title: "Poshkaar – Luxury Kashmiri Handcrafted Couture",
-    description:
-      "Explore artisan-made Tilla, Zari, Aari and Dabka couture from Kashmir. Heritage luxury woven by master craftsmen.",
-    url: "https://www.poshkaar.com",
-    siteName: "Poshkaar",
-    type: "website",
-    images: [
-      {
-        url: "/og-banner.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Poshkaar Luxury Couture",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Poshkaar – Luxury Kashmiri Couture",
-    description:
-      "Handcrafted Kashmiri Tilla, Zari, Aari & Dabka couture for timeless elegance.",
-    images: ["/og-banner.jpg"],
-  },
-
-  robots: { index: true, follow: true },
-};
-
-// ------------------------------------------------------
-// ⭐ STRUCTURED DATA (JSON-LD)
-// ------------------------------------------------------
-const jsonLdHome = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Poshkaar",
-  url: "https://www.poshkaar.com",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://www.poshkaar.com/search?q={search_term}",
-    "query-input": "required name=search_term",
-  },
-};
-
-const jsonLdOrg = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Poshkaar Kashmir",
-  url: "https://www.poshkaar.com",
-  logo: "https://www.poshkaar.com/logo.png",
-  sameAs: [
-    "https://www.instagram.com/poshkaar",
-    "https://www.facebook.com/poshkaar",
-  ],
-};
-
-// ------------------------------------------------------
-// ⭐ PAGE (SERVER COMPONENT)
-// ------------------------------------------------------
-export default function Page() {
+export default function HomePage() {
   return (
-<<<<<<< HEAD
-    <>
-      {/* JSON-LD injected on server */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHome) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }}
-      />
-
-      <HomePage />
-    </>
-=======
     <main className="bg-[#f7f4ef] text-[#171412]">
       <section
         className="relative flex min-h-[74svh] items-center overflow-hidden bg-[#171412] px-6 py-16 text-white"
@@ -122,7 +25,6 @@ export default function Page() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/44 to-black/10" />
         <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#f7f4ef] to-transparent" />
-
         <div className="relative mx-auto w-full max-w-7xl">
           <div className="max-w-2xl">
             <p className="mb-4 text-sm font-semibold uppercase text-[#d8b862]">
@@ -133,9 +35,8 @@ export default function Page() {
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-white/88 md:text-xl">
               Luxury Kashmiri embroidery for modern wardrobes: Tilla, Zari,
-              Aari and Dabka pieces made with patience, precision and soul.
+              Aari and Dabka pieces made with patience and precision.
             </p>
-
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/collection"
@@ -153,27 +54,6 @@ export default function Page() {
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 Custom Order
               </a>
-            </div>
-
-            <div className="mt-8 grid max-w-xl grid-cols-3 gap-3 text-sm text-white/82">
-              <div>
-                <span className="block font-serif text-3xl text-[#d8b862]">
-                  4
-                </span>
-                craft families
-              </div>
-              <div>
-                <span className="block font-serif text-3xl text-[#d8b862]">
-                  37+
-                </span>
-                curated pieces
-              </div>
-              <div>
-                <span className="block font-serif text-3xl text-[#d8b862]">
-                  2-6w
-                </span>
-                custom timelines
-              </div>
             </div>
           </div>
         </div>
@@ -197,7 +77,6 @@ export default function Page() {
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
-
         <div className="grid gap-5 md:grid-cols-4">
           {craftCollections.map((collection) => (
             <Link
@@ -257,7 +136,6 @@ export default function Page() {
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
-
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
@@ -275,7 +153,6 @@ export default function Page() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/58 to-transparent" />
         </div>
-
         <div>
           <p className="text-sm font-semibold uppercase text-[#8a1538]">
             Atelier promise
@@ -286,20 +163,12 @@ export default function Page() {
           <p className="mt-5 text-lg leading-8 text-gray-700">
             Poshkaar is built around Kashmiri karigari: real embroidery,
             considered fabrics, small batches and practical support for custom
-            sizing. The result is occasionwear that feels personal rather than
-            disposable.
+            sizing.
           </p>
-
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {atelierHighlights.map((item) => (
-              <div
-                key={item}
-                className="flex gap-3 rounded-md border border-black/10 bg-white p-4"
-              >
-                <BadgeCheck
-                  className="mt-0.5 h-5 w-5 shrink-0 text-[#0f6f68]"
-                  aria-hidden="true"
-                />
+              <div key={item} className="flex gap-3 rounded-md border border-black/10 bg-white p-4">
+                <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#0f6f68]" aria-hidden="true" />
                 <p className="text-sm leading-6 text-gray-700">{item}</p>
               </div>
             ))}
@@ -325,11 +194,6 @@ export default function Page() {
             <h2 className="max-w-3xl font-serif text-3xl font-bold md:text-5xl">
               Building a wedding wardrobe or a one-of-one piece?
             </h2>
-            <p className="mt-4 max-w-2xl text-white/78">
-              Share your color story, measurements and date. Poshkaar can help
-              shape matching sets, pherans, suits, shawls and statement pieces
-              around your event.
-            </p>
           </div>
           <a
             href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
@@ -345,6 +209,5 @@ export default function Page() {
         </div>
       </section>
     </main>
->>>>>>> 4c42ba2 (Describe your changes)
   );
 }

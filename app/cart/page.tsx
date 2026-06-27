@@ -27,7 +27,7 @@ export default function CartPage() {
 
   if (!isLoaded) {
     return (
-      <main className="bg-cream min-h-screen px-6 py-16">
+      <main className="min-h-screen bg-[#f7f4ef] px-6 py-16">
         <div className="mx-auto max-w-6xl text-center text-gray-600">
           Loading your cart...
         </div>
@@ -37,21 +37,21 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <main className="bg-cream min-h-screen px-6 py-16">
+      <main className="min-h-screen bg-[#f7f4ef] px-6 py-16">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-amber-800 shadow-sm">
+          <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-md bg-white text-[#8a1538] shadow-sm ring-1 ring-black/10">
             <ShoppingBag className="h-7 w-7" aria-hidden="true" />
           </div>
-          <h1 className="text-3xl font-serif font-bold text-amber-950">
+          <h1 className="font-serif text-4xl font-bold text-[#171412]">
             Your cart is empty
           </h1>
-          <p className="mt-3 max-w-xl text-gray-600">
+          <p className="mt-4 max-w-xl text-gray-600">
             Add handcrafted pieces from the collection and return here to review
             your order before payment.
           </p>
           <Link
             href="/collection"
-            className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-amber-700 px-6 text-sm font-semibold text-white transition hover:bg-amber-800"
+            className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-[#171412] px-5 text-sm font-bold text-white transition hover:bg-[#8a1538]"
           >
             Explore Collections
           </Link>
@@ -61,26 +61,26 @@ export default function CartPage() {
   }
 
   return (
-    <main className="bg-cream min-h-screen px-6 py-12">
+    <main className="min-h-screen bg-[#f7f4ef] px-6 py-12 text-[#171412]">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.28em] text-amber-700">
-              Shopping Bag
+            <p className="text-sm font-semibold uppercase text-[#8a1538]">
+              Shopping bag
             </p>
-            <h1 className="mt-2 text-3xl font-serif font-bold text-amber-950 md:text-4xl">
-              Review Your Cart
+            <h1 className="mt-2 font-serif text-4xl font-bold">
+              Review your cart
             </h1>
           </div>
           <Link
             href="/collection"
-            className="text-sm font-semibold text-amber-800 hover:underline"
+            className="text-sm font-bold text-[#8a1538] hover:text-[#171412]"
           >
             Continue shopping
           </Link>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_360px]">
+        <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
           <section className="space-y-4">
             {items.map((item) => {
               const lines = measurementLines(item.measurements);
@@ -88,11 +88,11 @@ export default function CartPage() {
               return (
                 <article
                   key={item.id}
-                  className="grid gap-4 rounded-lg border border-amber-100 bg-white p-4 shadow-sm sm:grid-cols-[132px_1fr_auto]"
+                  className="grid gap-4 rounded-lg bg-white p-4 shadow-sm ring-1 ring-black/10 sm:grid-cols-[132px_1fr_auto]"
                 >
                   <Link
                     href={`/product/${item.productId}`}
-                    className="block aspect-square overflow-hidden rounded-md bg-amber-50"
+                    className="block aspect-square overflow-hidden rounded-md bg-[#eee8df]"
                   >
                     <img
                       src={item.image}
@@ -104,7 +104,7 @@ export default function CartPage() {
                   <div className="min-w-0">
                     <Link
                       href={`/product/${item.productId}`}
-                      className="text-lg font-semibold text-gray-950 hover:text-amber-800"
+                      className="text-lg font-bold text-[#171412] hover:text-[#8a1538]"
                     >
                       {item.name}
                     </Link>
@@ -113,11 +113,11 @@ export default function CartPage() {
                     </p>
                     {item.color && (
                       <p className="mt-3 text-sm text-gray-700">
-                        Colour: <span className="font-medium">{item.color}</span>
+                        Colour: <span className="font-semibold">{item.color}</span>
                       </p>
                     )}
                     {lines.length > 0 && (
-                      <div className="mt-3 rounded-md bg-amber-50 p-3 text-xs text-gray-700">
+                      <div className="mt-3 rounded-md bg-[#f7f4ef] p-3 text-xs text-gray-700">
                         {lines.map((line) => (
                           <p key={line}>{line}</p>
                         ))}
@@ -126,31 +126,29 @@ export default function CartPage() {
                   </div>
 
                   <div className="flex flex-row items-center justify-between gap-4 sm:flex-col sm:items-end">
-                    <p className="font-semibold text-amber-800">
+                    <p className="font-serif text-xl font-bold text-[#8a1538]">
                       {formatCurrency(item.unitPrice * item.quantity)}
                     </p>
 
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
-                        onClick={() =>
-                          updateQuantity(item.id, item.quantity - 1)
-                        }
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-700 transition hover:bg-gray-50"
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-black/15 bg-white text-[#171412] transition hover:border-[#8a1538] hover:text-[#8a1538]"
                         aria-label={`Decrease quantity for ${item.name}`}
+                        title="Decrease quantity"
                       >
                         <Minus className="h-4 w-4" aria-hidden="true" />
                       </button>
-                      <span className="inline-flex h-9 min-w-10 items-center justify-center rounded-md border border-gray-200 bg-gray-50 px-3 text-sm font-semibold">
+                      <span className="inline-flex h-9 min-w-10 items-center justify-center rounded-md border border-black/10 bg-[#f7f4ef] px-3 text-sm font-bold">
                         {item.quantity}
                       </span>
                       <button
                         type="button"
-                        onClick={() =>
-                          updateQuantity(item.id, item.quantity + 1)
-                        }
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-300 bg-white text-gray-700 transition hover:bg-gray-50"
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-black/15 bg-white text-[#171412] transition hover:border-[#8a1538] hover:text-[#8a1538]"
                         aria-label={`Increase quantity for ${item.name}`}
+                        title="Increase quantity"
                       >
                         <Plus className="h-4 w-4" aria-hidden="true" />
                       </button>
@@ -159,7 +157,7 @@ export default function CartPage() {
                     <button
                       type="button"
                       onClick={() => removeItem(item.id)}
-                      className="inline-flex h-9 items-center justify-center gap-2 rounded-md px-3 text-sm font-medium text-gray-500 transition hover:bg-red-50 hover:text-red-700"
+                      className="inline-flex h-9 items-center justify-center gap-2 rounded-md px-3 text-sm font-semibold text-gray-500 transition hover:bg-red-50 hover:text-red-700"
                     >
                       <Trash2 className="h-4 w-4" aria-hidden="true" />
                       Remove
@@ -170,46 +168,44 @@ export default function CartPage() {
             })}
           </section>
 
-          <aside className="h-fit rounded-lg border border-amber-100 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-gray-950">
-              Order Summary
-            </h2>
+          <aside className="h-fit rounded-lg bg-white p-6 shadow-sm ring-1 ring-black/10">
+            <h2 className="font-serif text-2xl font-bold">Order summary</h2>
 
             <div className="mt-6 space-y-3 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-600">Items</span>
-                <span className="font-medium">{itemCount}</span>
+                <span className="font-semibold">{itemCount}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Subtotal</span>
-                <span className="font-medium">{formatCurrency(subtotal)}</span>
+                <span className="font-semibold">{formatCurrency(subtotal)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Buy 2 offer</span>
-                <span className="font-medium text-green-700">
+                <span className="font-semibold text-green-700">
                   -{formatCurrency(discount)}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Shipping</span>
-                <span className="font-medium">Calculated after address</span>
+                <span className="font-semibold">Confirmed before dispatch</span>
               </div>
             </div>
 
-            <div className="mt-6 border-t border-gray-200 pt-5">
+            <div className="mt-6 border-t border-black/10 pt-5">
               <div className="flex justify-between text-lg font-bold">
                 <span>Total</span>
                 <span>{formatCurrency(total)}</span>
               </div>
-              <p className="mt-2 text-xs text-gray-500">
-                Taxes, final delivery charges and made-to-order timelines are
-                confirmed before dispatch.
+              <p className="mt-3 text-xs leading-5 text-gray-500">
+                Razorpay order totals are recalculated on the server before
+                payment starts.
               </p>
             </div>
 
             <Link
               href="/checkout"
-              className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-amber-700 px-6 text-sm font-semibold text-white transition hover:bg-amber-800"
+              className="mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-[#171412] px-5 text-sm font-bold text-white transition hover:bg-[#8a1538]"
             >
               Checkout
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

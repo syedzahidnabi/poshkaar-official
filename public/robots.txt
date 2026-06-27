@@ -1,17 +1,6 @@
-<<<<<<< HEAD
 User-agent: *
 Allow: /
 
-Sitemap: https://poshkaarkashmir.com/sitemap.xml
-Host: https://poshkaarkashmir.com
-=======
-# *
-User-agent: *
-Allow: /
-
-# Host
 Host: https://poshkaarkashmir.com
 
-# Sitemaps
 Sitemap: https://poshkaarkashmir.com/sitemap.xml
->>>>>>> 4c42ba2 (Describe your changes)

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { base44, hasConfiguredBackend } from '@/api/base44Client';
 
@@ -7,6 +7,7 @@ import SectionHeading from '@/components/luxury/SectionHeading';
 import ProductCard from '@/components/luxury/ProductCard';
 import LuxuryButton from '@/components/luxury/LuxuryButton';
 import { getProductPresentation } from '@/lib/catalogPresentation';
+import { LOCAL_PRODUCTS } from '@/lib/static-products';
 
 const selectApprovedPhotography = (items = []) => items
   .map((product) => getProductPresentation(product))
@@ -19,25 +20,27 @@ const selectApprovedPhotography = (items = []) => items
   .slice(0, 8);
 
 export default function BestSellers() {
-  const [products, setProducts] = useState([]);
+  const fallbackProducts = useMemo(() => selectApprovedPhotography(LOCAL_PRODUCTS), []);
+  const [products, setProducts] = useState(fallbackProducts);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!hasConfiguredBackend) {
-      setProducts([]);
+      setProducts(fallbackProducts);
       setLoading(false);
       return;
     }
 
     base44.entities.Product.filter({ is_bestseller: true }, '-review_count', 8)
       .then((items) => {
-        setProducts(selectApprovedPhotography(items));
+        const approvedProducts = selectApprovedPhotography(items);
+        setProducts(approvedProducts.length > 0 ? approvedProducts : fallbackProducts);
       })
       .catch(() => {
-        setProducts([]);
+        setProducts(fallbackProducts);
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [fallbackProducts]);
 
   return (
     <section className="home-section-sand border-y border-gold/10 py-24 md:py-32">

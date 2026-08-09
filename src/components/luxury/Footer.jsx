@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone, Mail, MapPin, Instagram } from 'lucide-react';
+import { ArrowRight, Phone, Mail, MapPin, Instagram, MessageCircle } from 'lucide-react';
 import { base44, hasConfiguredBackend } from '@/api/base44Client';
 import { useToast } from '@/components/ui/use-toast';
 import { EASE_LUXURY } from '@/lib/luxuryMotion';
@@ -89,7 +89,7 @@ export default function Footer() {
               Join Our Private List
             </h3>
             <p className="mb-8 text-sm leading-relaxed text-ivory/75 md:mb-10 md:text-base">
-              Get early access to new pieces, craft stories and private offers.
+              Get early access to new pieces, craft stories, WhatsApp previews and private offers.
             </p>
 
             {subscribed ? (
@@ -162,6 +162,15 @@ export default function Footer() {
               >
                 <Instagram size={15} />
               </a>
+              <a
+                href="https://wa.me/916006491824"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 border border-white/15 rounded-full flex items-center justify-center text-ivory/60 hover:text-champagne hover:border-gold luxury-transition"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle size={15} />
+              </a>
             </div>
           </div>
 
@@ -207,6 +216,17 @@ export default function Footer() {
                 <a href="tel:+916006491824" className="flex items-center gap-3 text-sm text-ivory/70 hover:text-ivory luxury-transition">
                   <Phone size={14} className="text-champagne shrink-0" />
                   +91 60064 91824
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/916006491824"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-ivory/70 hover:text-ivory luxury-transition"
+                >
+                  <MessageCircle size={14} className="text-champagne shrink-0" />
+                  WhatsApp concierge
                 </a>
               </li>
               <li>

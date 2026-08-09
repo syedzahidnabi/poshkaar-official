@@ -12,6 +12,8 @@ const HeritageTimeline = lazy(() => import('@/components/home/HeritageTimeline')
 const CraftProcess = lazy(() => import('@/components/home/CraftProcess'));
 const Testimonials = lazy(() => import('@/components/home/Testimonials'));
 const LivingAtelier = lazy(() => import('@/components/home/LivingAtelier'));
+const TodayAtPoshkaar = lazy(() => import('@/components/home/TodayAtPoshkaar'));
+const InstagramFeed = lazy(() => import('@/components/home/InstagramFeed'));
 const JournalPreview = lazy(() => import('@/components/home/JournalPreview'));
 
 function SectionFallback({ height = 'min-h-[24rem]' }) {
@@ -89,6 +91,12 @@ export default function Home() {
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <LivingAtelier />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <TodayAtPoshkaar />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <InstagramFeed />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <JournalPreview />

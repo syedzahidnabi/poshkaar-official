@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Heart, ShoppingBag, Check, Star, Ruler } from 'lucide-react';
+import { Heart, ShoppingBag, Check, Star, Ruler, Eye, MessageCircle } from 'lucide-react';
 import { formatPrice } from '@/lib/formatPrice';
 import { useCart } from '@/lib/CartContext';
 import { base44, hasConfiguredBackend } from '@/api/base44Client';
@@ -49,6 +49,8 @@ export default function ProductCard({ product, index = 0 }) {
       : product.is_bestseller
         ? 'Bestseller'
         : '';
+  const craftTag = product.embroidery_type || product.category || 'Kashmir craft';
+  const whatsappText = encodeURIComponent(`Hello Poshkaar, I want help with ${displayProduct.title}.`);
 
   const mainImageSrcSet = getLocalWebpSrcSet(mainImage);
   const hoverImageSrcSet = getLocalWebpSrcSet(hoverImage);
@@ -136,10 +138,7 @@ export default function ProductCard({ product, index = 0 }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link
-        to={`/product/${product.id}`}
-        className="block"
-      >
+      <div className="block">
         <div className="relative mb-4 aspect-[3/4] overflow-hidden rounded-[0.15rem] border border-walnut/10 bg-beige">
           {/* Main image */}
           <motion.picture
@@ -211,13 +210,33 @@ export default function ProductCard({ product, index = 0 }) {
             />
           </motion.button>
 
+          <div className="absolute inset-x-3 bottom-3 z-30 grid translate-y-3 grid-cols-2 gap-2 opacity-0 luxury-transition group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
+            <Link
+              to={`/product/${product.id}`}
+              className="flex min-h-10 items-center justify-center gap-2 bg-ivory/94 px-3 text-[8px] uppercase tracking-[0.16em] text-charcoal shadow-[0_14px_35px_-22px_rgba(0,0,0,0.7)] luxury-transition hover:bg-champagne sm:text-[9px]"
+            >
+              <Eye size={12} aria-hidden="true" />
+              Quick view
+            </Link>
+            <a
+              href={`https://wa.me/916006491824?text=${whatsappText}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-10 items-center justify-center gap-2 bg-charcoal/88 px-3 text-[8px] uppercase tracking-[0.16em] text-ivory shadow-[0_14px_35px_-22px_rgba(0,0,0,0.7)] luxury-transition hover:bg-walnut sm:text-[9px]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <MessageCircle size={12} aria-hidden="true" />
+              Ask
+            </a>
+          </div>
+
         </div>
-      </Link>
+      </div>
 
       {/* Details */}
       <div className="space-y-1.5">
         <p className="text-[9px] tracking-[0.2em] uppercase text-gold font-body">
-          {product.embroidery_type || product.category}
+          {craftTag}
         </p>
         <Link to={`/product/${product.id}`}>
           <h3 className="font-heading text-base font-medium leading-snug text-charcoal luxury-transition group-hover:text-burgundy sm:text-lg">
@@ -244,6 +263,14 @@ export default function ProductCard({ product, index = 0 }) {
             <span className="text-[10px] text-muted-foreground/60">({product.review_count})</span>
           </div>
         )}
+        <div className="flex flex-wrap gap-2 pt-2">
+          <span className="border border-walnut/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.14em] text-charcoal/58">
+            Real photo
+          </span>
+          <span className="border border-walnut/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.14em] text-charcoal/58">
+            Custom order
+          </span>
+        </div>
         <div className="mt-4 flex items-center justify-between gap-3 border-t border-walnut/10 pt-3">
           <Link
             to={`/product/${product.id}?customize=1`}

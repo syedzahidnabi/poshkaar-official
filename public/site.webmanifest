@@ -1,0 +1,18 @@
+{
+  "name": "Poshkaar Kashmir",
+  "short_name": "poshkaarkashmir",
+  "description": "Poshkaar Kashmir, also searched as poshkaarkashmir, presents Kashmiri textiles, clothing, gifts and objects.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7F1E8",
+  "theme_color": "#1D1D1D",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

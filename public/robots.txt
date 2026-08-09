@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Host: poshkaarkashmir.com
 Sitemap: https://poshkaarkashmir.com/sitemap.xml

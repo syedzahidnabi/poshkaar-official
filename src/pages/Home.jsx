@@ -22,7 +22,7 @@ function SectionFallback({ height = 'min-h-[24rem]' }) {
 
 export default function Home() {
   useEffect(() => {
-    const title = 'Poshkaar Kashmir | Craft for Timeless Living';
+    const title = 'Poshkaar Kashmir | poshkaarkashmir.com';
     document.title = title;
 
     const setMeta = (selector, attribute, value) => {
@@ -36,7 +36,7 @@ export default function Home() {
       meta.setAttribute(attribute, value);
     }
 
-    const description = 'Explore Poshkaar Kashmir textiles, clothing, gifts and objects with clear origin, material and care information.';
+    const description = 'Poshkaar Kashmir, also searched as poshkaarkashmir, presents Kashmiri textiles, clothing, gifts and objects with clear origin, material and care information.';
     setMeta('meta[name="description"]', 'content', description);
     setMeta('meta[property="og:title"]', 'content', title);
     setMeta('meta[property="og:description"]', 'content', description);

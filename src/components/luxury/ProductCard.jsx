@@ -42,6 +42,9 @@ export default function ProductCard({ product, index = 0 }) {
     && Number.isFinite(Number(product.stock_quantity));
   const isOutOfStock = hasVerifiedStock && Number(product.stock_quantity) === 0;
   const isPreview = displayProduct.catalog_source === 'local_preview';
+  const reviewCount = Number(product.review_count || 0);
+  const ratingNumber = Number(product.rating);
+  const hasRating = reviewCount > 0 && Number.isFinite(ratingNumber);
   const primaryBadge = displayProduct.image_is_studio_preview || imageFallbackApplied
     ? 'Studio preview'
     : hasDiscount
@@ -256,11 +259,11 @@ export default function ProductCard({ product, index = 0 }) {
         {!isPreview && hasVerifiedStock && Number(product.stock_quantity) > 0 && Number(product.stock_quantity) <= 3 && (
           <p className="pt-1 text-[10px] text-walnut">Low stock | {product.stock_quantity} available</p>
         )}
-        {product.review_count > 0 && (
+        {hasRating && (
           <div className="flex items-center gap-1 pt-1">
             <Star size={10} className="fill-gold text-gold" />
-            <span className="text-[10px] text-muted-foreground">{product.rating?.toFixed(1)}</span>
-            <span className="text-[10px] text-muted-foreground/60">({product.review_count})</span>
+            <span className="text-[10px] text-muted-foreground">{ratingNumber.toFixed(1)}</span>
+            <span className="text-[10px] text-muted-foreground/60">({reviewCount})</span>
           </div>
         )}
         <div className="flex flex-wrap gap-2 pt-2">

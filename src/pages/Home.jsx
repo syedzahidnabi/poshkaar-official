@@ -4,6 +4,7 @@ import AtelierSignature from '@/components/home/AtelierSignature';
 import { HOME_MEDIA } from '@/lib/homepageMedia';
 
 const LuxuryCategories = lazy(() => import('@/components/home/LuxuryCategories'));
+const VisualEdit = lazy(() => import('@/components/home/VisualEdit'));
 const FeaturedCollections = lazy(() => import('@/components/home/FeaturedCollections'));
 const BestSellers = lazy(() => import('@/components/home/BestSellers'));
 const HeritageStory = lazy(() => import('@/components/home/HeritageStory'));
@@ -61,6 +62,9 @@ export default function Home() {
     <main className="home-champagne">
       <HeroSection />
       <AtelierSignature />
+      <Suspense fallback={<SectionFallback />}>
+        <VisualEdit />
+      </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <LuxuryCategories />
       </Suspense>

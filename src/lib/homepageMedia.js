@@ -119,8 +119,35 @@ export const HOME_MEDIA = {
   },
   heritage: {
     artisan: {
-      src: '/images/shan.jpg',
-      alt: 'A Kashmiri artisan adding fine handwork to a shawl',
+      src: '/images/home/walnut-carver-workshop.webp',
+      alt: 'A Kashmiri walnut wood artisan carving by hand in a workshop',
+      kind: 'photograph',
+    },
+  },
+  visualEdit: {
+    gathering: {
+      src: '/images/home/culture-gathering.webp',
+      alt: 'Three women in traditional Kashmiri clothing seated together with textiles',
+      kind: 'photograph',
+    },
+    copper: {
+      src: '/images/home/copper-plate-portrait.webp',
+      alt: 'A woman holding a large engraved Kashmiri copper plate',
+      kind: 'photograph',
+    },
+    willow: {
+      src: '/images/home/willow-basket-detail.webp',
+      alt: 'A woman in an embroidered pheran holding a handwoven willow basket',
+      kind: 'photograph',
+    },
+    lake: {
+      src: '/images/home/dal-lake-hazratbal.webp',
+      alt: 'Dal Lake, Hazratbal shrine and snow-covered Kashmir mountains',
+      kind: 'photograph',
+    },
+    loom: {
+      src: '/images/home/loom-artisan.webp',
+      alt: 'A Kashmiri artisan working at a loom in natural workshop light',
       kind: 'photograph',
     },
   },
@@ -148,5 +175,6 @@ export const HOME_IMAGE_ENTRIES = [
   ...Object.entries(HOME_MEDIA.categories).map(([name, media]) => [`category.${name}`, media]),
   ...Object.entries(HOME_MEDIA.collections).map(([name, media]) => [`collection.${name}`, media]),
   ...Object.entries(HOME_MEDIA.heritage).map(([name, media]) => [`heritage.${name}`, media]),
+  ...Object.entries(HOME_MEDIA.visualEdit).map(([name, media]) => [`visualEdit.${name}`, media]),
   ...Object.entries(HOME_MEDIA.journal).map(([name, media]) => [`journal.${name}`, media]),
 ];

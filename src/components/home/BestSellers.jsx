@@ -12,7 +12,7 @@ import { LOCAL_PRODUCTS } from '@/lib/static-products';
 const selectApprovedPhotography = (items = []) => items
   .map((product) => getProductPresentation(product))
   .filter((product) => (
-    product.photography_status === 'approved'
+    (!product.photography_status || product.photography_status === 'approved')
     && !product.image_is_studio_preview
     && product.image
     && !/placeholder\.svg(?:\?.*)?$/i.test(product.image)

@@ -1,0 +1,12 @@
+{
+  "name": "Poshkaar Luxury",
+  "description": "Luxury Kashmiri fashion storefront with checkout, orders, and admin fulfilment tools.",
+  "entitiesDir": "./entities",
+  "functionsDir": "./functions",
+  "site": {
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "serveCommand": "npm run dev",
+    "outputDirectory": "./dist"
+  }
+}

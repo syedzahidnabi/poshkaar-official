@@ -1,0 +1,152 @@
+export const HOME_MEDIA = {
+  heroSlides: [
+    {
+      id: 'traditional-pheran',
+      src: '/images/home/hero-traditional-pheran.webp',
+      alt: 'Three women wearing traditional embroidered Kashmiri pherans',
+      kind: 'photograph',
+      credit: 'Image supplied by Poshkaar',
+      eyebrow: 'For gatherings',
+      title: ['Clothes for', 'the memories', 'you keep.'],
+      description: 'Warm layers, fine details and pieces chosen for days that matter.',
+      objectPosition: '61% 48%',
+      mobileObjectPosition: '67% 48%',
+    },
+    {
+      id: 'sozni-atelier',
+      src: '/images/home/hero-sozni-atelier.webp',
+      alt: 'An artisan embroidering a Kashmiri Sozni textile by hand',
+      kind: 'photograph',
+      credit: 'Dashtar Haat Samiti',
+      eyebrow: 'Handmade in Kashmir',
+      title: ['Pieces from', 'Kashmir.', 'For moments', 'that matter.'],
+      description: 'Textiles, objects and gifts shaped with patience, skill and care.',
+      objectPosition: 'center 54%',
+      mobileObjectPosition: '57% 52%',
+    },
+    {
+      id: 'weaver',
+      src: '/images/home/hero-weaver.webp',
+      alt: 'A Kashmiri weaver working by hand at a loom inside a workshop',
+      kind: 'photograph',
+      credit: 'Image supplied by Poshkaar',
+      eyebrow: 'A living craft',
+      title: ['Made slowly.', 'Made with', 'human hands.'],
+      description: 'Every detail begins with time, attention and the rhythm of the loom.',
+      objectPosition: '62% 58%',
+      mobileObjectPosition: '63% 56%',
+    },
+    {
+      id: 'dal-lake',
+      src: '/images/home/hero-dal-lake.webp',
+      alt: 'Boats on Dal Lake with Hazratbal Shrine and snow-covered Kashmir mountains',
+      kind: 'photograph',
+      credit: 'Image supplied by Poshkaar',
+      eyebrow: 'From the valley',
+      title: ['A sense of', 'place in', 'every piece.'],
+      description: 'The colours, calm and handwork of Kashmir carried into everyday life.',
+      objectPosition: 'center 56%',
+      mobileObjectPosition: '58% 58%',
+    },
+    {
+      id: 'pheran',
+      src: '/images/home/hero-pheran.webp',
+      alt: 'A woman wearing a deep purple embroidered Kashmiri pheran',
+      kind: 'photograph',
+      credit: 'Image supplied by Poshkaar',
+      eyebrow: 'Made to be worn',
+      title: ['Quiet beauty,', 'made to', 'stay with you.'],
+      description: 'A careful edit of pieces that bring craft into the way you live.',
+      objectPosition: '60% 48%',
+      mobileObjectPosition: '64% 47%',
+    },
+  ],
+  categories: {
+    pashmina: {
+      src: '/images/home/pashmina-jamawar-shawl.jpeg',
+      alt: 'A fine Jamawar shawl displayed on a wooden hanger',
+      kind: 'photograph',
+    },
+    walnut: {
+      src: '/images/home/walnut-wood-carving.jpeg',
+      alt: 'A Kashmiri wood carver working on a walnut wood box',
+      kind: 'photograph',
+    },
+    papier: {
+      src: '/images/home/papier-mache-vases.webp',
+      alt: 'Hand-painted papier-mache vases and boxes in a Kashmir shop',
+      kind: 'photograph',
+    },
+    copper: {
+      src: '/images/home/kashmiri-copper-samovar.jpg',
+      alt: 'A traditional engraved copper samovar in a Srinagar tea shop',
+      kind: 'photograph',
+      objectPosition: '58% center',
+      credit: {
+        name: 'Gannu03',
+        sourceUrl: 'https://commons.wikimedia.org/wiki/File:Samovar_from_Kashmir.jpg',
+        licenseName: 'CC BY-SA 4.0',
+        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      },
+    },
+    willow: {
+      src: '/images/home/willow-wicker-baskets.jpeg',
+      alt: 'A market display of handwoven willow baskets',
+      kind: 'photograph',
+    },
+  },
+  collections: {
+    newArrivals: {
+      src: '/images/aari.jpg',
+      alt: 'A close view of colourful Aari embroidery on cloth',
+      kind: 'photograph',
+    },
+    wedding: {
+      src: '/images/tila.jpg',
+      alt: 'A deep red shawl finished with gold Tilla embroidery',
+      kind: 'photograph',
+    },
+    pashmina: {
+      src: '/images/home/pashmina-sozni-jamawar.jpeg',
+      alt: 'A close view of detailed Sozni work on a Pashmina textile',
+      kind: 'photograph',
+    },
+    signature: {
+      src: '/images/product2.jpg',
+      alt: 'A patterned shawl displayed in natural room light',
+      kind: 'photograph',
+    },
+  },
+  heritage: {
+    artisan: {
+      src: '/images/shan.jpg',
+      alt: 'A Kashmiri artisan adding fine handwork to a shawl',
+      kind: 'photograph',
+    },
+  },
+  journal: {
+    slowHandwork: {
+      src: '/images/artists.jpg',
+      alt: 'Hands sewing fine embroidery into a textile',
+      kind: 'photograph',
+    },
+    materialGuide: {
+      src: '/images/gess.jpg',
+      alt: 'Hands guiding coloured thread through a traditional weave',
+      kind: 'photograph',
+    },
+    productDetails: {
+      src: '/images/dabka.jpg',
+      alt: 'A close view of metal thread and bead handwork',
+      kind: 'photograph',
+    },
+  },
+};
+
+export const HOME_IMAGE_ENTRIES = [
+  ...HOME_MEDIA.heroSlides.map((media) => [`hero.${media.id}`, media]),
+  ...Object.entries(HOME_MEDIA.categories).map(([name, media]) => [`category.${name}`, media]),
+  ...Object.entries(HOME_MEDIA.collections).map(([name, media]) => [`collection.${name}`, media]),
+  ...Object.entries(HOME_MEDIA.heritage).map(([name, media]) => [`heritage.${name}`, media]),
+  ...Object.entries(HOME_MEDIA.journal).map(([name, media]) => [`journal.${name}`, media]),
+];

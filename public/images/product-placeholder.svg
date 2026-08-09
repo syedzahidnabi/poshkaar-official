@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="title description">
+  <title id="title">Product photography placeholder</title>
+  <desc id="description">A neutral Poshkaar catalogue placeholder awaiting verified product photography.</desc>
+  <rect width="900" height="1200" fill="#EFE8DE"/>
+  <path d="M0 830C180 760 330 900 515 830c125-47 236-145 385-109v479H0Z" fill="#E4DACD"/>
+  <path d="M0 870c209-58 321 66 501 17 152-41 244-127 399-94" fill="none" stroke="#C8A96A" stroke-opacity=".38" stroke-width="2"/>
+  <rect x="74" y="74" width="752" height="1052" fill="none" stroke="#5B3A29" stroke-opacity=".18"/>
+  <text x="450" y="540" text-anchor="middle" fill="#5B3A29" font-family="Georgia, serif" font-size="58" letter-spacing="9">POSHKAAR</text>
+  <text x="450" y="600" text-anchor="middle" fill="#5B3A29" fill-opacity=".68" font-family="Arial, sans-serif" font-size="20" letter-spacing="7">KASHMIR</text>
+  <line x1="330" y1="655" x2="570" y2="655" stroke="#C8A96A"/>
+  <text x="450" y="710" text-anchor="middle" fill="#1D1D1D" fill-opacity=".58" font-family="Arial, sans-serif" font-size="17" letter-spacing="3">PHOTOGRAPHY PENDING</text>
+</svg>

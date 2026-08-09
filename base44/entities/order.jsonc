@@ -1,0 +1,218 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "order_number": {
+      "type": "string",
+      "description": "Human-readable order reference shown to customers and staff."
+    },
+    "customer_name": {
+      "type": "string",
+      "description": "Customer name captured during checkout."
+    },
+    "customer_email": {
+      "type": "string",
+      "format": "email",
+      "description": "Customer email used for order lookup and confirmation emails."
+    },
+    "customer_phone": {
+      "type": "string",
+      "description": "Customer phone number captured during checkout."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "processing",
+        "shipped",
+        "delivered",
+        "cancelled",
+        "returned"
+      ],
+      "default": "pending",
+      "description": "Fulfilment status managed by admins."
+    },
+    "items": {
+      "type": "array",
+      "description": "Line items purchased in this order.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "size": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "subtotal": {
+      "type": "number"
+    },
+    "shipping": {
+      "type": "number"
+    },
+    "discount": {
+      "type": "number",
+      "default": 0
+    },
+    "total": {
+      "type": "number"
+    },
+    "coupon_code": {
+      "type": "string"
+    },
+    "shipping_address": {
+      "type": "object",
+      "description": "Delivery address entered at checkout.",
+      "properties": {
+        "full_name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address_line_1": {
+          "type": "string"
+        },
+        "address_line_2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "pincode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string",
+          "default": "India"
+        }
+      }
+    },
+    "payment_method": {
+      "type": "string",
+      "description": "Payment option selected by the customer."
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "failed",
+        "refunded"
+      ],
+      "default": "pending",
+      "description": "Payment verification status."
+    },
+    "payment_id": {
+      "type": "string"
+    },
+    "payment_details": {
+      "type": "object",
+      "description": "Manual payment metadata such as UPI reference."
+    },
+    "gift_wrapping": {
+      "type": "boolean",
+      "default": false
+    },
+    "gift_message": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Admin-only internal notes.",
+      "rls": {
+        "read": {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        "write": {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      }
+    },
+    "tracking_number": {
+      "type": "string",
+      "description": "Courier tracking number entered by admins."
+    },
+    "estimated_delivery": {
+      "type": "string",
+      "description": "Customer-friendly delivery estimate."
+    },
+    "confirmation_email_sent_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the latest customer confirmation email."
+    },
+    "admin_notification_sent_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the latest admin notification email."
+    }
+  },
+  "required": [
+    "items",
+    "total",
+    "customer_email"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "data.customer_email": "{{user.email}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

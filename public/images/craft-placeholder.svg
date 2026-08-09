@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title description">
+  <title id="title">Craft photography placeholder</title>
+  <desc id="description">A neutral Poshkaar placeholder awaiting verified brand photography.</desc>
+  <rect width="1200" height="900" fill="#EFE8DE"/>
+  <circle cx="930" cy="190" r="260" fill="#C8A96A" fill-opacity=".11"/>
+  <circle cx="200" cy="790" r="330" fill="#5B3A29" fill-opacity=".07"/>
+  <path d="M0 650c205-88 363 77 587 8 193-60 349-188 613-100v342H0Z" fill="#E4DACD"/>
+  <path d="M0 708c222-70 382 57 597 4 229-57 380-157 603-91" fill="none" stroke="#C8A96A" stroke-opacity=".55" stroke-width="2"/>
+  <rect x="60" y="60" width="1080" height="780" fill="none" stroke="#5B3A29" stroke-opacity=".16"/>
+  <text x="600" y="405" text-anchor="middle" fill="#5B3A29" font-family="Georgia, serif" font-size="70" letter-spacing="10">POSHKAAR</text>
+  <text x="600" y="466" text-anchor="middle" fill="#5B3A29" fill-opacity=".66" font-family="Arial, sans-serif" font-size="19" letter-spacing="8">KASHMIR</text>
+  <line x1="455" y1="515" x2="745" y2="515" stroke="#C8A96A"/>
+  <text x="600" y="570" text-anchor="middle" fill="#1D1D1D" fill-opacity=".56" font-family="Arial, sans-serif" font-size="17" letter-spacing="4">VERIFIED PHOTOGRAPHY PENDING</text>
+</svg>

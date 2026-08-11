@@ -3,5 +3,11 @@
   "devCommand": "npm run dev",
   "framework": "vite",
   "installCommand": "npm ci",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/((?!assets/|images/|favicon.svg|icons.svg|llms.txt|robots.txt|site.webmanifest|sitemap.xml).*)",
+      "destination": "/index.html"
+    }
+  ]
 }

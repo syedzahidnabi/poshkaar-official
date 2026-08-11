@@ -48,35 +48,34 @@ export default function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="hero-cinematic hero-cinematic-clean hero-carousel relative min-h-[64svh] overflow-hidden bg-charcoal pt-24 md:min-h-screen md:pt-32 lg:min-h-[780px]"
+      className="hero-cinematic hero-cinematic-clean hero-carousel relative h-[64svh] min-h-[33rem] overflow-hidden bg-charcoal pt-24 md:h-screen md:min-h-[43rem] md:pt-32 lg:h-[780px]"
       aria-roledescription="carousel"
       aria-label="Poshkaar Kashmir craft collection"
     >
-      <AnimatePresence initial={false} mode="popLayout">
-          <motion.img
-          key={activeSlide.id}
-          src={activeSlide.src}
+      <motion.div
+        className="hero-carousel-track"
+        animate={{ x: reduceMotion ? '0%' : `-${activeIndex * 100}%` }}
+        transition={{ duration: reduceMotion ? 0.01 : 0.85, ease: EASE_LUXURY }}
+      >
+        {HERO_SLIDES.map((slide, index) => (
+          <img
+            key={slide.id}
+            src={slide.src}
             width="1600"
             height="1000"
-          alt={activeSlide.alt}
+            alt={index === activeIndex ? slide.alt : ''}
+            aria-hidden={index !== activeIndex}
             className="hero-cinematic-bg hero-carousel-image"
             style={{
-            objectPosition: activeSlide.objectPosition,
-            '--hero-mobile-position': activeSlide.mobileObjectPosition,
+              objectPosition: slide.objectPosition,
+              '--hero-mobile-position': slide.mobileObjectPosition,
             }}
-          initial={reduceMotion ? { opacity: 1, x: '0%' } : { opacity: 1, x: '100%', scale: 1 }}
-            animate={{
-            opacity: 1,
-            x: '0%',
-              scale: 1,
-            }}
-          exit={reduceMotion ? { opacity: 0, x: '0%' } : { opacity: 1, x: '-100%', scale: 1 }}
-            transition={{ duration: reduceMotion ? 0.01 : 0.9, ease: EASE_LUXURY }}
-          loading={activeIndex === 0 ? 'eager' : 'lazy'}
-          fetchpriority={activeIndex === 0 ? 'high' : 'auto'}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchPriority={index === 0 ? 'high' : 'auto'}
             decoding="async"
           />
-      </AnimatePresence>
+        ))}
+      </motion.div>
 
       <div className="absolute inset-0 bg-gradient-to-r from-black/74 via-black/32 to-black/10" aria-hidden="true" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/4 to-black/68" aria-hidden="true" />

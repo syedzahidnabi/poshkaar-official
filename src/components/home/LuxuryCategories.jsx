@@ -45,29 +45,29 @@ const CATEGORIES = [
 
 export default function LuxuryCategories() {
   return (
-    <section className="relative overflow-hidden bg-ivory py-20 md:py-32" aria-labelledby="luxury-categories-title">
-      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
-        <div className="mb-12 grid gap-8 md:mb-16 md:grid-cols-[0.9fr_1.1fr] md:items-end">
+    <section className="relative overflow-hidden bg-ivory py-14 md:py-32" aria-labelledby="luxury-categories-title">
+      <div className="mx-auto max-w-7xl px-4 md:px-12 lg:px-16">
+        <div className="mb-8 grid gap-4 md:mb-16 md:grid-cols-[0.9fr_1.1fr] md:items-end">
           <div data-luxury-reveal>
             <p className="mb-4 text-[10px] uppercase tracking-[0.3em] text-gold">Luxury categories</p>
             <h2
               id="luxury-categories-title"
               className="font-heading font-light leading-[0.98] text-charcoal text-balance"
-              style={{ fontSize: 'clamp(2.7rem, 6vw, 5.8rem)' }}
+              style={{ fontSize: 'clamp(2.25rem, 6vw, 5.8rem)' }}
             >
               Craft, material and form.
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-7 text-charcoal/65 md:justify-self-end md:text-base" data-luxury-reveal>
+          <p className="max-w-xl text-sm leading-6 text-charcoal/65 md:justify-self-end md:text-base md:leading-7" data-luxury-reveal>
             Explore the catalogue by category. Product-level records explain what is known about each material, technique and origin.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
           {CATEGORIES.map((category, index) => (
             <motion.article
               key={category.title}
-              className="group relative min-h-[360px] overflow-hidden border border-walnut/10 bg-sand shadow-[0_28px_90px_-74px_rgba(91,58,41,0.9)]"
+              className="group relative min-h-[190px] overflow-hidden border border-walnut/10 bg-sand shadow-[0_28px_90px_-74px_rgba(91,58,41,0.9)] sm:min-h-[240px] md:min-h-[260px]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce}
@@ -83,12 +83,12 @@ export default function LuxuryCategories() {
                   decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/94 via-charcoal/48 to-charcoal/12" />
-                <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                  <p className="mb-3 text-[9px] uppercase tracking-[0.28em] text-champagne">{category.eyebrow}</p>
+                <div className="absolute inset-x-0 bottom-0 p-4 md:p-8">
+                  <p className="mb-2 text-[8px] uppercase tracking-[0.2em] text-champagne md:mb-3 md:text-[9px] md:tracking-[0.28em]">{category.eyebrow}</p>
                   <div className="flex items-end justify-between gap-4">
                     <div>
-                      <h3 className="font-heading text-3xl font-light text-ivory md:text-4xl">{category.title}</h3>
-                      <p className="mt-3 max-w-sm text-sm font-medium leading-6 text-ivory">{category.text}</p>
+                      <h3 className="font-heading text-xl font-light leading-tight text-ivory sm:text-2xl md:text-4xl">{category.title}</h3>
+                      <p className="mt-2 hidden max-w-sm text-sm font-medium leading-6 text-ivory sm:block">{category.text}</p>
                     </div>
                     <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ivory/30 text-ivory transition duration-500 group-hover:border-gold group-hover:text-champagne md:flex">
                       <ArrowUpRight size={16} aria-hidden="true" />
@@ -124,3 +124,4 @@ export default function LuxuryCategories() {
     </section>
   );
 }
+

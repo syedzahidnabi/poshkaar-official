@@ -142,7 +142,7 @@ export default function ProductCard({ product, index = 0 }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="block">
-        <div className="relative mb-4 aspect-[3/4] overflow-hidden rounded-[0.15rem] border border-walnut/10 bg-beige">
+        <div className="relative mb-2.5 aspect-[3/4] overflow-hidden rounded-[0.15rem] border border-walnut/10 bg-beige md:mb-4">
           {/* Main image */}
           <motion.picture
             className="absolute inset-0 h-full w-full object-cover"
@@ -187,9 +187,9 @@ export default function ProductCard({ product, index = 0 }) {
           </motion.picture>
 
           {/* Badges */}
-          <div className="absolute left-4 top-4 z-30 flex flex-col gap-2">
+          <div className="absolute left-2 top-2 z-30 flex flex-col gap-2 md:left-4 md:top-4">
             {primaryBadge && (
-              <span className="border border-ivory/40 bg-charcoal/85 px-3 py-1.5 font-body text-[9px] uppercase tracking-[0.17em] text-ivory">
+              <span className="border border-ivory/40 bg-charcoal/85 px-2 py-1 font-body text-[7px] uppercase tracking-[0.13em] text-ivory md:px-3 md:py-1.5 md:text-[9px] md:tracking-[0.17em]">
                 {primaryBadge}
               </span>
             )}
@@ -202,7 +202,7 @@ export default function ProductCard({ product, index = 0 }) {
 
           {/* Wishlist control */}
           <motion.button
-            className="absolute right-3 top-3 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-ivory/90 shadow-[0_10px_25px_-12px_rgba(74,14,14,0.4)] luxury-transition hover:bg-ivory md:right-4 md:top-4 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100"
+            className="absolute right-2 top-2 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-ivory/90 shadow-[0_10px_25px_-12px_rgba(74,14,14,0.4)] luxury-transition hover:bg-ivory md:right-4 md:top-4 md:h-11 md:w-11 md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100"
             onClick={handleWishlist}
             whileTap={{ scale: 0.85 }}
             aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
@@ -213,7 +213,7 @@ export default function ProductCard({ product, index = 0 }) {
             />
           </motion.button>
 
-          <div className="absolute inset-x-3 bottom-3 z-30 grid translate-y-3 grid-cols-2 gap-2 opacity-0 luxury-transition group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100">
+          <div className="absolute inset-x-2 bottom-2 z-30 hidden translate-y-3 grid-cols-2 gap-2 opacity-0 luxury-transition group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 md:grid md:inset-x-3 md:bottom-3">
             <Link
               to={`/product/${product.id}`}
               className="flex min-h-10 items-center justify-center gap-2 bg-ivory/94 px-3 text-[8px] uppercase tracking-[0.16em] text-charcoal shadow-[0_14px_35px_-22px_rgba(0,0,0,0.7)] luxury-transition hover:bg-champagne sm:text-[9px]"
@@ -237,21 +237,21 @@ export default function ProductCard({ product, index = 0 }) {
       </div>
 
       {/* Details */}
-      <div className="space-y-1.5">
-        <p className="text-[9px] tracking-[0.2em] uppercase text-gold font-body">
+      <div className="space-y-1 md:space-y-1.5">
+        <p className="truncate text-[8px] tracking-[0.16em] uppercase text-gold font-body md:text-[9px] md:tracking-[0.2em]">
           {craftTag}
         </p>
         <Link to={`/product/${product.id}`}>
-          <h3 className="font-heading text-base font-medium leading-snug text-charcoal luxury-transition group-hover:text-burgundy sm:text-lg">
+          <h3 className="line-clamp-2 min-h-[2.35rem] font-heading text-sm font-medium leading-tight text-charcoal luxury-transition group-hover:text-burgundy sm:text-base md:min-h-0 md:text-lg md:leading-snug">
             {product.title}
           </h3>
         </Link>
-        <div className="flex items-center gap-3 pt-0.5">
-          <span className="font-body text-sm text-charcoal tracking-wide">
+        <div className="flex items-center gap-2 pt-0.5">
+          <span className="font-body text-xs text-charcoal tracking-wide md:text-sm">
             {isPreview ? 'Details pending' : formatPrice(product.price)}
           </span>
           {hasDiscount && (
-            <span className="font-body text-sm text-muted-foreground line-through">
+            <span className="font-body text-xs text-muted-foreground line-through md:text-sm">
               {formatPrice(product.compare_at_price)}
             </span>
           )}
@@ -266,7 +266,7 @@ export default function ProductCard({ product, index = 0 }) {
             <span className="text-[10px] text-muted-foreground/60">({reviewCount})</span>
           </div>
         )}
-        <div className="flex flex-wrap gap-2 pt-2">
+        <div className="hidden flex-wrap gap-2 pt-2 md:flex">
           <span className="border border-walnut/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.14em] text-charcoal/58">
             Real photo
           </span>
@@ -274,10 +274,10 @@ export default function ProductCard({ product, index = 0 }) {
             Custom order
           </span>
         </div>
-        <div className="mt-4 flex items-center justify-between gap-3 border-t border-walnut/10 pt-3">
+        <div className="mt-2 flex items-center justify-between gap-2 border-t border-walnut/10 pt-2 md:mt-4 md:gap-3 md:pt-3">
           <Link
             to={`/product/${product.id}?customize=1`}
-            className="flex min-h-11 items-center gap-2 px-1 text-[8px] uppercase tracking-[0.18em] text-walnut luxury-transition hover:text-charcoal sm:text-[9px]"
+            className="hidden min-h-11 items-center gap-2 px-1 text-[8px] uppercase tracking-[0.18em] text-walnut luxury-transition hover:text-charcoal sm:text-[9px] md:flex"
           >
             <Ruler size={12} aria-hidden="true" />
             {product.customization_label || 'Customize'}
@@ -286,7 +286,7 @@ export default function ProductCard({ product, index = 0 }) {
             type="button"
             onClick={handleQuickAdd}
             disabled={adding || added || isOutOfStock || isPreview}
-            className="flex min-h-11 items-center justify-center gap-2 border border-charcoal bg-charcoal px-4 text-center text-[8px] uppercase tracking-[0.16em] text-ivory luxury-transition hover:border-walnut hover:bg-walnut disabled:cursor-not-allowed disabled:opacity-55 sm:text-[9px]"
+            className="flex min-h-9 w-full items-center justify-center gap-1.5 border border-charcoal bg-charcoal px-2 text-center text-[7px] uppercase tracking-[0.12em] text-ivory luxury-transition hover:border-walnut hover:bg-walnut disabled:cursor-not-allowed disabled:opacity-55 sm:text-[8px] md:min-h-11 md:w-auto md:gap-2 md:px-4 md:text-[9px] md:tracking-[0.16em]"
             aria-label={isPreview
               ? `${product.title} is a catalogue preview`
               : isOutOfStock ? `${product.title} is sold out` : `Add ${product.title} to bag`}

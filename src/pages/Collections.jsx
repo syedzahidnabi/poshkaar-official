@@ -176,7 +176,7 @@ export default function Collections() {
         count={!loading ? products.length : undefined}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-14 pb-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-16 pt-8 md:pt-14 pb-16 md:pb-20">
         {/* Inline category navigation */}
         {showCategoryNav && (
           <div className="flex items-center gap-5 md:gap-7 overflow-x-auto no-scrollbar pb-1 mb-6">
@@ -298,7 +298,7 @@ export default function Collections() {
 
         {/* Product grid */}
         {loading ? (
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-5 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
             {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
               <div key={i}>
                 <div className="aspect-[3/4] bg-beige mb-4 shimmer" />
@@ -311,7 +311,7 @@ export default function Collections() {
         ) : products.length > 0 ? (
           <motion.div
             key={`${category}-${embroidery}-${sortBy}-${slug}`}
-            className="grid grid-cols-1 gap-x-5 gap-y-12 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-14 lg:grid-cols-4"
+            className="grid grid-cols-2 gap-x-3 gap-y-9 sm:gap-x-5 sm:gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-14 lg:grid-cols-4"
           >
             {products.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />

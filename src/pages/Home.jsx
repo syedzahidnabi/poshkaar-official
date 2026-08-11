@@ -64,18 +64,18 @@ export default function Home() {
   return (
     <main className="home-champagne">
       <HeroSection />
-      <AtelierSignature />
-      <Suspense fallback={<SectionFallback />}>
-        <VisualEdit />
-      </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <LuxuryCategories />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
-        <FeaturedCollections />
+        <BestSellers />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
-        <BestSellers />
+        <FeaturedCollections />
+      </Suspense>
+      <AtelierSignature />
+      <Suspense fallback={<SectionFallback />}>
+        <VisualEdit />
       </Suspense>
       <Suspense fallback={<SectionFallback />}>
         <HeritageStory />

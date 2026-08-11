@@ -39,17 +39,17 @@ const COLLECTIONS = [
 
 export default function FeaturedCollections() {
   return (
-    <section id="home-collections" className="scroll-mt-24 py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+    <section id="home-collections" className="scroll-mt-24 py-14 md:py-32">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-16">
         <SectionHeading
           title="Shop by Collection"
           subtitle="Discover"
           description="Explore shawls, clothing, gifts and objects with clear material, origin and care details."
-          className="mb-16"
+          className="mb-8 md:mb-16"
         />
 
         {/* Bento grid */}
-        <div className="grid auto-rows-[300px] grid-cols-1 gap-4 md:auto-rows-[320px] md:grid-cols-2 md:gap-6 lg:grid-cols-12">
+        <div className="grid auto-rows-[190px] grid-cols-2 gap-3 md:auto-rows-[320px] md:grid-cols-2 md:gap-6 lg:grid-cols-12">
           {COLLECTIONS.map((col, i) => {
             return (
               <motion.div
@@ -75,17 +75,17 @@ export default function FeaturedCollections() {
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent" />
 
                     {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
                       <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={viewportOnce}
                         transition={{ delay: 0.3 + i * 0.12, duration: 0.6 }}
                       >
-                        <span className="text-champagne text-[9px] tracking-[0.3em] uppercase block mb-2">
+                        <span className="text-champagne text-[8px] tracking-[0.2em] uppercase block mb-2 md:text-[9px] md:tracking-[0.3em]">
                           {col.subtitle}
                         </span>
-                        <h3 className="font-heading text-2xl md:text-3xl text-ivory font-light mb-4">
+                        <h3 className="font-heading text-xl md:text-3xl text-ivory font-light mb-3 md:mb-4">
                           {col.title}
                         </h3>
                         <div className="flex items-center gap-2 text-ivory/70 group-hover:text-champagne luxury-transition">
@@ -107,3 +107,4 @@ export default function FeaturedCollections() {
     </section>
   );
 }
+

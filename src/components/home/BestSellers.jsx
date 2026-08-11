@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+﻿import React, { useMemo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { base44, hasConfiguredBackend } from '@/api/base44Client';
 
@@ -9,18 +9,71 @@ import LuxuryButton from '@/components/luxury/LuxuryButton';
 import { getProductPresentation } from '@/lib/catalogPresentation';
 import { LOCAL_PRODUCTS } from '@/lib/static-products';
 
+const CRAFT_EDIT_CATEGORIES = ['Walnut Wood', 'Papier Mâché', 'Copperware', 'Willow Wicker'];
+
+const getCraftGroup = (product = {}) => {
+  const searchable = [
+    product.collection,
+    product.category,
+    product.craft,
+    product.embroidery_type,
+    product.title,
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+
+  if (/walnut/.test(searchable)) return 'Walnut Wood';
+  if (/papier|mâché|mache/.test(searchable)) return 'Papier Mâché';
+  if (/copper/.test(searchable)) return 'Copperware';
+  if (/willow|wicker/.test(searchable)) return 'Willow Wicker';
+  if (/tilla/.test(searchable)) return 'Tilla';
+  if (/aari/.test(searchable)) return 'Aari';
+  if (/dabka/.test(searchable)) return 'Dabka';
+  if (/zari/.test(searchable)) return 'Zari';
+
+  return product.collection || product.category || product.craft || 'Other';
+};
+
 const selectApprovedPhotography = (items = []) => items
   .map((product) => getProductPresentation(product))
   .filter((product) => (
-    (!product.photography_status || product.photography_status === 'approved')
-    && !product.image_is_studio_preview
-    && product.image
+    product.image
     && !/placeholder\.svg(?:\?.*)?$/i.test(product.image)
-  ))
-  .slice(0, 8);
+    && (
+      ((!product.photography_status || product.photography_status === 'approved')
+      && !product.image_is_studio_preview)
+      || CRAFT_EDIT_CATEGORIES.some((category) => getCraftGroup(product) === category)
+    )
+  ));
+
+const ensureCraftCoverage = (approvedItems = [], fallbackItems = [], limit = 12) => {
+  const selected = [];
+  const selectedIds = new Set();
+  const addedGroups = new Set();
+
+  const addProduct = (product) => {
+    if (!product || selected.length >= limit || selectedIds.has(product.id)) return;
+    selected.push(product);
+    selectedIds.add(product.id);
+    addedGroups.add(getCraftGroup(product));
+  };
+
+  approvedItems.forEach(addProduct);
+
+  CRAFT_EDIT_CATEGORIES.forEach((category) => {
+    if (selected.length >= limit || addedGroups.has(category)) return;
+    const craftProduct = [...approvedItems, ...fallbackItems].find((product) => getCraftGroup(product) === category && !selectedIds.has(product.id));
+    if (craftProduct) addProduct(craftProduct);
+  });
+
+  [...approvedItems, ...fallbackItems].forEach(addProduct);
+
+  return selected.slice(0, limit);
+};
 
 export default function BestSellers() {
-  const fallbackProducts = useMemo(() => selectApprovedPhotography(LOCAL_PRODUCTS), []);
+  const fallbackProducts = useMemo(() => ensureCraftCoverage(selectApprovedPhotography(LOCAL_PRODUCTS), LOCAL_PRODUCTS, 12), []);
   const [products, setProducts] = useState(fallbackProducts);
   const [loading, setLoading] = useState(true);
 
@@ -31,10 +84,11 @@ export default function BestSellers() {
       return;
     }
 
-    base44.entities.Product.filter({ is_bestseller: true }, '-review_count', 8)
+    base44.entities.Product.list('-review_count', 40)
       .then((items) => {
         const approvedProducts = selectApprovedPhotography(items);
-        setProducts(approvedProducts.length > 0 ? approvedProducts : fallbackProducts);
+        const craftProducts = ensureCraftCoverage(approvedProducts, LOCAL_PRODUCTS, 12);
+        setProducts(craftProducts.length > 0 ? craftProducts : fallbackProducts);
       })
       .catch(() => {
         setProducts(fallbackProducts);
@@ -49,7 +103,7 @@ export default function BestSellers() {
           <SectionHeading
             title="Pieces photographed and ready"
             subtitle="The Poshkaar Edit"
-            description="Only products with checked, real photographs appear in this edit."
+            description="Only products with checked, real photographs appear in this edit. Selected craft pieces may be shown using studio previews until their photography is verified."
             align="left"
             className="md:mb-0"
           />
@@ -63,7 +117,7 @@ export default function BestSellers() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-5 md:grid-cols-4 md:gap-8">
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 sm:gap-5 md:grid-cols-4 md:gap-8">
             {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
               <div key={i} className="animate-pulse">
                 <div className="aspect-[3/4] bg-gold/10 mb-4 shimmer" />
@@ -74,7 +128,7 @@ export default function BestSellers() {
             ))}
           </div>
         ) : products.length > 0 ? (
-          <div className="grid grid-cols-1 gap-x-5 gap-y-12 sm:grid-cols-2 md:grid-cols-4 md:gap-x-8 md:gap-y-14">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-8 md:gap-y-14">
             {products.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}

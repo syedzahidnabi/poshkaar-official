@@ -15,9 +15,9 @@ const STATS = [
 
 export default function HeritageStory() {
   return (
-    <section className="relative py-20 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20">
+    <section className="relative py-14 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 md:px-12 lg:px-16">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-20">
           <motion.div
             className="relative luxury-card-3d"
             initial={{ opacity: 0, x: -40 }}
@@ -26,7 +26,7 @@ export default function HeritageStory() {
             transition={{ duration: 1, ease: EASE_LUXURY }}
           >
             <div className="relative luxury-card-3d-image">
-              <div className="aspect-[4/5] overflow-hidden luxury-shadow-lg">
+              <div className="aspect-[5/4] overflow-hidden luxury-shadow-lg md:aspect-[4/5]">
                 <motion.img
                   src={CRAFT_PHOTO.src}
                   alt={CRAFT_PHOTO.alt}
@@ -64,7 +64,7 @@ export default function HeritageStory() {
               For each listed piece, we show what has been verified and leave uncertain fields open until the right information is available.
             </p>
 
-            <div className="mb-12 grid grid-cols-3 gap-6">
+            <div className="mb-8 grid grid-cols-3 gap-3 md:mb-12 md:gap-6">
               {STATS.map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -73,10 +73,10 @@ export default function HeritageStory() {
                   viewport={viewportOnce}
                   transition={{ delay: 0.3 + i * 0.1, duration: 0.6 }}
                 >
-                  <p className="font-heading text-3xl font-light text-walnut md:text-4xl">
+                  <p className="font-heading text-xl font-light text-walnut md:text-4xl">
                     {stat.number}
                   </p>
-                  <p className="mt-1 font-body text-[10px] uppercase tracking-[0.1em] text-muted-foreground">
+                  <p className="mt-1 font-body text-[8px] uppercase leading-4 tracking-[0.08em] text-muted-foreground md:text-[10px]">
                     {stat.label}
                   </p>
                 </motion.div>

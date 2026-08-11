@@ -18,16 +18,16 @@ const POSTS = [
 
 export default function InstagramFeed() {
   return (
-    <section className="relative overflow-hidden bg-[#eee7dd] py-20 md:py-32">
-      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
+    <section className="relative overflow-hidden bg-[#eee7dd] py-14 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 md:px-12 lg:px-16">
         <SectionHeading
           title="Seen around Poshkaar"
           subtitle="The living edit"
           description="A visual pulse of pieces, places and craft details that make the store feel current."
-          className="mb-16"
+          className="mb-8 md:mb-16"
         />
 
-        <div className="grid auto-rows-[11rem] grid-cols-2 gap-2 md:auto-rows-[12rem] md:grid-cols-4 md:gap-4">
+        <div className="grid auto-rows-[9rem] grid-cols-2 gap-2 md:auto-rows-[12rem] md:grid-cols-4 md:gap-4">
           {POSTS.map((post, i) => (
             <motion.a
               key={post.caption}
@@ -61,7 +61,7 @@ export default function InstagramFeed() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-center gap-4 text-center sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 text-center sm:flex-row md:mt-12">
           <a
             href="https://instagram.com/posh__kaar"
             target="_blank"

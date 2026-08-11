@@ -27,11 +27,11 @@ const STEPS = [
 
 export default function CraftProcess() {
   return (
-    <section className="home-section-sand py-20 text-charcoal md:py-32">
-      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
-        <SectionHeading title="Details you can check" subtitle="Product information" className="mb-20" />
+    <section className="home-section-sand py-14 text-charcoal md:py-32">
+      <div className="mx-auto max-w-7xl px-4 md:px-12 lg:px-16">
+        <SectionHeading title="Details you can check" subtitle="Product information" className="mb-9 md:mb-20" />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-12">
           {STEPS.map((step, i) => (
             <motion.div
               key={step.number}
@@ -41,10 +41,10 @@ export default function CraftProcess() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ delay: i * 0.15, duration: 0.8 }}
             >
-              <span className="font-heading text-5xl text-gold/20">{step.number}</span>
-              <h3 className="mt-2 font-heading text-xl font-medium text-charcoal">{step.title}</h3>
-              <div className="mb-4 mt-4 h-px w-8 bg-gold/40" />
-              <p className="text-sm leading-relaxed text-charcoal/62">{step.description}</p>
+              <span className="font-heading text-4xl text-gold/20 md:text-5xl">{step.number}</span>
+              <h3 className="mt-2 font-heading text-lg font-medium text-charcoal md:text-xl">{step.title}</h3>
+              <div className="mb-3 mt-3 h-px w-8 bg-gold/40 md:mb-4 md:mt-4" />
+              <p className="text-xs leading-5 text-charcoal/62 md:text-sm md:leading-relaxed">{step.description}</p>
               {i < STEPS.length - 1 && (
                 <div className="needle-line absolute top-6 hidden h-px w-12 lg:-right-6 lg:block" />
               )}

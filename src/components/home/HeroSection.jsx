@@ -48,7 +48,7 @@ export default function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="hero-cinematic hero-cinematic-clean hero-carousel relative min-h-[82vh] overflow-hidden bg-charcoal pt-28 md:min-h-screen md:pt-32 lg:min-h-[780px]"
+      className="hero-cinematic hero-cinematic-clean hero-carousel relative min-h-[64svh] overflow-hidden bg-charcoal pt-24 md:min-h-screen md:pt-32 lg:min-h-[780px]"
       aria-roledescription="carousel"
       aria-label="Poshkaar Kashmir craft collection"
     >
@@ -71,7 +71,7 @@ export default function HeroSection() {
             initial={false}
             animate={{
               opacity: isActive ? 1 : 0,
-              scale: reduceMotion ? 1 : isActive ? 1.015 : 1.045,
+              scale: reduceMotion ? 1 : 1.02,
             }}
             transition={{ duration: reduceMotion ? 0.01 : 1.65, ease: EASE_LUXURY }}
             loading={index === 0 ? 'eager' : 'lazy'}
@@ -86,7 +86,7 @@ export default function HeroSection() {
       <div className="hero-text-frame" aria-hidden="true" />
       <p className="hero-photo-credit">Photograph: {activeSlide.credit}</p>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(82vh-7rem)] w-full max-w-[1500px] items-end px-4 pb-10 md:min-h-[calc(100vh-8rem)] md:items-center md:px-12 md:pb-16 lg:px-16">
+      <div className="relative z-10 mx-auto flex min-h-[calc(64svh-6rem)] w-full max-w-[1500px] items-end px-4 pb-8 md:min-h-[calc(100vh-8rem)] md:items-center md:px-12 md:pb-16 lg:px-16">
         <AnimatePresence initial={false} mode="sync">
           <motion.div
             key={activeSlide.id}

@@ -47,27 +47,27 @@ export default function HeritageTimeline() {
   const item = TIMELINE[active];
 
   return (
-    <section className="relative overflow-hidden bg-charcoal py-20 text-ivory md:py-32" aria-labelledby="heritage-timeline-title">
+    <section className="relative overflow-hidden bg-charcoal py-14 text-ivory md:py-32" aria-labelledby="heritage-timeline-title">
       <div className="absolute inset-0 opacity-[0.05] [background-image:linear-gradient(rgba(248,245,240,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(248,245,240,0.7)_1px,transparent_1px)] [background-size:90px_90px]" aria-hidden="true" />
       <div className="absolute -right-32 top-20 h-96 w-96 rounded-full bg-forest/35 blur-3xl" aria-hidden="true" />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 md:px-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-16">
+      <div className="relative mx-auto grid max-w-7xl gap-8 px-4 md:gap-12 md:px-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-16">
         <div className="lg:sticky lg:top-32" data-luxury-reveal>
           <p className="mb-5 text-[10px] uppercase tracking-[0.32em] text-champagne">Craft in context</p>
           <h2
             id="heritage-timeline-title"
             className="font-heading font-light leading-[0.98] text-balance"
-            style={{ fontSize: 'clamp(2.7rem, 6vw, 5.7rem)' }}
+            style={{ fontSize: 'clamp(2.25rem, 6vw, 5.7rem)' }}
           >
             Product context, step by step.
           </h2>
-          <p className="mt-7 max-w-md text-sm leading-7 text-ivory/62 md:text-base">
+          <p className="mt-5 max-w-md text-sm leading-6 text-ivory/62 md:mt-7 md:text-base md:leading-7">
             A clear way to read material, technique, provenance and care information.
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.48fr_0.52fr] lg:items-stretch">
-          <div className="space-y-3" role="tablist" aria-label="Heritage timeline">
+          <div className="grid grid-cols-2 gap-3 lg:block lg:space-y-3" role="tablist" aria-label="Heritage timeline">
             {TIMELINE.map((step, index) => {
               const selected = active === index;
               return (
@@ -79,15 +79,15 @@ export default function HeritageTimeline() {
                   aria-controls="heritage-timeline-panel"
                   aria-selected={selected}
                   onClick={() => setActive(index)}
-                  className={`group w-full border p-5 text-left luxury-transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                  className={`group min-h-[9.5rem] w-full border p-4 text-left luxury-transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold md:p-5 lg:min-h-0 ${
                     selected
                       ? 'border-gold/55 bg-ivory text-charcoal'
                       : 'border-ivory/12 bg-white/[0.03] text-ivory hover:border-gold/35'
                   }`}
                 >
                   <span className={`text-[10px] uppercase tracking-[0.3em] ${selected ? 'text-walnut' : 'text-champagne'}`}>{step.year}</span>
-                  <span className="mt-3 block font-heading text-2xl font-light">{step.title}</span>
-                  <span className={`mt-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] ${selected ? 'text-charcoal/70' : 'text-ivory/70'}`}>
+                  <span className="mt-3 block font-heading text-lg font-light leading-tight md:text-2xl">{step.title}</span>
+                  <span className={`mt-3 flex items-center gap-2 text-[8px] uppercase tracking-[0.14em] md:text-[10px] md:tracking-[0.2em] ${selected ? 'text-charcoal/70' : 'text-ivory/70'}`}>
                     <MapPin size={12} aria-hidden="true" />
                     {step.place}
                   </span>
@@ -98,7 +98,7 @@ export default function HeritageTimeline() {
 
           <motion.article
             key={item.title}
-            className="relative min-h-[520px] overflow-hidden border border-gold/20 bg-ivory text-charcoal"
+            className="relative min-h-[430px] overflow-hidden border border-gold/20 bg-ivory text-charcoal md:min-h-[520px]"
             initial={{ opacity: 0.65, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.72, ease: EASE_LUXURY }}
@@ -106,7 +106,7 @@ export default function HeritageTimeline() {
             id="heritage-timeline-panel"
             aria-labelledby={`heritage-tab-${active}`}
           >
-            <div className="relative h-56 overflow-hidden border-b border-gold/15 md:h-64">
+            <div className="relative h-48 overflow-hidden border-b border-gold/15 md:h-64">
               <img
                 src={item.image}
                 alt={item.imageAlt}
@@ -123,10 +123,10 @@ export default function HeritageTimeline() {
             <div className="absolute right-5 top-52 font-heading text-[8rem] font-light leading-none text-walnut/[0.07] md:top-56 md:text-[11rem]" aria-hidden="true">
               {item.year}
             </div>
-            <div className="relative flex min-h-[250px] flex-col justify-end p-7 md:p-9">
+            <div className="relative flex min-h-[220px] flex-col justify-end p-5 md:p-9">
               <p className="mb-4 text-[10px] uppercase tracking-[0.28em] text-gold">{item.place}</p>
-              <h3 className="max-w-sm font-heading text-4xl font-light leading-tight text-charcoal">{item.title}</h3>
-              <p className="mt-5 max-w-md text-sm leading-7 text-charcoal/68">{item.text}</p>
+              <h3 className="max-w-sm font-heading text-3xl font-light leading-tight text-charcoal md:text-4xl">{item.title}</h3>
+              <p className="mt-4 max-w-md text-sm leading-6 text-charcoal/68 md:mt-5 md:leading-7">{item.text}</p>
             </div>
           </motion.article>
         </div>

@@ -142,7 +142,7 @@ export default function ProductCard({ product, index = 0 }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="block">
-        <div className="relative mb-2.5 aspect-[3/4] overflow-hidden rounded-[0.15rem] border border-walnut/10 bg-beige md:mb-4">
+        <div className="relative mb-2.5 aspect-[4/5] overflow-hidden rounded-[0.15rem] border border-walnut/10 bg-beige md:mb-4 md:aspect-[3/4]">
           {/* Main image */}
           <motion.picture
             className="absolute inset-0 h-full w-full object-cover"
@@ -242,16 +242,16 @@ export default function ProductCard({ product, index = 0 }) {
           {craftTag}
         </p>
         <Link to={`/product/${product.id}`}>
-          <h3 className="line-clamp-2 min-h-[2.35rem] font-heading text-sm font-medium leading-tight text-charcoal luxury-transition group-hover:text-burgundy sm:text-base md:min-h-0 md:text-lg md:leading-snug">
+          <h3 className="line-clamp-2 min-h-[2rem] font-heading text-[13px] font-medium leading-tight text-charcoal luxury-transition group-hover:text-burgundy sm:text-base md:min-h-0 md:text-lg md:leading-snug">
             {product.title}
           </h3>
         </Link>
         <div className="flex items-center gap-2 pt-0.5">
-          <span className="font-body text-xs text-charcoal tracking-wide md:text-sm">
+          <span className="font-body text-[11px] text-charcoal tracking-wide md:text-sm">
             {isPreview ? 'Details pending' : formatPrice(product.price)}
           </span>
           {hasDiscount && (
-            <span className="font-body text-xs text-muted-foreground line-through md:text-sm">
+            <span className="font-body text-[11px] text-muted-foreground line-through md:text-sm">
               {formatPrice(product.compare_at_price)}
             </span>
           )}
@@ -274,7 +274,7 @@ export default function ProductCard({ product, index = 0 }) {
             Custom order
           </span>
         </div>
-        <div className="mt-2 flex items-center justify-between gap-2 border-t border-walnut/10 pt-2 md:mt-4 md:gap-3 md:pt-3">
+        <div className="mt-1.5 flex items-center justify-between gap-2 border-t border-walnut/10 pt-1.5 md:mt-4 md:gap-3 md:pt-3">
           <Link
             to={`/product/${product.id}?customize=1`}
             className="hidden min-h-11 items-center gap-2 px-1 text-[8px] uppercase tracking-[0.18em] text-walnut luxury-transition hover:text-charcoal sm:text-[9px] md:flex"
@@ -286,7 +286,7 @@ export default function ProductCard({ product, index = 0 }) {
             type="button"
             onClick={handleQuickAdd}
             disabled={adding || added || isOutOfStock || isPreview}
-            className="flex min-h-9 w-full items-center justify-center gap-1.5 border border-charcoal bg-charcoal px-2 text-center text-[7px] uppercase tracking-[0.12em] text-ivory luxury-transition hover:border-walnut hover:bg-walnut disabled:cursor-not-allowed disabled:opacity-55 sm:text-[8px] md:min-h-11 md:w-auto md:gap-2 md:px-4 md:text-[9px] md:tracking-[0.16em]"
+            className="flex min-h-8 w-full items-center justify-center gap-1.5 border border-charcoal bg-charcoal px-2 text-center text-[7px] uppercase tracking-[0.1em] text-ivory luxury-transition hover:border-walnut hover:bg-walnut disabled:cursor-not-allowed disabled:opacity-55 sm:text-[8px] md:min-h-11 md:w-auto md:gap-2 md:px-4 md:text-[9px] md:tracking-[0.16em]"
             aria-label={isPreview
               ? `${product.title} is a catalogue preview`
               : isOutOfStock ? `${product.title} is sold out` : `Add ${product.title} to bag`}

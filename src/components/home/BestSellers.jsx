@@ -56,7 +56,7 @@ export const selectApprovedPhotography = (items = []) => items
     )
   ));
 
-export const ensureCraftCoverage = (approvedItems = [], fallbackItems = [], limit = 12) => {
+export const ensureCraftCoverage = (approvedItems = [], fallbackItems = [], limit = 8) => {
   const selected = [];
   const selectedIds = new Set();
 
@@ -85,7 +85,7 @@ export const ensureCraftCoverage = (approvedItems = [], fallbackItems = [], limi
 };
 
 export default function BestSellers() {
-  const fallbackProducts = useMemo(() => ensureCraftCoverage(selectApprovedPhotography(LOCAL_PRODUCTS), LOCAL_PRODUCTS, 12), []);
+  const fallbackProducts = useMemo(() => ensureCraftCoverage(selectApprovedPhotography(LOCAL_PRODUCTS), LOCAL_PRODUCTS, 8), []);
   const [products, setProducts] = useState(fallbackProducts);
   const [loading, setLoading] = useState(true);
 
@@ -99,7 +99,7 @@ export default function BestSellers() {
     base44.entities.Product.list('-review_count', 40)
       .then((items) => {
         const approvedProducts = selectApprovedPhotography(items);
-        const craftProducts = ensureCraftCoverage(approvedProducts, LOCAL_PRODUCTS, 12);
+        const craftProducts = ensureCraftCoverage(approvedProducts, LOCAL_PRODUCTS, 8);
         setProducts(craftProducts.length > 0 ? craftProducts : fallbackProducts);
       })
       .catch(() => {
@@ -109,9 +109,9 @@ export default function BestSellers() {
   }, [fallbackProducts]);
 
   return (
-    <section className="home-section-sand border-y border-gold/10 py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16">
+    <section className="home-section-sand border-y border-gold/10 py-14 md:py-32">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-16">
           <SectionHeading
             title="Pieces photographed and ready"
             subtitle="The Poshkaar Edit"
@@ -129,7 +129,7 @@ export default function BestSellers() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 sm:gap-5 md:grid-cols-4 md:gap-8">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-5 md:grid-cols-4 md:gap-8">
             {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
               <div key={i} className="animate-pulse">
                 <div className="aspect-[3/4] bg-gold/10 mb-4 shimmer" />
@@ -140,7 +140,7 @@ export default function BestSellers() {
             ))}
           </div>
         ) : products.length > 0 ? (
-          <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-8 md:gap-y-14">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-4 md:gap-x-8 md:gap-y-14">
             {products.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -161,7 +161,7 @@ export default function BestSellers() {
           </div>
         )}
 
-        <div className="text-center mt-14 md:hidden">
+        <div className="text-center mt-9 md:hidden">
           <Link to="/collections/best-sellers">
             <LuxuryButton variant="gold" size="sm">
               View the Edit

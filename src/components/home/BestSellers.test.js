@@ -11,7 +11,7 @@ test('homepage edit includes the main Poshkaar craft categories', () => {
   const selected = ensureCraftCoverage(
     selectApprovedPhotography(LOCAL_PRODUCTS),
     LOCAL_PRODUCTS,
-    12,
+    8,
   );
 
   const groups = new Set(selected.map((product) => getCraftGroup(product)));

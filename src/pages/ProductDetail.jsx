@@ -244,6 +244,41 @@ function updateProductSeo(product) {
       url: pageUrl,
       priceCurrency: 'INR',
       itemCondition: 'https://schema.org/NewCondition',
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'IN',
+        },
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: Number(product.price) >= 15000 ? '0' : '500',
+          currency: 'INR',
+        },
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 1,
+            maxValue: 3,
+            unitCode: 'DAY',
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: 5,
+            maxValue: 7,
+            unitCode: 'DAY',
+          },
+        },
+      },
+      hasMerchantReturnPolicy: {
+        '@type': 'MerchantReturnPolicy',
+        applicableCountry: 'IN',
+        returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        merchantReturnDays: 15,
+        returnMethod: 'https://schema.org/ReturnByMail',
+        returnFees: 'https://schema.org/ReturnShippingFees',
+      },
     },
   };
 
@@ -921,7 +956,7 @@ export default function ProductDetail() {
         {related.length > 0 && (
           <div className="mt-16 border-t border-gold/10 pt-14 md:mt-24 md:pt-20">
             <SectionHeading title="You May Also Love" subtitle="Similar Pieces" className="mb-12" />
-            <div className="grid grid-cols-1 gap-x-5 gap-y-12 sm:grid-cols-2 md:grid-cols-4 md:gap-x-8 md:gap-y-14">
+            <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-8 md:gap-y-14">
               {related.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
             </div>
           </div>

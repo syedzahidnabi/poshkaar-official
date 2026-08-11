@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { EASE_LUXURY } from '@/lib/luxuryMotion';
 import { HOME_MEDIA } from '@/lib/homepageMedia';
@@ -82,49 +82,40 @@ export default function HeroSection() {
       <div className="hero-text-frame" aria-hidden="true" />
       <p className="hero-photo-credit">Photograph: {activeSlide.credit}</p>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(64svh-6rem)] w-full max-w-[1500px] items-end px-4 pb-8 md:min-h-[calc(100vh-8rem)] md:items-center md:px-12 md:pb-16 lg:px-16">
-        <AnimatePresence initial={false} mode="sync">
-          <motion.div
-            key={activeSlide.id}
-            className="hero-copy-stack"
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: reduceMotion ? 0 : -10 }}
-            transition={{ duration: reduceMotion ? 0.01 : 0.62, ease: EASE_LUXURY }}
+      <div className="relative z-10 mx-auto flex h-[calc(64svh-6rem)] min-h-[27rem] w-full max-w-[1500px] items-end px-4 pb-8 md:h-[calc(100vh-8rem)] md:min-h-[35rem] md:items-center md:px-12 md:pb-16 lg:px-16">
+        <div className="hero-copy-stack">
+          <p className="hero-kicker">{activeSlide.eyebrow}</p>
+
+          <h1
+            className="hero-cinematic-title hero-cinematic-title-clean font-heading text-ivory"
+            aria-label={activeSlide.title.join(' ')}
           >
-            <p className="hero-kicker">{activeSlide.eyebrow}</p>
+            {activeSlide.title.map((line) => (
+              <span key={line} className="hero-title-line" aria-hidden="true">
+                {line}
+              </span>
+            ))}
+          </h1>
 
-            <h1
-              className="hero-cinematic-title hero-cinematic-title-clean font-heading text-ivory"
-              aria-label={activeSlide.title.join(' ')}
-            >
-              {activeSlide.title.map((line) => (
-                <span key={line} className="hero-title-line" aria-hidden="true">
-                  {line}
-                </span>
-              ))}
-            </h1>
+          <p className="hero-plain-copy">{activeSlide.description}</p>
 
-            <p className="hero-plain-copy">{activeSlide.description}</p>
+          <div className="hero-actions">
+            <Link to="/collections" className="hero-primary-link">
+              Shop now
+              <ArrowRight size={15} aria-hidden="true" />
+            </Link>
+            <a href="https://wa.me/916006491824" target="_blank" rel="noopener noreferrer" className="hero-secondary-link">
+              WhatsApp
+              <MessageCircle size={15} aria-hidden="true" />
+            </a>
+          </div>
 
-            <div className="hero-actions">
-              <Link to="/collections" className="hero-primary-link">
-                Shop now
-                <ArrowRight size={15} aria-hidden="true" />
-              </Link>
-              <a href="https://wa.me/916006491824" target="_blank" rel="noopener noreferrer" className="hero-secondary-link">
-                WhatsApp
-                <MessageCircle size={15} aria-hidden="true" />
-              </a>
-            </div>
-
-            <ul className="hero-proof-row" aria-label="Poshkaar promises">
-              <li>Verified details</li>
-              <li>Secure checkout</li>
-              <li>Personal service</li>
-            </ul>
-          </motion.div>
-        </AnimatePresence>
+          <ul className="hero-proof-row" aria-label="Poshkaar promises">
+            <li>Verified details</li>
+            <li>Secure checkout</li>
+            <li>Personal service</li>
+          </ul>
+        </div>
       </div>
 
       <p className="sr-only" aria-live={shouldAutoplay ? 'off' : 'polite'}>

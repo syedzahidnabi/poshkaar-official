@@ -959,6 +959,8 @@
 
   .hero-carousel-image {
     will-change: opacity, transform;
+    backface-visibility: hidden;
+    transform-origin: center;
   }
 
   .hero-photo-credit {

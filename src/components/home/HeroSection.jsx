@@ -52,27 +52,34 @@ export default function HeroSection() {
       aria-roledescription="carousel"
       aria-label="Poshkaar Kashmir craft collection"
     >
-      <AnimatePresence initial={false} mode="sync">
-        <motion.img
-          key={activeSlide.id}
-          src={activeSlide.src}
-          width="1600"
-          height="1000"
-          alt={activeSlide.alt}
-          className="hero-cinematic-bg hero-carousel-image"
-          style={{
-            objectPosition: activeSlide.objectPosition,
-            '--hero-mobile-position': activeSlide.mobileObjectPosition,
-          }}
-          initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.035 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: reduceMotion ? 1 : 1.015 }}
-          transition={{ duration: reduceMotion ? 0.01 : 1.15, ease: EASE_LUXURY }}
-          loading={activeIndex === 0 ? 'eager' : 'lazy'}
-          fetchpriority={activeIndex === 0 ? 'high' : 'auto'}
-          decoding="async"
-        />
-      </AnimatePresence>
+      {HERO_SLIDES.map((slide, index) => {
+        const isActive = index === activeIndex;
+        return (
+          <motion.img
+            key={slide.id}
+            src={slide.src}
+            width="1600"
+            height="1000"
+            alt={isActive ? slide.alt : ''}
+            aria-hidden={!isActive}
+            className="hero-cinematic-bg hero-carousel-image"
+            style={{
+              objectPosition: slide.objectPosition,
+              '--hero-mobile-position': slide.mobileObjectPosition,
+              zIndex: isActive ? 2 : 1,
+            }}
+            initial={false}
+            animate={{
+              opacity: isActive ? 1 : 0,
+              scale: reduceMotion ? 1 : isActive ? 1.015 : 1.045,
+            }}
+            transition={{ duration: reduceMotion ? 0.01 : 1.65, ease: EASE_LUXURY }}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : 'auto'}
+            decoding="async"
+          />
+        );
+      })}
 
       <div className="absolute inset-0 bg-gradient-to-r from-black/74 via-black/32 to-black/10" aria-hidden="true" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/4 to-black/68" aria-hidden="true" />

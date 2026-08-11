@@ -52,34 +52,31 @@ export default function HeroSection() {
       aria-roledescription="carousel"
       aria-label="Poshkaar Kashmir craft collection"
     >
-      {HERO_SLIDES.map((slide, index) => {
-        const isActive = index === activeIndex;
-        return (
+      <AnimatePresence initial={false} mode="popLayout">
           <motion.img
-            key={slide.id}
-            src={slide.src}
+          key={activeSlide.id}
+          src={activeSlide.src}
             width="1600"
             height="1000"
-            alt={isActive ? slide.alt : ''}
-            aria-hidden={!isActive}
+          alt={activeSlide.alt}
             className="hero-cinematic-bg hero-carousel-image"
             style={{
-              objectPosition: slide.objectPosition,
-              '--hero-mobile-position': slide.mobileObjectPosition,
-              zIndex: isActive ? 2 : 1,
+            objectPosition: activeSlide.objectPosition,
+            '--hero-mobile-position': activeSlide.mobileObjectPosition,
             }}
-            initial={false}
+          initial={reduceMotion ? { opacity: 1, x: '0%' } : { opacity: 1, x: '100%', scale: 1 }}
             animate={{
-              opacity: isActive ? 1 : 0,
-              scale: reduceMotion ? 1 : 1.02,
+            opacity: 1,
+            x: '0%',
+              scale: 1,
             }}
-            transition={{ duration: reduceMotion ? 0.01 : 1.65, ease: EASE_LUXURY }}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            fetchpriority={index === 0 ? 'high' : 'auto'}
+          exit={reduceMotion ? { opacity: 0, x: '0%' } : { opacity: 1, x: '-100%', scale: 1 }}
+            transition={{ duration: reduceMotion ? 0.01 : 0.9, ease: EASE_LUXURY }}
+          loading={activeIndex === 0 ? 'eager' : 'lazy'}
+          fetchpriority={activeIndex === 0 ? 'high' : 'auto'}
             decoding="async"
           />
-        );
-      })}
+      </AnimatePresence>
 
       <div className="absolute inset-0 bg-gradient-to-r from-black/74 via-black/32 to-black/10" aria-hidden="true" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/4 to-black/68" aria-hidden="true" />

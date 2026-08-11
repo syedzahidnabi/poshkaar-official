@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { EASE_LUXURY } from '@/lib/luxuryMotion';
 import { HOME_MEDIA } from '@/lib/homepageMedia';
 
 const HERO_SLIDES = HOME_MEDIA.heroSlides;
-const AUTOPLAY_DELAY = 8000;
+const AUTOPLAY_DELAY = 4500;
 
 export default function HeroSection() {
   const reduceMotion = useReducedMotion();
@@ -48,7 +48,7 @@ export default function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="hero-cinematic hero-cinematic-clean hero-carousel relative min-h-screen overflow-hidden bg-charcoal pt-32 lg:min-h-[780px]"
+      className="hero-cinematic hero-cinematic-clean hero-carousel relative min-h-[82vh] overflow-hidden bg-charcoal pt-28 md:min-h-screen md:pt-32 lg:min-h-[780px]"
       aria-roledescription="carousel"
       aria-label="Poshkaar Kashmir craft collection"
     >
@@ -79,7 +79,7 @@ export default function HeroSection() {
       <div className="hero-text-frame" aria-hidden="true" />
       <p className="hero-photo-credit">Photograph: {activeSlide.credit}</p>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-8rem)] w-full max-w-[1500px] items-center px-6 pb-16 md:px-12 lg:px-16">
+      <div className="relative z-10 mx-auto flex min-h-[calc(82vh-7rem)] w-full max-w-[1500px] items-end px-4 pb-10 md:min-h-[calc(100vh-8rem)] md:items-center md:px-12 md:pb-16 lg:px-16">
         <AnimatePresence initial={false} mode="sync">
           <motion.div
             key={activeSlide.id}
@@ -106,12 +106,13 @@ export default function HeroSection() {
 
             <div className="hero-actions">
               <Link to="/collections" className="hero-primary-link">
-                Explore the collection
+                Shop now
                 <ArrowRight size={15} aria-hidden="true" />
               </Link>
-              <Link to="/journal/product-provenance" className="hero-secondary-link">
-                Read our approach
-              </Link>
+              <a href="https://wa.me/916006491824" target="_blank" rel="noopener noreferrer" className="hero-secondary-link">
+                WhatsApp
+                <MessageCircle size={15} aria-hidden="true" />
+              </a>
             </div>
 
             <ul className="hero-proof-row" aria-label="Poshkaar promises">

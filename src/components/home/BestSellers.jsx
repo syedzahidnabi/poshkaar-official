@@ -9,9 +9,18 @@ import LuxuryButton from '@/components/luxury/LuxuryButton';
 import { getProductPresentation } from '@/lib/catalogPresentation';
 import { LOCAL_PRODUCTS } from '@/lib/static-products';
 
-const CRAFT_EDIT_CATEGORIES = ['Walnut Wood', 'Papier Mâché', 'Copperware', 'Willow Wicker'];
+const CRAFT_EDIT_CATEGORIES = [
+  'Aari',
+  'Tilla',
+  'Dabka',
+  'Zari',
+  'Walnut Wood',
+  'Papier Mâché',
+  'Copperware',
+  'Willow Wicker',
+];
 
-const getCraftGroup = (product = {}) => {
+export const getCraftGroup = (product = {}) => {
   const searchable = [
     product.collection,
     product.category,
@@ -35,7 +44,7 @@ const getCraftGroup = (product = {}) => {
   return product.collection || product.category || product.craft || 'Other';
 };
 
-const selectApprovedPhotography = (items = []) => items
+export const selectApprovedPhotography = (items = []) => items
   .map((product) => getProductPresentation(product))
   .filter((product) => (
     product.image
@@ -47,27 +56,30 @@ const selectApprovedPhotography = (items = []) => items
     )
   ));
 
-const ensureCraftCoverage = (approvedItems = [], fallbackItems = [], limit = 12) => {
+export const ensureCraftCoverage = (approvedItems = [], fallbackItems = [], limit = 12) => {
   const selected = [];
   const selectedIds = new Set();
-  const addedGroups = new Set();
 
   const addProduct = (product) => {
     if (!product || selected.length >= limit || selectedIds.has(product.id)) return;
     selected.push(product);
     selectedIds.add(product.id);
-    addedGroups.add(getCraftGroup(product));
   };
 
-  approvedItems.forEach(addProduct);
+  const combinedItems = [...approvedItems, ...fallbackItems]
+    .map((product) => getProductPresentation(product))
+    .filter((product) => product.image && !/placeholder\.svg(?:\?.*)?$/i.test(product.image));
 
   CRAFT_EDIT_CATEGORIES.forEach((category) => {
-    if (selected.length >= limit || addedGroups.has(category)) return;
-    const craftProduct = [...approvedItems, ...fallbackItems].find((product) => getCraftGroup(product) === category && !selectedIds.has(product.id));
+    const craftProduct = combinedItems.find((product) => (
+      getCraftGroup(product) === category
+      && !selectedIds.has(product.id)
+    ));
     if (craftProduct) addProduct(craftProduct);
   });
 
-  [...approvedItems, ...fallbackItems].forEach(addProduct);
+  approvedItems.forEach(addProduct);
+  combinedItems.forEach(addProduct);
 
   return selected.slice(0, limit);
 };
@@ -103,7 +115,7 @@ export default function BestSellers() {
           <SectionHeading
             title="Pieces photographed and ready"
             subtitle="The Poshkaar Edit"
-            description="Only products with checked, real photographs appear in this edit. Selected craft pieces may be shown using studio previews until their photography is verified."
+            description="A balanced edit across Poshkaar crafts, from embroidery to walnut wood, papier mache, copperware and willow wicker."
             align="left"
             className="md:mb-0"
           />

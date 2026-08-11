@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
 import { EASE_LUXURY } from '@/lib/luxuryMotion';
@@ -42,9 +42,22 @@ const TIMELINE = [
   },
 ];
 
+const STEP_AUTOPLAY_DELAY = 3600;
+
 export default function HeritageTimeline() {
   const [active, setActive] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const item = TIMELINE[active];
+
+  useEffect(() => {
+    if (isPaused) return undefined;
+
+    const timer = window.setTimeout(() => {
+      setActive((current) => (current + 1) % TIMELINE.length);
+    }, STEP_AUTOPLAY_DELAY);
+
+    return () => window.clearTimeout(timer);
+  }, [active, isPaused]);
 
   return (
     <section className="relative overflow-hidden bg-charcoal py-14 text-ivory md:py-32" aria-labelledby="heritage-timeline-title">
@@ -66,7 +79,13 @@ export default function HeritageTimeline() {
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[0.48fr_0.52fr] lg:items-stretch">
+        <div
+          className="grid gap-6 lg:grid-cols-[0.48fr_0.52fr] lg:items-stretch"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocusCapture={() => setIsPaused(true)}
+          onBlurCapture={() => setIsPaused(false)}
+        >
           <div className="grid grid-cols-2 gap-3 lg:block lg:space-y-3" role="tablist" aria-label="Heritage timeline">
             {TIMELINE.map((step, index) => {
               const selected = active === index;
@@ -78,7 +97,10 @@ export default function HeritageTimeline() {
                   id={`heritage-tab-${index}`}
                   aria-controls="heritage-timeline-panel"
                   aria-selected={selected}
-                  onClick={() => setActive(index)}
+                  onClick={() => {
+                    setActive(index);
+                    setIsPaused(true);
+                  }}
                   className={`group min-h-[9.5rem] w-full border p-4 text-left luxury-transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold md:p-5 lg:min-h-0 ${
                     selected
                       ? 'border-gold/55 bg-ivory text-charcoal'

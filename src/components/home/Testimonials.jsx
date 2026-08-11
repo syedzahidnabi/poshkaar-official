@@ -57,11 +57,17 @@ export default function Testimonials() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-2 overflow-hidden border border-ivory/12 md:grid-cols-3 md:border-x-0">
           {PROMISES.map((promise, index) => (
             <motion.article
               key={promise.title}
-              className={`group relative border-b border-ivory/12 py-6 pr-3 odd:border-r odd:border-ivory/12 even:pl-3 md:border-b-0 md:border-r md:px-8 md:py-12 md:first:pl-0 md:last:border-r-0 md:last:pr-0 ${index === 2 ? 'col-span-2 md:col-span-1 md:border-r-0' : ''}`}
+              className={`group relative border-ivory/12 p-4 md:border-r md:px-8 md:py-12 md:first:pl-0 md:last:border-r-0 md:last:pr-0 ${
+                index === 0 ? 'border-r border-b md:border-b-0' : ''
+              } ${
+                index === 1 ? 'border-b md:border-b-0' : ''
+              } ${
+                index === 2 ? 'col-span-2 md:col-span-1' : ''
+              }`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce}

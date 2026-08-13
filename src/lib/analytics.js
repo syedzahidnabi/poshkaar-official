@@ -1,4 +1,4 @@
-export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim() || '';
+export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim() || 'G-P9ZL3YRLQ7';
 
 let initialized = false;
 

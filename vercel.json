@@ -6,6 +6,10 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
+      "source": "/merchant-feed.xml",
+      "destination": "/api/merchant-feed.xml"
+    },
+    {
       "source": "/:path((?!.*\\.).*)",
       "destination": "/index.html"
     }

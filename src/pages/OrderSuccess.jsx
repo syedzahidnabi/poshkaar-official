@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Check, Clock3, Package, ArrowRight } from 'lucide-react';
@@ -69,21 +69,21 @@ export default function OrderSuccess() {
             <span className="text-[10px] tracking-[0.2em] uppercase text-charcoal">What Happens Next</span>
           </div>
           <ul className="space-y-3 text-sm text-charcoal/70">
-            <li>• Keep your order number for support and order enquiries.</li>
+            <li>- Keep your order number for support and order enquiries.</li>
             {isPaymentPending ? (
               <>
-                <li>• We will match the submitted UPI reference with the payment.</li>
-                <li>• Your piece will be prepared after payment verification.</li>
+                <li>- We will match the submitted UPI reference with the payment.</li>
+                <li>- Your piece will be prepared after payment verification.</li>
               </>
             ) : (
               <>
-                {isWhatsappOrder && <li>• Send the WhatsApp message to confirm this order.</li>}
-                {isRazorpay && <li>• Payment is marked paid through Razorpay.</li>}
-                <li>• Our team will prepare your piece with care.</li>
+                {isWhatsappOrder && <li>- Send the WhatsApp message to confirm this order.</li>}
+                {isRazorpay && <li>- Payment is marked paid through Razorpay.</li>}
+                <li>- Our team will prepare your piece with care.</li>
               </>
             )}
-            <li>• We will notify you when your order ships.</li>
-            <li>• Estimated delivery after confirmation: 5–7 business days.</li>
+            <li>- We will notify you when your order ships.</li>
+            <li>- Estimated delivery after confirmation: 5-7 business days.</li>
           </ul>
         </div>
 
@@ -101,3 +101,6 @@ export default function OrderSuccess() {
     </main>
   );
 }
+
+
+

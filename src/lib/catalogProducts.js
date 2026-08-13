@@ -1,4 +1,4 @@
-const APPAREL_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'Custom'];
+﻿const APPAREL_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'Custom'];
 const ONE_SIZE = ['One Size'];
 const ORIGIN = 'Kashmir, India';
 const TEXTILE_CARE = 'Dry clean only. Store folded in a cool, dry place and keep away from direct sunlight.';
@@ -11,25 +11,25 @@ const craftCopy = {
   Aari: {
     material: 'Wool blend',
     collection: 'Aari Edit',
-    leadTime: 'Made to order in 10–14 business days',
+    leadTime: 'Made to order in 10-14 business days',
     description: 'A softly structured Kashmiri silhouette finished with flowing Aari embroidery. Designed for comfortable occasion wear, it can be made to your measurements through our custom order service.',
   },
   Tilla: {
     material: 'Velvet blend',
     collection: 'Tilla Edit',
-    leadTime: 'Made to order in 14–18 business days',
+    leadTime: 'Made to order in 14-18 business days',
     description: 'A refined Kashmiri ensemble enriched with metallic Tilla embroidery. The relaxed shape balances ceremonial detail with an easy, modern fit and can be customised to your measurements.',
   },
   Dabka: {
     material: 'Velvet blend',
     collection: 'Wedding Edit',
-    leadTime: 'Made to order in 18–24 business days',
+    leadTime: 'Made to order in 18-24 business days',
     description: 'An occasion ensemble finished with dimensional Dabka embroidery and a clean, elongated silhouette. Each piece is prepared to order and can be adjusted to your preferred measurements.',
   },
   Zari: {
     material: 'Wool blend',
     collection: 'Zari Edit',
-    leadTime: 'Made to order in 14–18 business days',
+    leadTime: 'Made to order in 14-18 business days',
     description: 'A graceful Kashmiri pheran detailed with antique-gold Zari embroidery. The restrained surface work and easy line make it suitable for celebrations, gifting and winter evenings.',
   },
 };
@@ -237,10 +237,10 @@ const makePapierProduct = ({
     slug: code,
     sku: `PKM-PAPIER-${String(number).padStart(2, '0')}`,
     title,
-    category: 'Papier Mâché',
-    collection: 'Papier Mâché',
+    category: 'Papier Mache',
+    collection: 'Papier Mache',
     embroidery_type: 'Naqashi Painting',
-    craft: 'Kashmiri Papier Mâché',
+    craft: 'Kashmiri Papier Mache',
     short_description: `${title}, shaped, lacquered and painted by hand in the Kashmiri naqashi tradition.`,
     description,
     price,
@@ -251,8 +251,8 @@ const makePapierProduct = ({
     colors: ['Hand-painted'],
     stock,
     stock_quantity: stock,
-    fabric: 'Papier mâché with hand-painted lacquer finish',
-    material: 'Papier mâché with hand-painted lacquer finish',
+    fabric: 'Papier mache with hand-painted lacquer finish',
+    material: 'Papier mache with hand-painted lacquer finish',
     origin: ORIGIN,
     care_instructions: PAPIER_CARE,
     lead_time: 'Dispatch timing is confirmed after current-piece photographs are approved',
@@ -272,7 +272,7 @@ const makePapierProduct = ({
     customization_label: 'Personalize painting',
     customization_prompt: 'Tell us your preferred colour, motif, inscription or gifting request.',
     craft_description: 'The form is prepared, smoothed and lacquered before fine naqashi patterns are painted by hand. Small differences are part of the craft.',
-    material_description: 'A lightweight papier-mâché base is sealed beneath painted and lacquered layers. The exact colour and surface are confirmed before dispatch.',
+    material_description: 'A lightweight papier-mache base is sealed beneath painted and lacquered layers. The exact colour and surface are confirmed before dispatch.',
     created_date: `2026-08-${String(number + 6).padStart(2, '0')}T12:00:00.000Z`,
   };
 };
@@ -486,7 +486,7 @@ const WALNUT_PRODUCTS = [
 const PAPIER_PRODUCTS = [
   makePapierProduct({
     number: 1,
-    title: 'Noor Chinar Papier-Mâché Keepsake Box',
+    title: 'Noor Chinar Papier-Mache Keepsake Box',
     price: 3800,
     size: '15 cm',
     stock: 5,
@@ -495,7 +495,7 @@ const PAPIER_PRODUCTS = [
   }),
   makePapierProduct({
     number: 2,
-    title: 'Saffron Garden Papier-Mâché Box Pair',
+    title: 'Saffron Garden Papier-Mache Box Pair',
     price: 5500,
     size: 'Set of 2',
     stock: 3,
@@ -503,7 +503,7 @@ const PAPIER_PRODUCTS = [
   }),
   makePapierProduct({
     number: 3,
-    title: 'Zoon Garden Papier-Mâché Floor Vase',
+    title: 'Zoon Garden Papier-Mache Floor Vase',
     price: 12500,
     size: '60 cm',
     stock: 2,
@@ -512,7 +512,7 @@ const PAPIER_PRODUCTS = [
   }),
   makePapierProduct({
     number: 4,
-    title: 'Guldaan Papier-Mâché Decorative Ewer',
+    title: 'Guldaan Papier-Mache Decorative Ewer',
     price: 8500,
     size: '45 cm',
     stock: 2,
@@ -520,7 +520,7 @@ const PAPIER_PRODUCTS = [
   }),
   makePapierProduct({
     number: 5,
-    title: 'Nigeen Miniature Papier-Mâché Trinket Box',
+    title: 'Nigeen Miniature Papier-Mache Trinket Box',
     price: 2800,
     size: '12 cm',
     stock: 6,
@@ -528,7 +528,7 @@ const PAPIER_PRODUCTS = [
   }),
   makePapierProduct({
     number: 6,
-    title: 'Chinar Garden Papier-Mâché Box Quartet',
+    title: 'Chinar Garden Papier-Mache Box Quartet',
     price: 7500,
     size: 'Set of 4',
     stock: 3,
@@ -592,3 +592,5 @@ export const CATALOG_PRODUCTS = [
 ];
 
 export const CATALOG_PRODUCT_COUNT = CATALOG_PRODUCTS.length;
+
+

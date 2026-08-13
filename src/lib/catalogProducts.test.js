@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';
+﻿import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
@@ -22,7 +22,7 @@ test('publishes six complete walnut-wood products', () => {
 });
 
 test('publishes six complete papier-mache products', () => {
-  const papierMache = CATALOG_PRODUCTS.filter((product) => product.category === 'Papier Mâché');
+  const papierMache = CATALOG_PRODUCTS.filter((product) => product.category === 'Papier Mache');
   assert.equal(papierMache.length, 6);
   assert.deepEqual(
     papierMache.map((product) => product.id),
@@ -83,3 +83,4 @@ test('every catalogue image and responsive primary image exists', () => {
     }
   }
 });
+

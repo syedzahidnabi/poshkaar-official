@@ -14,6 +14,7 @@ import CartDrawer from '@/components/luxury/CartDrawer';
 import LuxuryExperience from '@/components/luxury/LuxuryExperience';
 import AppErrorBoundary from '@/components/ui/AppErrorBoundary';
 import PageLoading from '@/components/ui/PageLoading';
+import Analytics from '@/components/ui/Analytics';
 
 // Page imports
 import Home from '@/pages/Home';
@@ -111,6 +112,7 @@ function App() {
       <QueryClientProvider client={queryClientInstance}>
         <CartProvider>
           <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+            <Analytics />
             <ScrollToTop />
             <LuxuryExperience />
             <AuthenticatedApp />

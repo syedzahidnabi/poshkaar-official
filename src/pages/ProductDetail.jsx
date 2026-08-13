@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router-dom';
 import { base44, hasConfiguredBackend } from '@/api/base44Client';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -48,6 +48,7 @@ import {
   removeWishlistItem,
   subscribeToWishlist,
 } from '@/lib/wishlist';
+import { productToAnalyticsItem, trackEvent } from '@/lib/analytics';
 import {
   Accordion,
   AccordionContent,
@@ -107,7 +108,7 @@ const getProductCraftSteps = (product) => {
     icon: MapPin,
     label: 'The Artisan',
     title: product.artisan_name || 'Maker details available on request',
-    text: product.artisan_story || 'We publish artisan names and biographies only with the maker’s permission and after the relationship has been verified.',
+    text: product.artisan_story || "We publish artisan names and biographies only with the maker's permission and after the relationship has been verified.",
   },
   {
     icon: Shield,
@@ -418,6 +419,13 @@ export default function ProductDetail() {
 
   useEffect(() => {
     updateProductSeo(product);
+    if (product?.id) {
+      trackEvent('view_item', {
+        currency: 'INR',
+        value: Number(product.price) || 0,
+        items: [productToAnalyticsItem(product)],
+      });
+    }
   }, [product]);
 
   useEffect(() => {
@@ -577,7 +585,7 @@ export default function ProductDetail() {
     notes: customNotes,
   });
   const customizationWhatsAppUrl = getWhatsAppOrderUrl(customizationMessage);
-  const isWearableProduct = !['Copperware', 'Walnut Wood', 'Papier Mâché', 'Willow Wicker'].includes(product.category);
+  const isWearableProduct = !['Copperware', 'Walnut Wood', 'Papier Mache', 'Willow Wicker'].includes(product.category);
 
   return (
     <main className="pb-32 pt-28 md:pb-24">
@@ -791,7 +799,7 @@ export default function ProductDetail() {
             )}
             {isOutOfStock && (
               <p className="mb-4 text-[10px] uppercase tracking-[0.16em] text-burgundy" role="status">
-                Sold out — contact our concierge for a made-to-order request
+                Sold out - contact our concierge for a made-to-order request
               </p>
             )}
 
@@ -844,7 +852,7 @@ export default function ProductDetail() {
                     <p className="mt-2 text-sm leading-6 text-charcoal/65">
                       {product.customization_prompt
                         || (isWearableProduct
-                          ? 'Add what you know. Empty fields are fine — our team can guide you on WhatsApp.'
+                          ? 'Add what you know. Empty fields are fine - our team can guide you on WhatsApp.'
                           : 'Share your preferred size, finish, inscription or gifting request. Our team will confirm what is possible.')}
                     </p>
 
@@ -928,7 +936,7 @@ export default function ProductDetail() {
                   Shipping and Delivery
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-charcoal/70 leading-relaxed pb-6">
-                  <p className="mb-2">Complimentary shipping on orders above ₹15,000.</p>
+                  <p className="mb-2">Complimentary shipping on orders above Rs 15,000.</p>
                   <p className="mb-2">Standard delivery: 5-7 business days across India.</p>
                   <p>International shipping: 10-15 business days.</p>
                 </AccordionContent>
@@ -1041,3 +1049,6 @@ export default function ProductDetail() {
     </main>
   );
 }
+
+
+

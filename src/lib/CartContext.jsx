@@ -6,6 +6,7 @@ import {
   removeCartItem,
   updateCartItemQuantity,
 } from '@/lib/commerce';
+import { productToAnalyticsItem, trackEvent } from '@/lib/analytics';
 
 const CartContext = createContext(null);
 const CART_STORAGE_KEY = 'poshkaar_cart_v1';
@@ -43,6 +44,11 @@ export function CartProvider({ children }) {
       image: normalizeImageList(product.images)[0] || '',
     };
     setItems((previousItems) => addCartItem(previousItems, cartProduct, size, color, quantity));
+    trackEvent('add_to_cart', {
+      currency: 'INR',
+      value: (Number(product.price) || 0) * Number(quantity || 1),
+      items: [productToAnalyticsItem(product, { size, color, quantity })],
+    });
     setIsOpen(true);
   }, []);
 

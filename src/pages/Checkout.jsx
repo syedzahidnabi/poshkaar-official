@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+﻿import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { AlertCircle, ChevronLeft, ChevronRight, Shield, Gift, MessageCircle } from 'lucide-react';
@@ -9,6 +9,7 @@ import LuxuryButton from '@/components/luxury/LuxuryButton';
 import { useToast } from '@/components/ui/use-toast';
 import { calculateCheckoutTotals, GIFT_WRAP_COST } from '@/lib/commerce';
 import { buildCheckoutWhatsAppMessage, getWhatsAppOrderUrl } from '@/lib/whatsappOrders';
+import { productToAnalyticsItem, trackEvent } from '@/lib/analytics';
 
 const RAZORPAY_KEY_ID = import.meta.env.VITE_RAZORPAY_KEY?.trim() || '';
 const hasRazorpayCheckout = Boolean(RAZORPAY_KEY_ID) && backendProvider === 'supabase';
@@ -211,6 +212,18 @@ export default function Checkout() {
 
   const continueToPayment = () => {
     if (!formRef.current?.reportValidity()) return;
+    trackEvent('begin_checkout', {
+      currency: 'INR',
+      value: total,
+      items: items.map((item) => productToAnalyticsItem({
+        ...item,
+        id: item.product_id,
+      }, {
+        size: item.size,
+        color: item.color,
+        quantity: item.quantity,
+      })),
+    });
     setStep(2);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -384,10 +397,38 @@ export default function Checkout() {
     }
 
     setSubmitting(true);
+    trackEvent('add_payment_info', {
+      currency: 'INR',
+      value: total,
+      payment_type: paymentMethod,
+      items: items.map((item) => productToAnalyticsItem({
+        ...item,
+        id: item.product_id,
+      }, {
+        size: item.size,
+        color: item.color,
+        quantity: item.quantity,
+      })),
+    });
 
     try {
       if (paymentMethod === 'razorpay') {
         const paidOrder = await completeRazorpayOrder();
+        trackEvent('purchase', {
+          transaction_id: paidOrder.orderNumber,
+          currency: 'INR',
+          value: total,
+          shipping,
+          payment_type: 'razorpay',
+          items: items.map((item) => productToAnalyticsItem({
+            ...item,
+            id: item.product_id,
+          }, {
+            size: item.size,
+            color: item.color,
+            quantity: item.quantity,
+          })),
+        });
         clearCart();
         const params = new URLSearchParams({
           order: paidOrder.orderNumber,
@@ -400,6 +441,12 @@ export default function Checkout() {
 
       if (paymentMethod === 'whatsapp_order') {
         const whatsappOrder = await completeWhatsAppOrder();
+        trackEvent('generate_lead', {
+          currency: 'INR',
+          value: total,
+          method: 'whatsapp_order',
+          transaction_id: whatsappOrder.orderNumber,
+        });
         clearCart();
         const params = new URLSearchParams({
           order: whatsappOrder.orderNumber,
@@ -421,6 +468,21 @@ export default function Checkout() {
       const createdOrder = await createCheckoutOrder(orderData);
       const confirmedOrderNumber = createdOrder.order_number || orderData.order_number;
       await notifyOrder(createdOrder, confirmedOrderNumber);
+      trackEvent('purchase', {
+        transaction_id: confirmedOrderNumber,
+        currency: 'INR',
+        value: total,
+        shipping,
+        payment_type: paymentMethod,
+        items: items.map((item) => productToAnalyticsItem({
+          ...item,
+          id: item.product_id,
+        }, {
+          size: item.size,
+          color: item.color,
+          quantity: item.quantity,
+        })),
+      });
       clearCart();
       const params = new URLSearchParams({
         order: confirmedOrderNumber,
@@ -775,3 +837,4 @@ export default function Checkout() {
     </main>
   );
 }
+

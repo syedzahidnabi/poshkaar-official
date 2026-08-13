@@ -13,6 +13,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>12500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-01</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -33,6 +35,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>13500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-02</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -53,6 +57,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>14500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-03</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -73,6 +79,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>14500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-04</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -93,6 +101,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>12500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-05</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -113,6 +123,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>12500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-06</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -133,6 +145,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>13500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-07</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -153,6 +167,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>14500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-08</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -173,6 +189,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>15500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-09</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -193,6 +211,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>15500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-AARI-10</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -213,6 +233,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>21500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-01</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -233,6 +255,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>19500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-02</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -253,6 +277,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>24500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-03</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -273,6 +299,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>22500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-04</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -293,6 +321,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>18500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-05</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -313,6 +343,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>22500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-06</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -333,6 +365,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>23500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-07</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -353,6 +387,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>24500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-08</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -373,6 +409,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>23500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-09</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -393,6 +431,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>22500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-TILLA-10</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -413,6 +453,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>22500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-DABKA-01</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -433,6 +475,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>21500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-DABKA-02</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -453,6 +497,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>19500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-DABKA-03</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -473,6 +519,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>24500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-DABKA-04</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -493,6 +541,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>25500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-DABKA-05</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -513,6 +563,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>23500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-DABKA-06</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -533,6 +585,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>21500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-DABKA-07</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -553,6 +607,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>19500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-ZARI-01</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -573,6 +629,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>18500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-ZARI-02</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -593,6 +651,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>8500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-COPPER-01</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -613,6 +673,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>6800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-COPPER-02</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -633,6 +695,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>5800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-COPPER-03</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -653,6 +717,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>7500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-COPPER-04</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -673,6 +739,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>18500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-COPPER-05</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -693,6 +761,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>9500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WALNUT-01</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -713,6 +783,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>6500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WALNUT-02</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -733,6 +805,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>12500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WALNUT-03</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -753,6 +827,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>8500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WALNUT-04</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -773,6 +849,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>5500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WALNUT-05</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -793,6 +871,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>2800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WALNUT-06</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -813,6 +893,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>3800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-PAPIER-01</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -833,6 +915,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>5500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-PAPIER-02</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -853,6 +937,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>12500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-PAPIER-03</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -873,6 +959,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>8500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-PAPIER-04</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -893,6 +981,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>2800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-PAPIER-05</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -913,6 +1003,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>7500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-PAPIER-06</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -933,6 +1025,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>3500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WILLOW-01</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -953,6 +1047,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>4800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WILLOW-02</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -973,6 +1069,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>4200.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WILLOW-03</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -993,6 +1091,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>2200.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WILLOW-04</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -1013,6 +1113,8 @@
       <g:availability>in_stock</g:availability>
       <g:price>3800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>PKM-WILLOW-05</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>

@@ -29,6 +29,10 @@ function shippingPrice(product) {
   return Number(product.price || 0) >= 15000 ? '0.00 INR' : '500.00 INR';
 }
 
+function hasValidPrice(product) {
+  return Number.isFinite(Number(product.price)) && Number(product.price) > 0;
+}
+
 function googleCategory(product) {
   const text = `${product.category || ''} ${product.craft || ''}`.toLowerCase();
   if (/(aari|tilla|dabka|zari|pheran|kurta|pashmina|shawl|bridal)/.test(text)) return 'Apparel & Accessories > Clothing';
@@ -50,6 +54,8 @@ function itemXml(product) {
       <g:availability>${availability(product)}</g:availability>
       <g:price>${Number(product.price || 0).toFixed(2)} INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
+      <g:mpn>${escapeXml(product.sku || product.id)}</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
       <g:shipping>
         <g:country>IN</g:country>
@@ -63,7 +69,11 @@ function itemXml(product) {
     </item>`;
 }
 
-const activeProducts = LOCAL_PRODUCTS.filter((product) => product?.published !== false && product?.status !== 'inactive');
+const activeProducts = LOCAL_PRODUCTS.filter((product) => (
+  product?.published !== false &&
+  product?.status !== 'inactive' &&
+  hasValidPrice(product)
+));
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">

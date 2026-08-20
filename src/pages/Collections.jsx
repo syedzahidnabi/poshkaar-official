@@ -22,11 +22,11 @@ const CATEGORIES = [
   'Kaftans',
   'Jackets',
   'Walnut Wood',
-  'Papier Mâché',
+  'Papier Mache',
   'Copperware',
   'Willow Wicker',
 ];
-const EMBROIDERY_TYPES = ['All', 'Sozni', 'Tilla', 'Aari', 'Dabka', 'Zari', 'Kashmiri Stitch', 'Calligraphy', 'Papier Mâché', 'Crewel', 'Chain Stitch'];
+const EMBROIDERY_TYPES = ['All', 'Sozni', 'Tilla', 'Aari', 'Dabka', 'Zari', 'Kashmiri Stitch', 'Calligraphy', 'Papier Mache', 'Crewel', 'Chain Stitch'];
 const SORT_OPTIONS = [
   { label: 'Newest', value: '-created_date' },
   { label: 'Price: Low to High', value: 'price' },
@@ -39,16 +39,106 @@ const SITE_URL = (import.meta.env.VITE_PUBLIC_SITE_URL || 'https://poshkaarkashm
 const COLLECTION_MAP = {
   'new-arrivals': { title: 'New Arrivals', subtitle: 'The Latest Edit', filter: { collection: 'New Arrivals' }, image: '/images/main-banner.jpg' },
   'bridal': { title: 'The Wedding Edit', subtitle: 'Wedding Collection', filter: { category: 'Bridal' }, image: '/images/home/pashmina-jamawar-shawl.jpeg' },
-  'pashmina': { title: 'Pashmina Heritage', subtitle: 'Textiles and Wraps', filter: { category: 'Pashmina' }, image: '/images/home/pashmina-sozni-jamawar.jpeg' },
+  'pashmina': {
+    title: 'Kashmiri Pashmina Shawls',
+    subtitle: 'Pure Pashmina, Sozni and Tilla Wraps',
+    filter: { category: 'Pashmina' },
+    image: '/images/home/pashmina-sozni-jamawar.jpeg',
+    seoTitle: 'Kashmiri Pashmina Shawls, Stoles and Wraps Online | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri Pashmina shawls, pashmina stoles, Sozni Pashmina, Tilla Pashmina wraps, bridal shawls and luxury handmade Kashmir textiles from Poshkaar Kashmir.',
+    intro: 'Explore Kashmiri Pashmina shawls, Pashmina stoles and soft winter wraps selected for drape, warmth, hand feel and craft clarity. Poshkaar Kashmir brings together Sozni embroidery, Tilla borders, bridal Pashmina pieces, gifting shawls and heirloom-style wraps with clear material, care and origin details.',
+    highlights: ['Kashmiri Pashmina shawls for women', 'Sozni Pashmina and Tilla Pashmina work', 'Luxury shawls, stoles, wraps and bridal trousseau gifts'],
+    keywords: ['Kashmiri Pashmina online', 'Pashmina shawl Kashmir', 'pure Pashmina shawl', 'Sozni Pashmina', 'Tilla Pashmina', 'Kashmir shawl for wedding', 'luxury Pashmina stole', 'hand embroidered Pashmina'],
+  },
   'best-sellers': { title: 'Best Sellers', subtitle: 'Signature Edit', filter: { is_bestseller: true }, image: '/images/main-banner.jpg' },
-  'aari': { title: 'Aari Embroidery', subtitle: 'Flowing Kashmiri Needlework', filter: { embroidery_type: 'Aari' }, image: '/images/products/aari/aari1-main.jpg' },
-  'tilla': { title: 'Tilla Embroidery', subtitle: 'Metallic Kashmiri Occasion Work', filter: { embroidery_type: 'Tilla' }, image: '/images/products/tilla/tilla1-main.jpg' },
-  'dabka': { title: 'Dabka Embroidery', subtitle: 'Dimensional Occasion Craft', filter: { embroidery_type: 'Dabka' }, image: '/images/products/dabka/dabka1-main.jpg' },
-  'zari': { title: 'Zari Embroidery', subtitle: 'Antique-Gold Surface Work', filter: { embroidery_type: 'Zari' }, image: '/images/products/zari/zari1-main.jpg' },
-  'walnut-wood': { title: 'Walnut Wood', subtitle: 'Carved Objects', filter: { category: 'Walnut Wood' }, image: '/images/products/walnut-wood/walnut1-main.jpg' },
-  'papier-mache': { title: 'Papier-Mâché', subtitle: 'Pattern and Colour', filter: { category: 'Papier Mâché' }, image: '/images/products/papier-mache/papier3-main.jpg' },
-  'copperware': { title: 'Copperware', subtitle: 'Warm Metal', filter: { category: 'Copperware' }, image: '/images/products/copperware/copper5-main.jpg' },
-  'willow-wicker': { title: 'Willow Wicker', subtitle: 'Natural Form', filter: { category: 'Willow Wicker' }, image: '/images/products/willow-wicker/willow2-main.jpg' },
+  'dabka': {
+    title: 'Kashmiri Dabka Work',
+    subtitle: 'Dimensional Occasion Embroidery',
+    filter: { embroidery_type: 'Dabka' },
+    image: '/images/products/dabka/dabka1-main.jpg',
+    seoTitle: 'Kashmiri Dabka Work Ensembles and Bridal Embroidery | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri Dabka work, dimensional embroidery ensembles, bridal pherans and occasion wear with raised metallic Kashmir handwork.',
+    intro: 'Explore Kashmiri Dabka work for bridal wear, festive ensembles and statement occasion clothing. Dabka embroidery brings raised metallic texture, floral placement and ceremonial depth to Kashmiri pherans, suits and custom outfits.',
+    highlights: ['Raised Kashmiri Dabka embroidery', 'Bridal and occasion ensembles', 'Metallic surface work with dimensional detail'],
+    keywords: ['Kashmiri Dabka work', 'Dabka embroidery', 'Dabka bridal wear', 'Kashmiri occasion wear', 'Dabka pheran', 'raised metallic embroidery', 'Kashmir festive outfit', 'hand embroidered bridal suit'],
+  },
+  'zari': {
+    title: 'Kashmiri Zari Work',
+    subtitle: 'Antique Gold Surface Embroidery',
+    filter: { embroidery_type: 'Zari' },
+    image: '/images/products/zari/zari1-main.jpg',
+    seoTitle: 'Kashmiri Zari Work Clothing and Embroidered Ensembles | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri Zari work, antique gold embroidery, festive pherans, suits and handmade Kashmir occasion wear from Poshkaar Kashmir.',
+    intro: 'Discover Kashmiri Zari work with antique gold accents, refined surface embroidery and rich occasion-ready silhouettes. This collection is for buyers searching for handmade Kashmir festive wear, embroidered suits, pherans and heirloom-inspired clothing.',
+    highlights: ['Kashmiri Zari embroidery and gold surface work', 'Festive pherans, suits and occasion pieces', 'Handmade Kashmir clothing with heirloom detail'],
+    keywords: ['Kashmiri Zari work', 'Zari embroidery Kashmir', 'gold embroidery pheran', 'Kashmiri festive wear', 'Zari work suit', 'antique gold embroidery', 'Kashmir occasion clothing', 'handmade embroidered outfit'],
+  },
+  'walnut-wood': {
+    title: 'Kashmiri Walnut Wood Carving',
+    subtitle: 'Hand Carved Walnut Wood Decor',
+    filter: { category: 'Walnut Wood' },
+    image: '/images/products/walnut-wood/walnut1-main.jpg',
+    seoTitle: 'Kashmiri Walnut Wood Carving and Handmade Decor | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri walnut wood carving, hand carved boxes, wall panels, clocks, combs and walnut wood home decor made with traditional Kashmir woodcraft.',
+    intro: 'Shop Kashmiri walnut wood carving made for homes that value natural grain, patient handwork and quiet luxury. This edit includes hand carved walnut boxes, keepsake boxes, wall panels, wooden clocks, decorative objects and small personal pieces shaped by Kashmir woodcraft traditions.',
+    highlights: ['Hand carved Kashmiri walnut wood decor', 'Walnut boxes, panels, clocks and keepsakes', 'Natural wood grain with floral and chinar-inspired carving'],
+    keywords: ['Kashmiri walnut wood carving', 'walnut wood decor Kashmir', 'hand carved walnut box', 'Kashmir wood carving online', 'walnut wall panel', 'wooden keepsake box', 'chinar walnut carving', 'luxury wooden home decor'],
+  },
+  'papier-mache': {
+    title: 'Kashmiri Papier Mache',
+    subtitle: 'Hand Painted Naqashi Decor',
+    filter: { category: 'Papier Mache' },
+    image: '/images/products/papier-mache/papier3-main.jpg',
+    seoTitle: 'Kashmiri Papier Mache Gifts, Boxes and Home Decor | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri Papier Mache boxes, hand painted Naqashi decor, vases, ewers and colorful Kashmir handicraft gifts from Poshkaar Kashmir.',
+    intro: 'Discover Kashmiri Papier Mache, also searched as Kashmir paper mache, papier mache boxes and hand painted Naqashi decor. Poshkaar Kashmir presents lacquered keepsake boxes, trinket boxes, decorative vases, ewers and colorful handmade gifts with traditional floral, chinar and garden-inspired patterns.',
+    highlights: ['Hand painted Kashmiri Papier Mache gifts', 'Naqashi boxes, vases, ewers and decorative objects', 'Colorful Kashmir handicrafts for home decor and gifting'],
+    keywords: ['Kashmiri Papier Mache', 'Kashmir paper mache', 'papier mache box Kashmir', 'hand painted Naqashi', 'Kashmiri handicrafts online', 'paper mache gifts', 'papier mache vase', 'Kashmir home decor'],
+  },
+  'copperware': {
+    title: 'Kashmiri Copperware',
+    subtitle: 'Naqashi Copper and Samovar Craft',
+    filter: { category: 'Copperware' },
+    image: '/images/products/copperware/copper5-main.jpg',
+    seoTitle: 'Kashmiri Copperware, Naqashi Copper and Samovar Sets | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri copperware, engraved Naqashi copper, samovar sets, bowls, ewers and copper home decor handcrafted in Kashmir.',
+    intro: 'Explore Kashmiri copperware with warm metal, engraved Naqashi patterns and heritage forms such as samovar sets, ewers, bowls, trays and keepsake boxes. Each copper piece is selected for finish, proportion, pattern detail and practical guidance before it reaches your home.',
+    highlights: ['Kashmiri copperware and engraved Naqashi copper', 'Samovar sets, bowls, ewers and home decor', 'Traditional Kashmir metal craft for gifting and interiors'],
+    keywords: ['Kashmiri copperware', 'Kashmir copper samovar', 'Naqashi copper', 'engraved copperware India', 'copper home decor', 'Kashmiri copper bowl', 'copper ewer Kashmir', 'handmade copper gifts'],
+  },
+  'willow-wicker': {
+    title: 'Kashmiri Willow Wicker',
+    subtitle: 'Handwoven Baskets and Home Objects',
+    filter: { category: 'Willow Wicker' },
+    image: '/images/products/willow-wicker/willow2-main.jpg',
+    seoTitle: 'Kashmiri Willow Wicker Baskets and Handwoven Decor | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri willow wicker baskets, picnic baskets, storage baskets, market baskets and handwoven Kashmir home decor from Poshkaar Kashmir.',
+    intro: 'Shop Kashmiri willow wicker baskets and handwoven home objects made with natural texture and everyday usefulness. This collection includes carry baskets, picnic baskets, lidded storage baskets, market baskets and small woven pieces that bring Kashmir craft into daily living.',
+    highlights: ['Kashmiri willow wicker baskets for home and gifting', 'Handwoven picnic, storage, carry and market baskets', 'Natural texture from traditional Kashmir willow craft'],
+    keywords: ['Kashmiri willow wicker', 'willow basket Kashmir', 'handwoven wicker basket', 'Kashmir basketry', 'willow picnic basket', 'wicker storage basket', 'handmade baskets India', 'natural home decor'],
+  },
+  'tilla': {
+    title: 'Kashmiri Tilla Work',
+    subtitle: 'Metallic Embroidery and Occasion Wear',
+    filter: { embroidery_type: 'Tilla' },
+    image: '/images/products/tilla/tilla1-main.jpg',
+    seoTitle: 'Kashmiri Tilla Work Suits, Pherans and Pashmina Wraps | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri Tilla work, Tilla embroidery suits, pherans, bridal ensembles and Pashmina wraps with metallic Kashmir handwork.',
+    intro: 'Browse Kashmiri Tilla work for weddings, festive dressing, bridal trousseau and refined occasion wear. Poshkaar Kashmir curates Tilla embroidery suits, Tilla pherans, metallic embroidered ensembles, Pashmina wraps and Kashmiri luxury clothing with clear product photographs and customization support.',
+    highlights: ['Kashmiri Tilla embroidery for women', 'Tilla suits, pherans, bridal ensembles and wraps', 'Metallic gold and silver work for weddings and festive wear'],
+    keywords: ['Kashmiri Tilla work', 'Tilla embroidery suit', 'Tilla pheran', 'Kashmiri bridal wear', 'Tilla Pashmina wrap', 'Kashmir wedding outfit', 'gold Tilla work', 'silver Tilla embroidery'],
+  },
+  'aari': {
+    title: 'Kashmiri Aari Work',
+    subtitle: 'Crewel Inspired Embroidery and Pherans',
+    filter: { embroidery_type: 'Aari' },
+    image: '/images/products/aari/aari1-main.jpg',
+    seoTitle: 'Kashmiri Aari Work Pherans, Kurtas and Embroidered Suits | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri Aari work, Aari embroidery pherans, kurtas, suits and handmade Kashmir clothing with floral embroidery from Poshkaar Kashmir.',
+    intro: 'Discover Kashmiri Aari work, known for flowing floral embroidery, rhythmic needlework and wearable Kashmiri silhouettes. This edit includes Aari pherans, Aari kurtas, embroidered suits and made-to-measure pieces for women who want Kashmir craft in modern daily and occasion wear.',
+    highlights: ['Kashmiri Aari embroidery and floral needlework', 'Aari pherans, kurtas, suits and custom outfits', 'Hand embroidered Kashmir clothing for everyday luxury'],
+    keywords: ['Kashmiri Aari work', 'Aari embroidery', 'Aari pheran', 'Kashmiri embroidered kurta', 'Aari work suit', 'Kashmir clothing online', 'hand embroidered pheran', 'Kashmiri floral embroidery'],
+  },
   'wedding-gifts': { title: 'Wedding Gifts', subtitle: 'For Meaningful Moments', filter: { collection: 'Wedding Gifts' }, image: '/images/home/pashmina-jamawar-shawl.jpeg' },
 };
 
@@ -72,9 +162,9 @@ function updateCanonical(href) {
   tag.setAttribute('href', href);
 }
 
-function updateCollectionSeo(slug, title, subtitle) {
-  const pageTitle = `${title} | Poshkaar Kashmir`;
-  const description = `${subtitle}. Explore Poshkaar Kashmir products with clear origin, material, care and availability information.`;
+function updateCollectionSeo(slug, title, subtitle, seo = {}) {
+  const pageTitle = seo.seoTitle || `${title} | Poshkaar Kashmir`;
+  const description = seo.seoDescription || `${subtitle}. Explore Poshkaar Kashmir products with clear origin, material, care and availability information.`;
   const canonicalUrl = `${SITE_URL}${slug ? `/collections/${slug}` : '/collections'}`;
 
   document.title = pageTitle;
@@ -161,13 +251,16 @@ export default function Collections() {
   const title = collectionInfo?.title || 'All Collections';
   const subtitle = collectionInfo?.subtitle || 'Discover';
   const heroImage = collectionInfo?.image;
+  const seoIntro = collectionInfo?.intro;
+  const seoHighlights = collectionInfo?.highlights || [];
+  const seoKeywords = collectionInfo?.keywords || [];
   const showCategoryNav = !collectionInfo?.filter?.category;
   const activeFilterCount = (category !== 'All' && showCategoryNav ? 1 : 0) + (embroidery !== 'All' ? 1 : 0);
 
   useEffect(() => {
     if (isUnknownCollection) return;
-    updateCollectionSeo(slug, title, subtitle);
-  }, [slug, title, subtitle, isUnknownCollection]);
+    updateCollectionSeo(slug, title, subtitle, collectionInfo);
+  }, [slug, title, subtitle, collectionInfo, isUnknownCollection]);
 
   if (isUnknownCollection) return <PageNotFound />;
 
@@ -181,6 +274,31 @@ export default function Collections() {
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-16 pt-8 md:pt-14 pb-16 md:pb-20">
+        {seoIntro && (
+          <section className="mb-8 border-b border-gold/10 pb-8 md:mb-10 md:pb-10" aria-labelledby="collection-seo-title">
+            <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
+              <div>
+                <p className="mb-3 text-[10px] uppercase tracking-[0.25em] text-gold">Shop by Kashmir craft</p>
+                <h2 id="collection-seo-title" className="font-heading text-3xl font-light leading-tight text-charcoal md:text-5xl">
+                  {title}
+                </h2>
+                <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground md:text-base">
+                  {seoIntro}
+                </p>
+              </div>
+
+              {seoHighlights.length > 0 && (
+                <div className="grid grid-cols-1 gap-3 self-end sm:grid-cols-3 lg:grid-cols-1">
+                  {seoHighlights.map((highlight) => (
+                    <div key={highlight} className="border border-gold/15 bg-sand/35 px-4 py-4">
+                      <p className="text-xs font-medium leading-5 text-charcoal">{highlight}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
         {/* Inline category navigation */}
         {showCategoryNav && (
           <div className="flex items-center gap-5 md:gap-7 overflow-x-auto no-scrollbar pb-1 mb-6">
@@ -338,6 +456,29 @@ export default function Collections() {
               Clear All Filters
             </button>
           </div>
+        )}
+
+        {seoKeywords.length > 0 && (
+          <section className="mt-14 border-t border-gold/10 pt-8 md:mt-18 md:pt-10" aria-label={`${title} related searches`}>
+            <div className="grid gap-5 md:grid-cols-[0.65fr_1.35fr] md:items-start">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.25em] text-gold">Related searches</p>
+                <h2 className="mt-3 font-heading text-2xl font-light text-charcoal md:text-3xl">
+                  Find this craft by the words buyers use.
+                </h2>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {seoKeywords.map((keyword) => (
+                  <span
+                    key={keyword}
+                    className="border border-gold/15 bg-ivory px-3 py-2 text-[11px] uppercase tracking-[0.12em] text-charcoal/70"
+                  >
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </section>
         )}
       </div>
     </main>

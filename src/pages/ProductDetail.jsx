@@ -279,6 +279,11 @@ function updateProductSeo(product) {
         merchantReturnDays: 15,
         returnMethod: 'https://schema.org/ReturnByMail',
         returnFees: 'https://schema.org/ReturnShippingFees',
+        returnShippingFeesAmount: {
+          '@type': 'MonetaryAmount',
+          value: '500',
+          currency: 'INR',
+        },
       },
     },
   };

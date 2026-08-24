@@ -1,5 +1,5 @@
 const CACHE_NAME = 'poshkaar-kashmir-v1';
-const APP_SHELL = ['/', '/site.webmanifest', '/images/poshkaar-mark.svg'];
+const APP_SHELL = ['/', '/favicon.ico', '/site.webmanifest', '/images/poshkaar-mark.svg'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));

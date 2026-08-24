@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-label="Poshkaar Kashmir">
+  <defs>
+    <linearGradient id="gold" x1="38" y1="20" x2="190" y2="224" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE78A"/>
+      <stop offset="0.32" stop-color="#D8A93C"/>
+      <stop offset="0.7" stop-color="#A87820"/>
+      <stop offset="1" stop-color="#E4BE61"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="260" fill="none"/>
+  <text x="116" y="187" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="198" font-weight="700" fill="url(#gold)" stroke="#7D5A19" stroke-width="2">P</text>
+  <path d="M78 70c24 7 44 20 59 39 9 11 15 24 19 38-19-23-41-34-66-33-12 10-20 23-24 37 15-7 29-10 42-7-25 13-44 32-56 58 5-46 13-90 26-132Z" fill="#F7F1E8" stroke="#B98928" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M81 97c18 6 32 18 42 35M71 123c16-1 31 5 45 17M62 154c17-6 32-6 47-2" fill="none" stroke="#B98928" stroke-width="4.5" stroke-linecap="round"/>
+  <text x="248" y="134" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" letter-spacing="6" fill="#1D1D1D">POSHKAAR</text>
+  <text x="252" y="184" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-style="italic" letter-spacing="6" fill="#1D1D1D">Kashm<tspan fill="#D2A33D">ir</tspan></text>
+</svg>

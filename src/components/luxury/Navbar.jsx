@@ -202,21 +202,33 @@ export default function Navbar() {
           </button>
 
           {/* Logo */}
-          <Link to="/" className="absolute left-1/2 -translate-x-1/2 text-center" aria-label="Poshkaar Kashmir home">
-            <span
-              className={`font-heading text-xl md:text-2xl tracking-[0.15em] uppercase luxury-transition font-medium ${
-                useLightNavText ? 'text-charcoal' : 'text-ivory'
-              }`}
-            >
-              Poshkaar
+          <Link
+            to="/"
+            className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2.5 text-center"
+            aria-label="Poshkaar Kashmir home"
+          >
+            <img
+              src="/images/poshkaar-p-mark.png"
+              alt=""
+              className="h-9 w-8 object-contain"
+              aria-hidden="true"
+            />
+            <span className="text-left">
+              <span
+                className={`block font-heading text-lg font-medium uppercase tracking-[0.14em] luxury-transition md:text-2xl ${
+                  useLightNavText ? 'text-charcoal' : 'text-ivory'
+                }`}
+              >
+                Poshkaar
+              </span>
+              <span
+                className={`block -mt-0.5 font-body text-[7px] uppercase tracking-[0.34em] luxury-transition ${
+                  showSolid ? 'text-gold' : 'text-champagne'
+                }`}
+              >
+                Kashmir
+              </span>
             </span>
-            <p
-              className={`text-[8px] tracking-[0.4em] uppercase font-body luxury-transition -mt-0.5 ${
-                showSolid ? 'text-gold' : 'text-champagne'
-              }`}
-            >
-              Kashmir
-            </p>
           </Link>
 
           {/* Right icons */}
@@ -285,13 +297,16 @@ export default function Navbar() {
               transition={{ duration: 0.5, ease: EASE_LUXURY }}
             >
               <div className="flex items-center justify-between p-6 border-b border-gold/10">
-                <div className="text-center">
-                  <span className="font-heading text-lg tracking-[0.15em] uppercase text-charcoal font-medium">
-                    Poshkaar
-                  </span>
-                  <p className="text-[7px] tracking-[0.4em] uppercase text-gold font-body -mt-0.5">
-                    Kashmir
-                  </p>
+                <div className="flex items-center gap-2.5">
+                  <img src="/images/poshkaar-p-mark.png" alt="" className="h-10 w-9 object-contain" aria-hidden="true" />
+                  <div className="text-left">
+                    <span className="block font-heading text-lg font-medium uppercase tracking-[0.15em] text-charcoal">
+                      Poshkaar
+                    </span>
+                    <p className="-mt-0.5 font-body text-[7px] uppercase tracking-[0.4em] text-gold">
+                      Kashmir
+                    </p>
+                  </div>
                 </div>
                 <button className="flex min-h-11 min-w-11 items-center justify-end" onClick={() => setMobileOpen(false)} aria-label="Close menu">
                   <X size={22} className="text-charcoal" />

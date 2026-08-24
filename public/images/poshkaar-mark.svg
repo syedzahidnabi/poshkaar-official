@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Poshkaar Kashmir">
+  <defs>
+    <linearGradient id="gold" x1="128" y1="70" x2="392" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE78A"/>
+      <stop offset="0.28" stop-color="#D8A93C"/>
+      <stop offset="0.58" stop-color="#A87820"/>
+      <stop offset="1" stop-color="#E4BE61"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="190" y1="64" x2="312" y2="245" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF6C4" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#FFF6C4" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#3B2A12" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="108" fill="#F7F1E8"/>
+  <rect x="28" y="28" width="456" height="456" rx="92" fill="none" stroke="#B18A45" stroke-width="10" opacity="0.45"/>
+  <g filter="url(#shadow)">
+    <text x="256" y="363" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="338" font-weight="700" fill="url(#gold)" stroke="#7D5A19" stroke-width="4">P</text>
+    <path d="M179 153c41 7 75 25 101 55 17 20 28 43 34 69-31-44-70-68-118-72-24 17-41 38-49 62 29-17 56-23 82-18-48 20-83 54-105 102 8-72 27-138 55-198Z" fill="#F7F1E8" opacity="0.96"/>
+    <path d="M175 151c38 11 69 31 92 60 13 17 23 36 29 57-31-38-66-56-104-54-18 16-31 34-38 55 23-11 45-15 65-11-38 20-66 49-84 88 8-69 22-134 40-195Z" fill="none" stroke="#B98928" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M183 193c29 9 50 27 64 54M169 232c23-2 45 6 66 25M151 282c25-9 48-10 70-3M141 324c26-19 55-30 87-33" fill="none" stroke="#B98928" stroke-width="7" stroke-linecap="round"/>
+    <path d="M227 218c-12 6-16 17-11 29 13 0 22-7 26-20m-62 46c-12 7-16 18-10 30 13-1 22-9 26-22m-39 43c-10 7-13 18-7 28 11-2 19-10 22-22" fill="none" stroke="#B98928" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M155 357c21-26 44-44 68-55" fill="none" stroke="#6C4B13" stroke-width="5" stroke-linecap="round" opacity="0.65"/>
+    <path d="M119 92h145c80 0 132 43 132 112 0 70-52 115-132 115h-49" fill="none" stroke="url(#shine)" stroke-width="14" stroke-linecap="round" opacity="0.58"/>
+  </g>
+</svg>

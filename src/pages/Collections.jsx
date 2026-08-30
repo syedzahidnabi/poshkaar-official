@@ -51,6 +51,14 @@ const COLLECTION_MAP = {
     intro: 'Explore Kashmiri Pashmina shawls, Pashmina stoles and soft winter wraps selected for drape, warmth, hand feel and craft clarity. Poshkaar Kashmir brings together Sozni embroidery, Tilla borders, bridal Pashmina pieces, gifting shawls and heirloom-style wraps with clear material, care and origin details.',
     highlights: ['Kashmiri Pashmina shawls for women', 'Sozni Pashmina and Tilla Pashmina work', 'Luxury shawls, stoles, wraps and bridal trousseau gifts'],
     keywords: ['Kashmiri Pashmina online', 'Pashmina shawl Kashmir', 'pure Pashmina shawl', 'Sozni Pashmina', 'Tilla Pashmina', 'Kashmir shawl for wedding', 'luxury Pashmina stole', 'hand embroidered Pashmina'],
+    guide: [
+      ['What buyers look for', 'A good Kashmiri Pashmina page should make material, drape, embroidery, warmth, care and gifting use easy to compare. Poshkaar Kashmir presents Pashmina shawls, stoles and wraps with product-level details so buyers can choose for winter wear, wedding gifting, bridal trousseau or heirloom use.'],
+      ['Popular searches this page answers', 'Kashmiri Pashmina shawl online, pure Pashmina Kashmir, Sozni Pashmina, Tilla Pashmina, luxury Pashmina stole, Kashmiri shawl for wedding, handmade Pashmina wrap and Kashmiri gift shawl.'],
+    ],
+    faqs: [
+      ['What is Kashmiri Pashmina?', 'Kashmiri Pashmina is valued for its soft hand feel, warmth and fine drape. Poshkaar Kashmir lists Pashmina pieces with material, embroidery, care and availability details.'],
+      ['Can I buy Kashmiri Pashmina online from Poshkaar Kashmir?', 'Yes. Browse available Pashmina shawls, stoles and wraps online, then contact Poshkaar Kashmir for sizing, gifting, care and delivery guidance.'],
+    ],
   },
   'best-sellers': { title: 'Best Sellers', subtitle: 'Signature Edit', filter: { is_bestseller: true }, image: '/images/main-banner.jpg' },
   'dabka': {
@@ -85,6 +93,14 @@ const COLLECTION_MAP = {
     intro: 'Shop Kashmiri walnut wood carving made for homes that value natural grain, patient handwork and quiet luxury. This edit includes hand carved walnut boxes, keepsake boxes, wall panels, wooden clocks, decorative objects and small personal pieces shaped by Kashmir woodcraft traditions.',
     highlights: ['Hand carved Kashmiri walnut wood decor', 'Walnut boxes, panels, clocks and keepsakes', 'Natural wood grain with floral and chinar-inspired carving'],
     keywords: ['Kashmiri walnut wood carving', 'walnut wood decor Kashmir', 'hand carved walnut box', 'Kashmir wood carving online', 'walnut wall panel', 'wooden keepsake box', 'chinar walnut carving', 'luxury wooden home decor'],
+    guide: [
+      ['What buyers look for', 'Kashmiri walnut wood carving is chosen for natural grain, carved depth, floral detail, chinar patterns and everyday function. Poshkaar Kashmir focuses on decor pieces, keepsake boxes, wall panels, clocks and small gifting objects with clear material and care guidance.'],
+      ['Popular searches this page answers', 'Kashmiri walnut wood carving, Kashmir wood carving online, hand carved walnut box, walnut wood home decor, Kashmiri wooden wall panel, carved walnut keepsake and chinar walnut carving.'],
+    ],
+    faqs: [
+      ['Why is Kashmiri walnut wood carving famous?', 'It is known for warm natural walnut grain and hand-carved floral or chinar-inspired detail, often used in boxes, panels, clocks and home decor.'],
+      ['How should walnut wood decor be cared for?', 'Keep walnut wood dry, dust it gently with a soft cloth and avoid direct sunlight, water and harsh polish unless product-specific care says otherwise.'],
+    ],
   },
   'papier-mache': {
     title: 'Kashmiri Papier Mache',
@@ -96,6 +112,14 @@ const COLLECTION_MAP = {
     intro: 'Discover Kashmiri Papier Mache, also searched as Kashmir paper mache, papier mache boxes and hand painted Naqashi decor. Poshkaar Kashmir presents lacquered keepsake boxes, trinket boxes, decorative vases, ewers and colorful handmade gifts with traditional floral, chinar and garden-inspired patterns.',
     highlights: ['Hand painted Kashmiri Papier Mache gifts', 'Naqashi boxes, vases, ewers and decorative objects', 'Colorful Kashmir handicrafts for home decor and gifting'],
     keywords: ['Kashmiri Papier Mache', 'Kashmir paper mache', 'papier mache box Kashmir', 'hand painted Naqashi', 'Kashmiri handicrafts online', 'paper mache gifts', 'papier mache vase', 'Kashmir home decor'],
+    guide: [
+      ['What buyers look for', 'Kashmiri Papier Mache is searched for hand-painted Naqashi patterns, colorful lacquer, gift boxes, trinket boxes, vases, decorative ewers and lightweight home decor. Poshkaar Kashmir groups these handmade Kashmir pieces with practical care and gifting context.'],
+      ['Popular searches this page answers', 'Kashmiri Papier Mache, Kashmir paper mache, papier mache box Kashmir, hand painted Naqashi, paper mache gifts, Kashmiri handicrafts online and Kashmir home decor.'],
+    ],
+    faqs: [
+      ['Is Kashmiri Papier Mache good for gifting?', 'Yes. Papier Mache boxes, vases and decorative objects are popular as wedding, festive, corporate and home gifts because they are colorful, handmade and easy to display.'],
+      ['How do I care for Papier Mache?', 'Keep Papier Mache away from water and humidity, dust gently with a soft dry cloth and avoid household cleaners or abrasive wiping.'],
+    ],
   },
   'copperware': {
     title: 'Kashmiri Copperware',
@@ -107,6 +131,14 @@ const COLLECTION_MAP = {
     intro: 'Explore Kashmiri copperware with warm metal, engraved Naqashi patterns and heritage forms such as samovar sets, ewers, bowls, trays and keepsake boxes. Each copper piece is selected for finish, proportion, pattern detail and practical guidance before it reaches your home.',
     highlights: ['Kashmiri copperware and engraved Naqashi copper', 'Samovar sets, bowls, ewers and home decor', 'Traditional Kashmir metal craft for gifting and interiors'],
     keywords: ['Kashmiri copperware', 'Kashmir copper samovar', 'Naqashi copper', 'engraved copperware India', 'copper home decor', 'Kashmiri copper bowl', 'copper ewer Kashmir', 'handmade copper gifts'],
+    guide: [
+      ['What buyers look for', 'Kashmiri copperware buyers often search for engraved Naqashi copper, samovar sets, copper bowls, ewers, trays, lidded dishes and wedding gifts. This page helps compare form, finish, use, patina and product care before purchase.'],
+      ['Popular searches this page answers', 'Kashmiri copperware, Kashmir copper samovar, Naqashi copper, engraved copperware India, copper home decor, Kashmiri copper bowl and handmade copper gifts.'],
+    ],
+    faqs: [
+      ['What is Kashmiri copperware used for?', 'Kashmiri copperware is used for tea service, serving, gifting and decorative display, especially samovars, bowls, ewers and engraved home objects.'],
+      ['Does copperware need special care?', 'Yes. Keep it dry, wipe with a soft cloth and avoid abrasives, dishwashers and acidic cleaners unless the exact product guidance says otherwise.'],
+    ],
   },
   'willow-wicker': {
     title: 'Kashmiri Willow Wicker',
@@ -118,6 +150,14 @@ const COLLECTION_MAP = {
     intro: 'Shop Kashmiri willow wicker baskets and handwoven home objects made with natural texture and everyday usefulness. This collection includes carry baskets, picnic baskets, lidded storage baskets, market baskets and small woven pieces that bring Kashmir craft into daily living.',
     highlights: ['Kashmiri willow wicker baskets for home and gifting', 'Handwoven picnic, storage, carry and market baskets', 'Natural texture from traditional Kashmir willow craft'],
     keywords: ['Kashmiri willow wicker', 'willow basket Kashmir', 'handwoven wicker basket', 'Kashmir basketry', 'willow picnic basket', 'wicker storage basket', 'handmade baskets India', 'natural home decor'],
+    guide: [
+      ['What buyers look for', 'Kashmiri willow wicker is searched for natural baskets, picnic baskets, market baskets, lidded storage, everyday home organization and handmade gifting. Poshkaar Kashmir presents woven pieces with size, use and care information.'],
+      ['Popular searches this page answers', 'Kashmiri willow wicker, willow basket Kashmir, handwoven wicker basket, Kashmir basketry, willow picnic basket, wicker storage basket, handmade baskets India and natural home decor.'],
+    ],
+    faqs: [
+      ['What makes Kashmiri willow wicker useful?', 'It combines natural texture with everyday function, making baskets useful for carrying, storage, display, gifting and home organization.'],
+      ['How should willow baskets be stored?', 'Keep willow wicker dry and ventilated, avoid soaking and prolonged direct sunlight, and do not overload beyond the intended use.'],
+    ],
   },
   'tilla': {
     title: 'Kashmiri Tilla Work',
@@ -129,6 +169,14 @@ const COLLECTION_MAP = {
     intro: 'Browse Kashmiri Tilla work for weddings, festive dressing, bridal trousseau and refined occasion wear. Poshkaar Kashmir curates Tilla embroidery suits, Tilla pherans, metallic embroidered ensembles, Pashmina wraps and Kashmiri luxury clothing with clear product photographs and customization support.',
     highlights: ['Kashmiri Tilla embroidery for women', 'Tilla suits, pherans, bridal ensembles and wraps', 'Metallic gold and silver work for weddings and festive wear'],
     keywords: ['Kashmiri Tilla work', 'Tilla embroidery suit', 'Tilla pheran', 'Kashmiri bridal wear', 'Tilla Pashmina wrap', 'Kashmir wedding outfit', 'gold Tilla work', 'silver Tilla embroidery'],
+    guide: [
+      ['What buyers look for', 'Kashmiri Tilla work is searched for metallic gold and silver embroidery, bridal pherans, Tilla suits, wedding outfits, festive ensembles and Pashmina wraps. Poshkaar Kashmir gives each piece a clear product record for fabric, size, customization and care.'],
+      ['Popular searches this page answers', 'Kashmiri Tilla work, Tilla embroidery suit, Tilla pheran, Kashmiri bridal wear, Tilla Pashmina wrap, Kashmir wedding outfit, gold Tilla work and silver Tilla embroidery.'],
+    ],
+    faqs: [
+      ['Is Tilla work suitable for weddings?', 'Yes. Kashmiri Tilla work is often chosen for bridal trousseau, wedding functions, festive wear and special occasion outfits.'],
+      ['Can Tilla outfits be customized?', 'Many Poshkaar Kashmir Tilla pieces can be discussed for measurements, color preferences and occasion requirements through the custom order flow.'],
+    ],
   },
   'aari': {
     title: 'Kashmiri Aari Work',
@@ -140,6 +188,14 @@ const COLLECTION_MAP = {
     intro: 'Discover Kashmiri Aari work, known for flowing floral embroidery, rhythmic needlework and wearable Kashmiri silhouettes. This edit includes Aari pherans, Aari kurtas, embroidered suits and made-to-measure pieces for women who want Kashmir craft in modern daily and occasion wear.',
     highlights: ['Kashmiri Aari embroidery and floral needlework', 'Aari pherans, kurtas, suits and custom outfits', 'Hand embroidered Kashmir clothing for everyday luxury'],
     keywords: ['Kashmiri Aari work', 'Aari embroidery', 'Aari pheran', 'Kashmiri embroidered kurta', 'Aari work suit', 'Kashmir clothing online', 'hand embroidered pheran', 'Kashmiri floral embroidery'],
+    guide: [
+      ['What buyers look for', 'Kashmiri Aari work is searched for floral embroidery, Aari pherans, embroidered kurtas, Aari suits, daily luxury clothing and made-to-measure Kashmiri outfits. This page connects those buyer searches to current Poshkaar Kashmir pieces.'],
+      ['Popular searches this page answers', 'Kashmiri Aari work, Aari embroidery, Aari pheran, Kashmiri embroidered kurta, Aari work suit, Kashmir clothing online, hand embroidered pheran and Kashmiri floral embroidery.'],
+    ],
+    faqs: [
+      ['What is Kashmiri Aari work?', 'Aari work is a flowing style of Kashmiri embroidery often used for floral patterns on pherans, kurtas, suits and occasion clothing.'],
+      ['Is Aari work good for daily wear?', 'Yes. Many Aari pieces are lighter and easier to wear than heavy bridal embroidery, making them useful for daily elegance and smaller occasions.'],
+    ],
   },
   'wedding-gifts': { title: 'Wedding Gifts', subtitle: 'For Meaningful Moments', filter: { collection: 'Wedding Gifts' }, image: '/images/home/pashmina-jamawar-shawl.jpeg' },
 };
@@ -233,7 +289,7 @@ function updateJsonLd(id, data) {
   script.textContent = JSON.stringify(data);
 }
 
-function updateCollectionStructuredData(slug, title, description, image, products, keywords) {
+function updateCollectionStructuredData(slug, title, description, image, products, keywords, faqs = []) {
   const pageUrl = `${SITE_URL}${slug ? `/collections/${slug}` : '/collections'}`;
   const schemaProducts = products
     .filter((product) => getProductSchemaName(product) && getProductSchemaPrice(product))
@@ -328,6 +384,18 @@ function updateCollectionStructuredData(slug, title, description, image, product
         numberOfItems: schemaProducts.length,
         itemListElement,
       },
+      ...(faqs.length > 0 ? [{
+        '@type': 'FAQPage',
+        '@id': `${pageUrl}#faq`,
+        mainEntity: faqs.map(([question, answer]) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer,
+          },
+        })),
+      }] : []),
     ],
   });
 }
@@ -409,6 +477,8 @@ export default function Collections() {
   const seoIntro = collectionInfo?.intro;
   const seoHighlights = collectionInfo?.highlights || [];
   const seoKeywords = collectionInfo?.keywords || [];
+  const seoGuide = collectionInfo?.guide || [];
+  const seoFaqs = collectionInfo?.faqs || [];
   const showCategoryNav = !collectionInfo?.filter?.category;
   const activeFilterCount = (category !== 'All' && showCategoryNav ? 1 : 0) + (embroidery !== 'All' ? 1 : 0);
 
@@ -422,8 +492,8 @@ export default function Collections() {
     const description = collectionInfo?.seoDescription
       || collectionInfo?.intro
       || `${subtitle}. Explore Poshkaar Kashmir products with clear origin, material, care and availability information.`;
-    updateCollectionStructuredData(slug, title, description, heroImage, products, seoKeywords);
-  }, [slug, title, subtitle, collectionInfo, heroImage, products, seoKeywords, loading, isUnknownCollection]);
+    updateCollectionStructuredData(slug, title, description, heroImage, products, seoKeywords, seoFaqs);
+  }, [slug, title, subtitle, collectionInfo, heroImage, products, seoKeywords, seoFaqs, loading, isUnknownCollection]);
 
   if (isUnknownCollection) return <PageNotFound />;
 
@@ -639,6 +709,42 @@ export default function Collections() {
                     {keyword}
                   </span>
                 ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {(seoGuide.length > 0 || seoFaqs.length > 0) && (
+          <section className="mt-12 border-t border-gold/10 pt-8 md:mt-16 md:pt-12" aria-labelledby="collection-guide-title">
+            <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-14">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.25em] text-gold">Buyer guide</p>
+                <h2 id="collection-guide-title" className="mt-3 font-heading text-3xl font-light leading-tight text-charcoal md:text-5xl">
+                  {title} guide
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                  Learn how to compare this Kashmiri craft by material, technique, use, care and product details before you buy.
+                </p>
+              </div>
+
+              <div className="space-y-7">
+                {seoGuide.map(([heading, body]) => (
+                  <article key={heading} className="border-b border-gold/10 pb-6">
+                    <h3 className="font-heading text-2xl font-light text-charcoal">{heading}</h3>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{body}</p>
+                  </article>
+                ))}
+
+                {seoFaqs.length > 0 && (
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    {seoFaqs.map(([question, answer]) => (
+                      <article key={question} className="border border-gold/15 bg-ivory p-5">
+                        <h3 className="font-heading text-xl font-light leading-snug text-charcoal">{question}</h3>
+                        <p className="mt-3 text-sm leading-6 text-muted-foreground">{answer}</p>
+                      </article>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </section>

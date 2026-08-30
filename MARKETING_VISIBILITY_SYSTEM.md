@@ -89,6 +89,53 @@ Hashtags:
 
 `#PoshkaarKashmir #poshkaarkashmir #KashmirCraft #KashmiriProducts #KashmiriHandicrafts #KashmiriPashmina #TillaWork #AariWork #PapierMache #WalnutWoodCarving #KashmiriCopperware #WillowWicker #KashmiriFashion #IndianLuxury #MadeInKashmir`
 
+## Daily Posting Queue For @posh__kaar
+
+Use one item per day. Post the same idea as an Instagram Reel or carousel, a Pinterest pin, a Google Business Profile update and a short YouTube Short caption where possible.
+
+| Day | Main keyword | Post angle | Caption starter |
+|---|---|---|---|
+| 1 | Poshkaar Kashmir | Brand introduction | Poshkaar Kashmir brings Kashmiri Pashmina, Tilla, Aari, Papier Mache, walnut wood, copperware and willow wicker into one curated place. |
+| 2 | Kashmiri Pashmina | Buying guide | Before buying a Kashmiri Pashmina shawl online, check material feel, embroidery, warmth, care and product photographs. |
+| 3 | Kashmiri Tilla work | Wedding outfit | Kashmiri Tilla work is loved for gold and silver metallic embroidery on pherans, suits, wraps and bridal pieces. |
+| 4 | Kashmiri Aari work | Everyday luxury | Kashmiri Aari work gives floral embroidery to pherans, kurtas and suits without feeling too heavy for daily elegance. |
+| 5 | Kashmiri Papier Mache | Gift idea | Kashmiri Papier Mache is one of the most searched handmade Kashmir gifts: painted boxes, vases and Naqashi decor. |
+| 6 | Kashmiri walnut wood carving | Home decor | Kashmiri walnut wood carving brings natural grain, chinar motifs and hand-carved detail into keepsake boxes and home decor. |
+| 7 | Kashmiri copperware | Heritage metal craft | Kashmiri copperware, Naqashi copper and samovar sets make strong wedding, home and festive gifts. |
+| 8 | Kashmiri willow wicker | Natural home objects | Kashmiri willow wicker baskets are useful for storage, gifting, picnic styling and everyday homes. |
+| 9 | Kashmiri bridal wear | Occasion collection | For Kashmiri bridal wear, compare Tilla, Dabka, Zari and Pashmina pieces by fabric, embroidery and customization. |
+| 10 | Kashmiri handicrafts online | Full category tour | Looking for Kashmiri handicrafts online? Poshkaar Kashmir curates Pashmina, embroidery, Papier Mache, walnut wood, copperware and willow wicker. |
+| 11 | Sozni Pashmina | Detail close-up | Sozni Pashmina is searched for fine needlework, soft drape and refined Kashmiri shawl detail. |
+| 12 | Tilla pheran | Product focus | A Kashmiri Tilla pheran works beautifully for winter weddings, festive visits and heirloom dressing. |
+| 13 | Aari pheran | Product focus | Aari pherans carry Kashmiri floral embroidery in wearable silhouettes for modern wardrobes. |
+| 14 | Papier Mache box | Gift product | A Kashmiri Papier Mache box is compact, handmade and easy to gift for weddings, festivals and keepsakes. |
+| 15 | Walnut wood box | Gift product | A hand carved walnut wood box from Kashmir is a lasting gift for jewellery, letters and meaningful objects. |
+| 16 | Copper samovar | Heritage object | The Kashmiri copper samovar remains one of the strongest symbols of Kashmir tea culture and gifting. |
+| 17 | Willow basket Kashmir | Lifestyle product | A willow basket from Kashmir brings natural texture to everyday storage, display and gifting. |
+| 18 | Kashmir clothing online | Apparel guide | When shopping Kashmir clothing online, compare embroidery type, fabric, sizing, customization and delivery support. |
+| 19 | Hand embroidered Pashmina | Craft trust | Hand embroidered Pashmina pieces should clearly show material, embroidery placement and care instructions. |
+| 20 | Kashmiri wedding gifts | Gift guide | Kashmiri wedding gifts can include Pashmina wraps, Tilla outfits, Papier Mache boxes, copperware and walnut wood decor. |
+| 21 | Naqashi copper | Detail education | Naqashi copperware is recognized by engraved floral, chinar and heritage pattern work on copper surfaces. |
+| 22 | Naqashi painting | Papier education | Kashmiri Naqashi painting gives Papier Mache its floral color, lacquered shine and collectible detail. |
+| 23 | Chinar motif | Kashmir design | The chinar motif appears across Kashmiri embroidery, walnut wood carving, Papier Mache and copperware. |
+| 24 | Luxury Kashmiri gifts | Premium positioning | Luxury Kashmiri gifts should feel personal, useful and well-documented: material, origin, care and availability matter. |
+| 25 | Custom Kashmiri outfit | Custom order | Poshkaar Kashmir helps with custom Kashmiri outfits, measurements, embroidery choices and occasion requirements. |
+| 26 | Kashmir home decor | Interior angle | Kashmir home decor can be quiet and useful: walnut wood, willow wicker, copperware and Papier Mache all bring craft into the home. |
+| 27 | Kashmiri festive wear | Occasion angle | Kashmiri festive wear includes Tilla, Aari, Dabka, Zari and embroidered Pashmina pieces for winter occasions. |
+| 28 | Handmade Kashmiri products | Trust angle | Handmade Kashmiri products need clear photographs, honest descriptions and simple care information before purchase. |
+| 29 | Poshkaar Kashmir reviews | Trust building | New buyers need confidence. Share product close-ups, packing, order updates, customer questions and delivery stories. |
+| 30 | Kashmiri products online | Conversion post | Browse current Kashmiri products online at poshkaarkashmir.com and message @posh__kaar for product, customization and delivery help. |
+
+Daily story sequence:
+
+1. Product close-up with the exact craft keyword.
+2. Short detail note: material, size, use or care.
+3. Poll or question box: `Need help choosing Kashmiri Pashmina, Tilla, Aari or gifts?`
+
+Weekly pinning rule:
+
+Pin every product image to Pinterest with this naming pattern before upload: `kashmiri-[craft]-[product]-poshkaar-kashmir.jpg`.
+
 ## Pinterest Board Plan
 
 Create these boards and pin every product to the matching board:

@@ -112,7 +112,7 @@ export default function Search() {
             <p className="text-[10px] text-muted-foreground tracking-wider mb-8">
               {results.length} piece{results.length !== 1 ? 's' : ''} found
             </p>
-            <div className="grid grid-cols-1 gap-x-5 gap-y-12 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-14 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-14 lg:grid-cols-4">
               {results.map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
               ))}

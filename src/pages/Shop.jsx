@@ -218,7 +218,7 @@ export default function Shop() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
+         <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
             {Array.from({ length: 8 }).map((_, index) => (
               <div key={index}>
                 <div className="mb-4 aspect-[3/4] bg-beige shimmer" />
@@ -229,7 +229,7 @@ export default function Shop() {
             ))}
           </div>
         ) : filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 gap-x-5 gap-y-12 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-14 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-14 lg:grid-cols-4">
             {filteredProducts.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}

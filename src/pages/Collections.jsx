@@ -35,6 +35,8 @@ const SORT_OPTIONS = [
 ];
 
 const SITE_URL = (import.meta.env.VITE_PUBLIC_SITE_URL || 'https://poshkaarkashmir.com').replace(/\/$/, '');
+const COLLECTION_SCHEMA_ID = 'poshkaar-collection-schema';
+const DEFAULT_SOCIAL_IMAGE = '/images/social/poshkaar-kashmir-og.png';
 
 const COLLECTION_MAP = {
   'new-arrivals': { title: 'New Arrivals', subtitle: 'The Latest Edit', filter: { collection: 'New Arrivals' }, image: '/images/main-banner.jpg' },
@@ -152,6 +154,12 @@ function updateMetaTag(attr, value, content) {
   tag.setAttribute('content', content);
 }
 
+function absoluteUrl(url) {
+  if (!url) return `${SITE_URL}${DEFAULT_SOCIAL_IMAGE}`;
+  if (/^https?:\/\//i.test(url)) return url;
+  return `${SITE_URL}${url.startsWith('/') ? url : `/${url}`}`;
+}
+
 function updateCanonical(href) {
   let tag = document.head.querySelector('link[rel="canonical"]');
   if (!tag) {
@@ -166,15 +174,114 @@ function updateCollectionSeo(slug, title, subtitle, seo = {}) {
   const pageTitle = seo.seoTitle || `${title} | Poshkaar Kashmir`;
   const description = seo.seoDescription || `${subtitle}. Explore Poshkaar Kashmir products with clear origin, material, care and availability information.`;
   const canonicalUrl = `${SITE_URL}${slug ? `/collections/${slug}` : '/collections'}`;
+  const socialImage = absoluteUrl(seo.image || DEFAULT_SOCIAL_IMAGE);
+  const keywords = [
+    'Poshkaar Kashmir',
+    'poshkaarkashmir',
+    'Kashmiri products online',
+    'Kashmir handicrafts',
+    ...(seo.keywords || []),
+  ].join(', ');
 
   document.title = pageTitle;
   updateCanonical(canonicalUrl);
   updateMetaTag('name', 'description', description);
+  updateMetaTag('name', 'keywords', keywords);
   updateMetaTag('property', 'og:title', pageTitle);
   updateMetaTag('property', 'og:description', description);
   updateMetaTag('property', 'og:url', canonicalUrl);
+  updateMetaTag('property', 'og:type', 'website');
+  updateMetaTag('property', 'og:image', socialImage);
+  updateMetaTag('property', 'og:image:alt', `${title} by Poshkaar Kashmir`);
   updateMetaTag('name', 'twitter:title', pageTitle);
   updateMetaTag('name', 'twitter:description', description);
+  updateMetaTag('name', 'twitter:image', socialImage);
+}
+
+function updateJsonLd(id, data) {
+  let script = document.head.querySelector(`script[data-schema-id="${id}"]`);
+  if (!script) {
+    script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.dataset.schemaId = id;
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(data);
+}
+
+function updateCollectionStructuredData(slug, title, description, image, products, keywords) {
+  const pageUrl = `${SITE_URL}${slug ? `/collections/${slug}` : '/collections'}`;
+  const itemListElement = products.slice(0, 24).map((product, index) => {
+    const productPath = product.slug || product.id;
+    return {
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${SITE_URL}/product/${productPath}`,
+      item: {
+        '@type': 'Product',
+        name: product.name,
+        image: absoluteUrl(product.images?.[0] || product.image_url || product.image),
+        url: `${SITE_URL}/product/${productPath}`,
+        brand: {
+          '@type': 'Brand',
+          name: 'Poshkaar Kashmir',
+        },
+        category: product.category || title,
+      },
+    };
+  });
+
+  updateJsonLd(COLLECTION_SCHEMA_ID, {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#collection`,
+        name: title,
+        description,
+        url: pageUrl,
+        image: absoluteUrl(image || DEFAULT_SOCIAL_IMAGE),
+        inLanguage: 'en-IN',
+        isPartOf: {
+          '@type': 'WebSite',
+          name: 'Poshkaar Kashmir',
+          url: `${SITE_URL}/`,
+        },
+        about: keywords?.length ? keywords : ['Kashmiri craft', 'Kashmir handicrafts', title],
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: `${SITE_URL}/`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Collections',
+            item: `${SITE_URL}/collections`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: title,
+            item: pageUrl,
+          },
+        ],
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${pageUrl}#products`,
+        name: `${title} products by Poshkaar Kashmir`,
+        numberOfItems: products.length,
+        itemListElement,
+      },
+    ],
+  });
 }
 
 function filterProducts(products, query, sortBy) {
@@ -261,6 +368,14 @@ export default function Collections() {
     if (isUnknownCollection) return;
     updateCollectionSeo(slug, title, subtitle, collectionInfo);
   }, [slug, title, subtitle, collectionInfo, isUnknownCollection]);
+
+  useEffect(() => {
+    if (isUnknownCollection || loading) return;
+    const description = collectionInfo?.seoDescription
+      || collectionInfo?.intro
+      || `${subtitle}. Explore Poshkaar Kashmir products with clear origin, material, care and availability information.`;
+    updateCollectionStructuredData(slug, title, description, heroImage, products, seoKeywords);
+  }, [slug, title, subtitle, collectionInfo, heroImage, products, seoKeywords, loading, isUnknownCollection]);
 
   if (isUnknownCollection) return <PageNotFound />;
 

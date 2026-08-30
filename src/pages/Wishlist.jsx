@@ -90,7 +90,7 @@ export default function Wishlist() {
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-x-5 gap-y-12 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-14 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-14 lg:grid-cols-4">
             {items.map((item, i) => (
               <motion.div
                 key={item.id}

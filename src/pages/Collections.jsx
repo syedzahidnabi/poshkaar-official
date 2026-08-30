@@ -294,44 +294,89 @@ function updateCollectionStructuredData(slug, title, description, image, product
   const schemaProducts = products
     .filter((product) => getProductSchemaName(product) && getProductSchemaPrice(product))
     .slice(0, 24);
-  const itemListElement = schemaProducts.map((product, index) => {
+  const productSchemas = schemaProducts.map((product) => {
     const productPath = product.slug || product.id;
     const productUrl = `${SITE_URL}/product/${productPath}`;
     const productImage = absoluteUrl(product.images?.[0] || product.image_url || product.image);
     const productName = getProductSchemaName(product);
     const productPrice = getProductSchemaPrice(product);
     return {
-      '@type': 'ListItem',
-      position: index + 1,
+      '@type': 'Product',
+      '@id': `${productUrl}#product`,
+      name: productName,
+      description: getProductSchemaDescription(product, title),
+      image: [productImage],
       url: productUrl,
-      item: {
-        '@type': 'Product',
-        '@id': `${productUrl}#product`,
-        name: productName,
-        description: getProductSchemaDescription(product, title),
-        image: productImage,
+      sku: product.sku || product.id,
+      mpn: product.sku || product.id,
+      brand: {
+        '@type': 'Brand',
+        name: 'Poshkaar Kashmir',
+      },
+      category: product.category || title,
+      offers: {
+        '@type': 'Offer',
+        '@id': `${productUrl}#offer`,
         url: productUrl,
-        sku: product.sku || product.id,
-        mpn: product.sku || product.id,
-        brand: {
-          '@type': 'Brand',
+        priceCurrency: 'INR',
+        price: productPrice,
+        availability: getProductSchemaAvailability(product),
+        itemCondition: 'https://schema.org/NewCondition',
+        seller: {
+          '@type': 'Organization',
           name: 'Poshkaar Kashmir',
+          url: `${SITE_URL}/`,
         },
-        category: product.category || title,
-        offers: {
-          '@type': 'Offer',
-          url: productUrl,
-          priceCurrency: 'INR',
-          price: productPrice,
-          availability: getProductSchemaAvailability(product),
-          itemCondition: 'https://schema.org/NewCondition',
-          seller: {
-            '@type': 'Organization',
-            name: 'Poshkaar Kashmir',
-            url: `${SITE_URL}/`,
+        shippingDetails: {
+          '@type': 'OfferShippingDetails',
+          shippingDestination: {
+            '@type': 'DefinedRegion',
+            addressCountry: 'IN',
+          },
+          shippingRate: {
+            '@type': 'MonetaryAmount',
+            value: Number(productPrice) >= 15000 ? '0' : '500',
+            currency: 'INR',
+          },
+          deliveryTime: {
+            '@type': 'ShippingDeliveryTime',
+            handlingTime: {
+              '@type': 'QuantitativeValue',
+              minValue: 1,
+              maxValue: 3,
+              unitCode: 'DAY',
+            },
+            transitTime: {
+              '@type': 'QuantitativeValue',
+              minValue: 5,
+              maxValue: 7,
+              unitCode: 'DAY',
+            },
+          },
+        },
+        hasMerchantReturnPolicy: {
+          '@type': 'MerchantReturnPolicy',
+          applicableCountry: 'IN',
+          returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+          merchantReturnDays: 15,
+          returnMethod: 'https://schema.org/ReturnByMail',
+          returnFees: 'https://schema.org/ReturnShippingFees',
+          returnShippingFeesAmount: {
+            '@type': 'MonetaryAmount',
+            value: '500',
+            currency: 'INR',
           },
         },
       },
+    };
+  });
+  const itemListElement = productSchemas.map((productSchema, index) => {
+    return {
+      '@type': 'ListItem',
+      position: index + 1,
+      name: productSchema.name,
+      url: productSchema.url,
+      item: productSchema['@id'],
     };
   });
 
@@ -384,6 +429,7 @@ function updateCollectionStructuredData(slug, title, description, image, product
         numberOfItems: schemaProducts.length,
         itemListElement,
       },
+      ...productSchemas,
       ...(faqs.length > 0 ? [{
         '@type': 'FAQPage',
         '@id': `${pageUrl}#faq`,

@@ -160,6 +160,30 @@ function absoluteUrl(url) {
   return `${SITE_URL}${url.startsWith('/') ? url : `/${url}`}`;
 }
 
+function getProductSchemaName(product) {
+  return product.title || product.name || product.product_name || product.slug || product.id || 'Poshkaar Kashmir product';
+}
+
+function getProductSchemaDescription(product, fallbackTitle) {
+  return product.description
+    || product.short_description
+    || `${getProductSchemaName(product)} from ${fallbackTitle} at Poshkaar Kashmir.`;
+}
+
+function getProductSchemaPrice(product) {
+  const price = Number(product.price || product.sale_price || product.compare_at_price);
+  return Number.isFinite(price) && price > 0 ? price.toFixed(2) : null;
+}
+
+function getProductSchemaAvailability(product) {
+  const quantity = Number(product.stock_quantity ?? product.stock);
+  if (Number.isFinite(quantity)) {
+    return quantity > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock';
+  }
+  if (product.availability) return product.availability;
+  return 'https://schema.org/InStock';
+}
+
 function updateCanonical(href) {
   let tag = document.head.querySelector('link[rel="canonical"]');
   if (!tag) {
@@ -211,22 +235,46 @@ function updateJsonLd(id, data) {
 
 function updateCollectionStructuredData(slug, title, description, image, products, keywords) {
   const pageUrl = `${SITE_URL}${slug ? `/collections/${slug}` : '/collections'}`;
-  const itemListElement = products.slice(0, 24).map((product, index) => {
+  const schemaProducts = products
+    .filter((product) => getProductSchemaName(product) && getProductSchemaPrice(product))
+    .slice(0, 24);
+  const itemListElement = schemaProducts.map((product, index) => {
     const productPath = product.slug || product.id;
+    const productUrl = `${SITE_URL}/product/${productPath}`;
+    const productImage = absoluteUrl(product.images?.[0] || product.image_url || product.image);
+    const productName = getProductSchemaName(product);
+    const productPrice = getProductSchemaPrice(product);
     return {
       '@type': 'ListItem',
       position: index + 1,
-      url: `${SITE_URL}/product/${productPath}`,
+      url: productUrl,
       item: {
         '@type': 'Product',
-        name: product.name,
-        image: absoluteUrl(product.images?.[0] || product.image_url || product.image),
-        url: `${SITE_URL}/product/${productPath}`,
+        '@id': `${productUrl}#product`,
+        name: productName,
+        description: getProductSchemaDescription(product, title),
+        image: productImage,
+        url: productUrl,
+        sku: product.sku || product.id,
+        mpn: product.sku || product.id,
         brand: {
           '@type': 'Brand',
           name: 'Poshkaar Kashmir',
         },
         category: product.category || title,
+        offers: {
+          '@type': 'Offer',
+          url: productUrl,
+          priceCurrency: 'INR',
+          price: productPrice,
+          availability: getProductSchemaAvailability(product),
+          itemCondition: 'https://schema.org/NewCondition',
+          seller: {
+            '@type': 'Organization',
+            name: 'Poshkaar Kashmir',
+            url: `${SITE_URL}/`,
+          },
+        },
       },
     };
   });
@@ -277,7 +325,7 @@ function updateCollectionStructuredData(slug, title, description, image, product
         '@type': 'ItemList',
         '@id': `${pageUrl}#products`,
         name: `${title} products by Poshkaar Kashmir`,
-        numberOfItems: products.length,
+        numberOfItems: schemaProducts.length,
         itemListElement,
       },
     ],

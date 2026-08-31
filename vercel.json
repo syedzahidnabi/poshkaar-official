@@ -6,6 +6,17 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.poshkaarkashmir.com"
+        }
+      ],
+      "destination": "https://poshkaarkashmir.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

@@ -291,92 +291,29 @@ function updateJsonLd(id, data) {
 
 function updateCollectionStructuredData(slug, title, description, image, products, keywords, faqs = []) {
   const pageUrl = `${SITE_URL}${slug ? `/collections/${slug}` : '/collections'}`;
-  const schemaProducts = products
-    .filter((product) => getProductSchemaName(product) && getProductSchemaPrice(product))
+  const listedProducts = products
+    .filter((product) => getProductSchemaName(product))
     .slice(0, 24);
-  const productSchemas = schemaProducts.map((product) => {
+  const itemListElement = listedProducts.map((product, index) => {
     const productPath = product.slug || product.id;
     const productUrl = `${SITE_URL}/product/${productPath}`;
     const productImage = absoluteUrl(product.images?.[0] || product.image_url || product.image);
     const productName = getProductSchemaName(product);
     const productPrice = getProductSchemaPrice(product);
     return {
-      '@type': 'Product',
-      '@id': `${productUrl}#product`,
-      name: productName,
-      description: getProductSchemaDescription(product, title),
-      image: [productImage],
-      url: productUrl,
-      sku: product.sku || product.id,
-      mpn: product.sku || product.id,
-      brand: {
-        '@type': 'Brand',
-        name: 'Poshkaar Kashmir',
-      },
-      category: product.category || title,
-      offers: {
-        '@type': 'Offer',
-        '@id': `${productUrl}#offer`,
-        url: productUrl,
-        priceCurrency: 'INR',
-        price: productPrice,
-        availability: getProductSchemaAvailability(product),
-        itemCondition: 'https://schema.org/NewCondition',
-        seller: {
-          '@type': 'Organization',
-          name: 'Poshkaar Kashmir',
-          url: `${SITE_URL}/`,
-        },
-        shippingDetails: {
-          '@type': 'OfferShippingDetails',
-          shippingDestination: {
-            '@type': 'DefinedRegion',
-            addressCountry: 'IN',
-          },
-          shippingRate: {
-            '@type': 'MonetaryAmount',
-            value: Number(productPrice) >= 15000 ? '0' : '500',
-            currency: 'INR',
-          },
-          deliveryTime: {
-            '@type': 'ShippingDeliveryTime',
-            handlingTime: {
-              '@type': 'QuantitativeValue',
-              minValue: 1,
-              maxValue: 3,
-              unitCode: 'DAY',
-            },
-            transitTime: {
-              '@type': 'QuantitativeValue',
-              minValue: 5,
-              maxValue: 7,
-              unitCode: 'DAY',
-            },
-          },
-        },
-        hasMerchantReturnPolicy: {
-          '@type': 'MerchantReturnPolicy',
-          applicableCountry: 'IN',
-          returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-          merchantReturnDays: 15,
-          returnMethod: 'https://schema.org/ReturnByMail',
-          returnFees: 'https://schema.org/ReturnShippingFees',
-          returnShippingFeesAmount: {
-            '@type': 'MonetaryAmount',
-            value: '500',
-            currency: 'INR',
-          },
-        },
-      },
-    };
-  });
-  const itemListElement = productSchemas.map((productSchema, index) => {
-    return {
       '@type': 'ListItem',
       position: index + 1,
-      name: productSchema.name,
-      url: productSchema.url,
-      item: productSchema['@id'],
+      name: productName,
+      url: productUrl,
+      item: {
+        '@type': 'WebPage',
+        '@id': `${productUrl}#webpage`,
+        name: productName,
+        url: productUrl,
+        image: productImage,
+        description: getProductSchemaDescription(product, title),
+        ...(productPrice ? { offers: `From INR ${productPrice}` } : {}),
+      },
     };
   });
 
@@ -426,10 +363,9 @@ function updateCollectionStructuredData(slug, title, description, image, product
         '@type': 'ItemList',
         '@id': `${pageUrl}#products`,
         name: `${title} products by Poshkaar Kashmir`,
-        numberOfItems: schemaProducts.length,
+        numberOfItems: listedProducts.length,
         itemListElement,
       },
-      ...productSchemas,
       ...(faqs.length > 0 ? [{
         '@type': 'FAQPage',
         '@id': `${pageUrl}#faq`,

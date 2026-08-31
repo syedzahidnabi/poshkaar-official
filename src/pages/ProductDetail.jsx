@@ -208,7 +208,10 @@ function updateCanonical(href) {
 function updateProductSeo(product) {
   const title = product ? `${product.title} | Poshkaar Kashmir` : DEFAULT_TITLE;
   const description = product?.short_description || product?.description || DEFAULT_DESCRIPTION;
-  const imageUrl = toAbsoluteUrl(normalizeImageList(product?.images, [DEFAULT_PRODUCT_IMAGE])[0] || DEFAULT_PRODUCT_IMAGE);
+  const imageUrls = normalizeImageList(product?.images, [DEFAULT_PRODUCT_IMAGE])
+    .filter(Boolean)
+    .map((image) => toAbsoluteUrl(image));
+  const imageUrl = imageUrls[0] || toAbsoluteUrl(DEFAULT_PRODUCT_IMAGE);
   const pageUrl = product?.id ? `${SITE_URL}/product/${product.id}` : `${SITE_URL}/`;
 
   document.title = title;
@@ -232,19 +235,33 @@ function updateProductSeo(product) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    '@id': `${pageUrl}#product`,
     name: product.title,
     description,
-    image: imageUrl,
+    image: imageUrls.length > 0 ? imageUrls : [imageUrl],
+    url: pageUrl,
     sku: product.sku || product.id,
+    mpn: product.sku || product.id,
+    category: product.category || product.collection || 'Kashmiri handicraft',
     brand: {
       '@type': 'Brand',
       name: 'Poshkaar Kashmir',
     },
     offers: {
       '@type': 'Offer',
+      '@id': `${pageUrl}#offer`,
       url: pageUrl,
       priceCurrency: 'INR',
+      price: Number.isFinite(Number(product.price)) ? Number(product.price).toString() : '0',
+      availability: product.stock_quantity !== null && product.stock_quantity !== undefined && product.stock_quantity !== ''
+        ? (Number(product.stock_quantity) > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock')
+        : 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
+      seller: {
+        '@type': 'Organization',
+        name: 'Poshkaar Kashmir',
+        url: `${SITE_URL}/`,
+      },
       shippingDetails: {
         '@type': 'OfferShippingDetails',
         shippingDestination: {
@@ -287,15 +304,6 @@ function updateProductSeo(product) {
       },
     },
   };
-
-  if (product.price !== null && product.price !== undefined && Number.isFinite(Number(product.price))) {
-    schema.offers.price = Number(product.price).toString();
-  }
-  if (product.stock_quantity !== null && product.stock_quantity !== undefined && product.stock_quantity !== '') {
-    schema.offers.availability = Number(product.stock_quantity) > 0
-      ? 'https://schema.org/InStock'
-      : 'https://schema.org/OutOfStock';
-  }
 
   // Add aggregateRating and reviews when available
   const ratingValue = product.rating ?? product.average_rating ?? null;

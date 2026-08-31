@@ -26,10 +26,6 @@ function shippingPrice(product) {
   return Number(product.price || 0) >= 15000 ? '0.00 INR' : '500.00 INR';
 }
 
-function hasValidPrice(product) {
-  return Number.isFinite(Number(product.price)) && Number(product.price) > 0;
-}
-
 function googleCategory(product) {
   const text = `${product.category || ''} ${product.craft || ''}`.toLowerCase();
   if (/(aari|tilla|dabka|zari|pheran|kurta|pashmina|shawl|bridal)/.test(text)) return 'Apparel & Accessories > Clothing';
@@ -38,22 +34,39 @@ function googleCategory(product) {
   return 'Apparel & Accessories';
 }
 
+function isWearable(product) {
+  const text = `${product.category || ''} ${product.collection || ''} ${product.craft || ''}`.toLowerCase();
+  return /(aari|tilla|dabka|zari|pheran|kurta|pashmina|shawl|bridal|stole|wrap|clothing)/.test(text);
+}
+
+function optionalTag(name, value) {
+  if (value === null || value === undefined || value === '') return '';
+  if (Array.isArray(value) && value.length === 0) return '';
+  return `\n      <g:${name}>${escapeXml(Array.isArray(value) ? value.join(', ') : value)}</g:${name}>`;
+}
+
 function itemXml(product) {
   const description = product.description || product.short_description || `${product.title} by Poshkaar Kashmir.`;
   const image = product.image || product.images?.[0];
+  const extraImages = (product.images || [])
+    .filter((item) => item && item !== image)
+    .slice(0, 10)
+    .map((item) => `\n      <g:additional_image_link>${escapeXml(absoluteUrl(item))}</g:additional_image_link>`)
+    .join('');
+  const wearable = isWearable(product);
 
   return `    <item>
       <g:id>${escapeXml(product.sku || product.id)}</g:id>
       <g:title>${escapeXml(product.title)}</g:title>
       <g:description>${escapeXml(description)}</g:description>
       <g:link>${escapeXml(`${SITE_URL}/product/${product.id}`)}</g:link>
-      <g:image_link>${escapeXml(absoluteUrl(image))}</g:image_link>
+      <g:image_link>${escapeXml(absoluteUrl(image))}</g:image_link>${extraImages}
       <g:availability>${availability(product)}</g:availability>
       <g:price>${Number(product.price || 0).toFixed(2)} INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
-      <g:mpn>${escapeXml(product.sku || product.id)}</g:mpn>
       <g:identifier_exists>no</g:identifier_exists>
       <g:condition>new</g:condition>
+      <g:adult>no</g:adult>${optionalTag('material', product.material || product.fabric)}${optionalTag('color', product.colors?.[0] || product.color)}${wearable ? optionalTag('gender', product.category === 'Bridal' ? 'female' : 'unisex') : ''}${wearable ? optionalTag('age_group', 'adult') : ''}${wearable ? optionalTag('size', product.sizes) : ''}
       <g:shipping>
         <g:country>IN</g:country>
         <g:service>Standard shipping</g:service>
@@ -67,11 +80,7 @@ function itemXml(product) {
 }
 
 function buildFeed() {
-  const activeProducts = LOCAL_PRODUCTS.filter((product) => (
-    product?.published !== false &&
-    product?.status !== 'inactive' &&
-    hasValidPrice(product)
-  ));
+  const activeProducts = LOCAL_PRODUCTS.filter((product) => product?.published !== false && product?.status !== 'inactive');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">

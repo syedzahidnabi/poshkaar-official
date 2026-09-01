@@ -7,6 +7,29 @@ const WOOD_CARE = 'Dust with a soft dry cloth. Keep away from water, direct sunl
 const PAPIER_CARE = 'Dust gently with a soft dry cloth. Keep away from water, humidity, direct sunlight and sharp objects. Do not use household cleaners.';
 const WILLOW_CARE = 'Dust with a soft brush or dry cloth. Keep dry and well ventilated. Avoid prolonged sunlight, soaking and heavy loads beyond the stated use.';
 
+const supplementalProductImages = {
+  Aari: ['/images/product-aari-forest.jpg', '/images/home/context-technique.webp'],
+  Tilla: ['/images/product-tilla-ivory.jpg', '/images/home/pashmina-jamawar-shawl.jpeg'],
+  Dabka: ['/images/product-dabka-bridal.jpg', '/images/home/culture-gathering.webp'],
+  Zari: ['/images/product-sozni-burgundy.jpg', '/images/home/context-technique.webp'],
+  Copperware: ['/images/home/kashmiri-copper-samovar.jpg', '/images/home/copperware-qalamzani.jpeg'],
+  'Walnut Wood': ['/images/product-walnut-keepsake-box.jpg', '/images/home/walnut-wood-carving.jpeg'],
+  'Papier Mache': ['/images/product-papier-mache-vase.jpg', '/images/home/papier-mache-vases.webp'],
+  'Willow Wicker': ['/images/product-willow-basket.jpg', '/images/home/willow-wicker-baskets.jpeg'],
+};
+
+const ensureThreeImages = (images, fallbackKey) => {
+  const seen = new Set();
+  return [...images, ...(supplementalProductImages[fallbackKey] || [])]
+    .filter(Boolean)
+    .filter((image) => {
+      if (seen.has(image)) return false;
+      seen.add(image);
+      return true;
+    })
+    .slice(0, 3);
+};
+
 const craftCopy = {
   Aari: {
     material: 'Wool blend',
@@ -60,7 +83,7 @@ const makeProduct = ({
   studioPreview = false,
 }) => {
   const code = `${craft.toLowerCase()}-${String(number).padStart(2, '0')}`;
-  const images = buildImages(craft, number, detailCount);
+  const images = ensureThreeImages(buildImages(craft, number, detailCount), craft);
   const copy = craftCopy[craft];
 
   return {
@@ -117,6 +140,7 @@ const makeCopperProduct = ({
 }) => {
   const code = `copper-${String(number).padStart(2, '0')}`;
   const image = `/images/products/copperware/copper${number}-main.jpg`;
+  const images = ensureThreeImages([image], 'Copperware');
 
   return {
     id: code,
@@ -131,7 +155,7 @@ const makeCopperProduct = ({
     description,
     price,
     compare_at_price: null,
-    images: [image],
+    images,
     image,
     sizes: [size],
     colors: ['Antique copper'],
@@ -174,6 +198,10 @@ const makeWalnutProduct = ({
 }) => {
   const code = `walnut-${String(number).padStart(2, '0')}`;
   const image = `/images/products/walnut-wood/walnut${number}-main.jpg`;
+  const images = ensureThreeImages(
+    [image, `/images/products/walnut-wood/walnut${number}-main.png`],
+    'Walnut Wood',
+  );
 
   return {
     id: code,
@@ -188,7 +216,7 @@ const makeWalnutProduct = ({
     description,
     price,
     compare_at_price: null,
-    images: [image],
+    images,
     image,
     sizes: [size],
     colors: ['Natural walnut'],
@@ -231,6 +259,10 @@ const makePapierProduct = ({
 }) => {
   const code = `papier-${String(number).padStart(2, '0')}`;
   const image = `/images/products/papier-mache/papier${number}-main.jpg`;
+  const images = ensureThreeImages(
+    [image, `/images/products/papier-mache/papier${number}-main.png`],
+    'Papier Mache',
+  );
 
   return {
     id: code,
@@ -245,7 +277,7 @@ const makePapierProduct = ({
     description,
     price,
     compare_at_price: null,
-    images: [image],
+    images,
     image,
     sizes: [size],
     colors: ['Hand-painted'],
@@ -288,6 +320,10 @@ const makeWillowProduct = ({
 }) => {
   const code = `willow-${String(number).padStart(2, '0')}`;
   const image = `/images/products/willow-wicker/willow${number}-main.jpg`;
+  const images = ensureThreeImages(
+    [image, `/images/products/willow-wicker/willow${number}-main.png`],
+    'Willow Wicker',
+  );
 
   return {
     id: code,
@@ -302,7 +338,7 @@ const makeWillowProduct = ({
     description,
     price,
     compare_at_price: null,
-    images: [image],
+    images,
     image,
     sizes: [size],
     colors: ['Natural willow'],

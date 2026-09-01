@@ -293,7 +293,6 @@
       <g:image_link>https://poshkaarkashmir.com/images/products/tilla/tilla1-main.jpg</g:image_link>
       <g:additional_image_link>https://poshkaarkashmir.com/images/products/tilla/tilla1-detail1.jpg</g:additional_image_link>
       <g:additional_image_link>https://poshkaarkashmir.com/images/products/tilla/tilla1-detail2.jpg</g:additional_image_link>
-      <g:additional_image_link>https://poshkaarkashmir.com/images/products/tilla/tilla1-detail3.jpg</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>21500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -552,7 +551,6 @@
       <g:image_link>https://poshkaarkashmir.com/images/products/tilla/tilla10-main.jpg</g:image_link>
       <g:additional_image_link>https://poshkaarkashmir.com/images/products/tilla/tilla10-detail1.jpg</g:additional_image_link>
       <g:additional_image_link>https://poshkaarkashmir.com/images/products/tilla/tilla10-detail2.jpg</g:additional_image_link>
-      <g:additional_image_link>https://poshkaarkashmir.com/images/products/tilla/tilla10-detail3.jpg</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>22500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -954,6 +952,7 @@
       <g:description>A rectangular walnut keepsake box covered with deep openwork carving of birds, flowers and curling leaves. The fitted lid and warm hand-rubbed finish make it an heirloom home object for letters, jewellery or meaningful gifts.</g:description>
       <g:link>https://poshkaarkashmir.com/product/walnut-01</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut1-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut1-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>9500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -978,6 +977,7 @@
       <g:description>A round lidded walnut box with layered leaf carving around the top and a continuous floral band around the body. Its generous form suits dry keepsakes, jewellery or a considered wedding gift.</g:description>
       <g:link>https://poshkaarkashmir.com/product/walnut-02</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut2-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut2-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>6500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1002,6 +1002,7 @@
       <g:description>A statement wall clock framed by hand-carved scrolling leaves and warm natural walnut grain. A quiet clock movement and clear hour markers bring daily function to an ornamental Kashmiri woodcraft piece.</g:description>
       <g:link>https://poshkaarkashmir.com/product/walnut-03</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut3-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut3-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>12500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1026,6 +1027,7 @@
       <g:description>A tall arched walnut panel carved with a balanced flowering iris motif. Designed as a slim wall or shelf accent, its restrained relief lets the natural grain remain part of the composition.</g:description>
       <g:link>https://poshkaarkashmir.com/product/walnut-04</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut4-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut4-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>8500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1050,6 +1052,7 @@
       <g:description>A freestanding chinar-leaf plaque carved with a branching tree and textured foliage. The sculptural outline gives the small object presence on a console, bookshelf or gifting table.</g:description>
       <g:link>https://poshkaarkashmir.com/product/walnut-05</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut5-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut5-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>5500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1074,6 +1077,7 @@
       <g:description>A crescent-shaped wide-tooth walnut comb finished with a hand-carved floral vine. Smooth rounded teeth and a polished grip make it a useful personal object with the warmth of Kashmir woodcraft.</g:description>
       <g:link>https://poshkaarkashmir.com/product/walnut-06</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut6-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/walnut-wood/walnut6-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>2800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1098,6 +1102,7 @@
       <g:description>A scalloped charcoal keepsake box covered in antique-gold chinar leaves and fine vine borders. The compact lacquered form is made for jewellery, small letters or considered gifting.</g:description>
       <g:link>https://poshkaarkashmir.com/product/papier-01</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier1-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier1-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>3800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1122,6 +1127,7 @@
       <g:description>A coordinated pair of rounded keepsake boxes: one ivory garden pattern and one garnet chinar design. Their different sizes make the set useful for jewellery, mementos and wedding gifts.</g:description>
       <g:link>https://poshkaarkashmir.com/product/papier-02</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier2-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier2-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>5500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1146,6 +1152,7 @@
       <g:description>A tall floor vase with a long neck, generous shoulder and dense painted garden. Muted saffron, forest and rust details give the sculptural form a warm, collected character.</g:description>
       <g:link>https://poshkaarkashmir.com/product/papier-03</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier3-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier3-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>12500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1170,6 +1177,7 @@
       <g:description>A lidded decorative ewer with a curved black handle, pouring spout and pedestal foot. Fine floral painting wraps the rounded body for an expressive shelf or table object.</g:description>
       <g:link>https://poshkaarkashmir.com/product/papier-04</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier4-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier4-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>8500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1194,6 +1202,7 @@
       <g:description>A small round trinket box painted with coral and dusty-blue flowers around a central medallion. Its quiet ivory ground and fine brushwork suit rings, small keepsakes and guest gifting.</g:description>
       <g:link>https://poshkaarkashmir.com/product/papier-05</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier5-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier5-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>2800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1218,6 +1227,7 @@
       <g:description>Four graduated round and oval boxes brought together as a coordinated gift set. Each charcoal-lacquered lid carries a different floral medallion in muted turquoise, rust and gold.</g:description>
       <g:link>https://poshkaarkashmir.com/product/papier-06</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier6-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/papier-mache/papier6-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>7500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1242,6 +1252,7 @@
       <g:description>A sculptural crescent basket whose broad curved rim becomes the handle. The close honey-toned weave is strong enough for daily carrying and elegant enough to leave on display.</g:description>
       <g:link>https://poshkaarkashmir.com/product/willow-01</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow1-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow1-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>3500.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1266,6 +1277,7 @@
       <g:description>A low oval picnic basket with a tall arched handle, braided rim and fitted split lids. Its generous interior is designed for relaxed outings, gifting or useful home storage.</g:description>
       <g:link>https://poshkaarkashmir.com/product/willow-02</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow2-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow2-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>4800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1290,6 +1302,7 @@
       <g:description>A round woven storage basket framed by dark walnut-toned bands and a flat handled lid. The calm two-material finish works naturally in bedrooms, studies and living spaces.</g:description>
       <g:link>https://poshkaarkashmir.com/product/willow-03</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow3-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow3-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>4200.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1314,6 +1327,7 @@
       <g:description>A rectangular tissue box cover that pairs close willow weaving with a dark wooden top and fine braided edges. It brings useful craft detail to a bedside, desk or washroom.</g:description>
       <g:link>https://poshkaarkashmir.com/product/willow-04</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow4-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow4-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>2200.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>
@@ -1338,6 +1352,7 @@
       <g:description>An open oval market basket with two integrated handles and restrained forest and terracotta woven bands. The sturdy braided rim makes it practical for errands, storage and gifting.</g:description>
       <g:link>https://poshkaarkashmir.com/product/willow-05</g:link>
       <g:image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow5-main.jpg</g:image_link>
+      <g:additional_image_link>https://poshkaarkashmir.com/images/products/willow-wicker/willow5-main.png</g:additional_image_link>
       <g:availability>in_stock</g:availability>
       <g:price>3800.00 INR</g:price>
       <g:brand>Poshkaar Kashmir</g:brand>

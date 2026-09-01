@@ -45,11 +45,15 @@ function optionalTag(name, value) {
   return `\n      <g:${name}>${escapeXml(Array.isArray(value) ? value.join(', ') : value)}</g:${name}>`;
 }
 
+function isProductSpecificImage(url) {
+  return /^\/images\/products\//.test(url || '');
+}
+
 function itemXml(product) {
   const description = product.description || product.short_description || `${product.title} by Poshkaar Kashmir.`;
   const image = product.image || product.images?.[0];
   const extraImages = (product.images || [])
-    .filter((item) => item && item !== image)
+    .filter((item) => item && item !== image && isProductSpecificImage(item))
     .slice(0, 10)
     .map((item) => `\n      <g:additional_image_link>${escapeXml(absoluteUrl(item))}</g:additional_image_link>`)
     .join('');

@@ -81,9 +81,10 @@ const makeProduct = ({
   material,
   description,
   studioPreview = false,
+  images: imageOverrides,
 }) => {
   const code = `${craft.toLowerCase()}-${String(number).padStart(2, '0')}`;
-  const images = ensureThreeImages(buildImages(craft, number, detailCount), craft);
+  const images = imageOverrides || ensureThreeImages(buildImages(craft, number, detailCount), craft);
   const copy = craftCopy[craft];
 
   return {
@@ -371,7 +372,19 @@ const makeWillowProduct = ({
 };
 
 const AARI_PRODUCTS = [
-  makeProduct({ craft: 'Aari', number: 1, title: 'Ivory Blue Aari Pheran', color: 'Ivory & blue', price: 12500, bestseller: true }),
+  makeProduct({
+    craft: 'Aari',
+    number: 1,
+    title: 'Ivory Blue Aari Pheran',
+    color: 'Ivory & blue',
+    price: 12500,
+    bestseller: true,
+    images: [
+      '/images/products/aari/generated/aari1-clean-front.png',
+      '/images/products/aari/generated/aari1-angle-side.png',
+      '/images/products/aari/generated/aari1-angle-detail.png',
+    ],
+  }),
   makeProduct({ craft: 'Aari', number: 2, title: 'Charcoal Meadow Aari Pheran', color: 'Charcoal', price: 13500 }),
   makeProduct({ craft: 'Aari', number: 3, title: 'Crimson Garden Aari Pheran', color: 'Crimson', price: 14500, bestseller: true }),
   makeProduct({ craft: 'Aari', number: 4, title: 'Cobalt Gold Aari Pheran', color: 'Cobalt blue', price: 14500 }),

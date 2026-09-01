@@ -251,16 +251,17 @@ function updateCanonical(href) {
 }
 
 function updateCollectionSeo(slug, title, subtitle, seo = {}) {
-  const pageTitle = seo.seoTitle || `${title} | Poshkaar Kashmir`;
-  const description = seo.seoDescription || `${subtitle}. Explore Poshkaar Kashmir products with clear origin, material, care and availability information.`;
+  const seoData = seo || {};
+  const pageTitle = seoData.seoTitle || `${title} | Poshkaar Kashmir`;
+  const description = seoData.seoDescription || `${subtitle}. Explore Poshkaar Kashmir products with clear origin, material, care and availability information.`;
   const canonicalUrl = `${SITE_URL}${slug ? `/collections/${slug}` : '/collections'}`;
-  const socialImage = absoluteUrl(seo.image || DEFAULT_SOCIAL_IMAGE);
+  const socialImage = absoluteUrl(seoData.image || DEFAULT_SOCIAL_IMAGE);
   const keywords = [
     'Poshkaar Kashmir',
     'poshkaarkashmir',
     'Kashmiri products online',
     'Kashmir handicrafts',
-    ...(seo.keywords || []),
+    ...(seoData.keywords || []),
   ].join(', ');
 
   document.title = pageTitle;

@@ -458,7 +458,19 @@ const AARI_PRODUCTS = [
       '/images/products/aari/generated/aari7-angle-detail.png',
     ],
   }),
-  makeProduct({ craft: 'Aari', number: 8, title: 'Teal Saffron Aari Pheran', color: 'Teal & saffron', price: 14500, bestseller: true }),
+  makeProduct({
+    craft: 'Aari',
+    number: 8,
+    title: 'Teal Saffron Aari Pheran',
+    color: 'Teal & saffron',
+    price: 14500,
+    bestseller: true,
+    images: [
+      '/images/products/aari/generated/aari8-clean-front.png',
+      '/images/products/aari/generated/aari8-angle-side.png',
+      '/images/products/aari/generated/aari8-angle-detail.png',
+    ],
+  }),
   makeProduct({ craft: 'Aari', number: 9, title: 'Ivory Garnet Aari Kurta', color: 'Ivory & garnet', price: 15500 }),
   makeProduct({ craft: 'Aari', number: 10, title: 'Aubergine Sage Aari Kurta', color: 'Aubergine', price: 15500, detailCount: 2 }),
 ];

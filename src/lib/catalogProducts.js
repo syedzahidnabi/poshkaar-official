@@ -525,7 +525,21 @@ const TILLA_PRODUCTS = [
       '/images/products/tilla/generated/tilla2-angle-detail.png',
     ],
   }),
-  makeProduct({ craft: 'Tilla', number: 3, title: 'Emerald Silver Tilla Ensemble', color: 'Emerald', price: 24500, detailCount: 2, category: 'Bridal', bestseller: true }),
+  makeProduct({
+    craft: 'Tilla',
+    number: 3,
+    title: 'Emerald Silver Tilla Ensemble',
+    color: 'Emerald',
+    price: 24500,
+    detailCount: 2,
+    category: 'Bridal',
+    bestseller: true,
+    images: [
+      '/images/products/tilla/generated/tilla3-clean-front.png',
+      '/images/products/tilla/generated/tilla3-angle-side.png',
+      '/images/products/tilla/generated/tilla3-angle-detail.png',
+    ],
+  }),
   makeProduct({ craft: 'Tilla', number: 4, title: 'Garnet Silver Tilla Ensemble', color: 'Garnet', price: 22500, detailCount: 2 }),
   makeProduct({
     craft: 'Tilla',

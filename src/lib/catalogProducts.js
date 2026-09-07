@@ -483,7 +483,18 @@ const AARI_PRODUCTS = [
       '/images/products/aari/generated/aari9-angle-detail.png',
     ],
   }),
-  makeProduct({ craft: 'Aari', number: 10, title: 'Aubergine Sage Aari Kurta', color: 'Aubergine', price: 15500, detailCount: 2 }),
+  makeProduct({
+    craft: 'Aari',
+    number: 10,
+    title: 'Aubergine Sage Aari Kurta',
+    color: 'Aubergine',
+    price: 15500,
+    images: [
+      '/images/products/aari/generated/aari10-clean-front.png',
+      '/images/products/aari/generated/aari10-angle-side.png',
+      '/images/products/aari/generated/aari10-angle-detail.png',
+    ],
+  }),
 ];
 
 const TILLA_PRODUCTS = [

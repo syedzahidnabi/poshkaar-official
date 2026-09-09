@@ -540,7 +540,19 @@ const TILLA_PRODUCTS = [
       '/images/products/tilla/generated/tilla3-angle-detail.png',
     ],
   }),
-  makeProduct({ craft: 'Tilla', number: 4, title: 'Garnet Silver Tilla Ensemble', color: 'Garnet', price: 22500, detailCount: 2 }),
+  makeProduct({
+    craft: 'Tilla',
+    number: 4,
+    title: 'Garnet Silver Tilla Ensemble',
+    color: 'Garnet',
+    price: 22500,
+    detailCount: 2,
+    images: [
+      '/images/products/tilla/generated/tilla4-clean-front.png',
+      '/images/products/tilla/generated/tilla4-angle-side.png',
+      '/images/products/tilla/generated/tilla4-angle-detail.png',
+    ],
+  }),
   makeProduct({
     craft: 'Tilla',
     number: 5,

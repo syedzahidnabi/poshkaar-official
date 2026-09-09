@@ -563,6 +563,11 @@ const TILLA_PRODUCTS = [
     category: 'Pashmina',
     material: 'Pashmina blend',
     description: 'A generous ruby wrap framed with metallic Tilla embroidery. The one-size drape is designed for winter occasions, bridal trousseaux and meaningful gifting.',
+    images: [
+      '/images/products/tilla/generated/tilla5-clean-front.png',
+      '/images/products/tilla/generated/tilla5-angle-side.png',
+      '/images/products/tilla/generated/tilla5-angle-detail.png',
+    ],
   }),
   makeProduct({ craft: 'Tilla', number: 6, title: 'Plum Silver Tilla Ensemble', color: 'Plum', price: 22500, detailCount: 1 }),
   makeProduct({ craft: 'Tilla', number: 7, title: 'Aqua Rose Tilla Ensemble', color: 'Aqua', price: 23500, detailCount: 1 }),

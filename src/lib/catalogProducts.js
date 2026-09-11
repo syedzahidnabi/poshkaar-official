@@ -595,7 +595,21 @@ const TILLA_PRODUCTS = [
       '/images/products/tilla/generated/tilla7-angle-detail.png',
     ],
   }),
-  makeProduct({ craft: 'Tilla', number: 8, title: 'Ivory Sapphire Tilla Ensemble', color: 'Ivory & sapphire', price: 24500, detailCount: 2, category: 'Bridal', bestseller: true }),
+  makeProduct({
+    craft: 'Tilla',
+    number: 8,
+    title: 'Ivory Sapphire Tilla Ensemble',
+    color: 'Ivory & sapphire',
+    price: 24500,
+    detailCount: 2,
+    category: 'Bridal',
+    bestseller: true,
+    images: [
+      '/images/products/tilla/generated/tilla8-clean-front.png',
+      '/images/products/tilla/generated/tilla8-angle-side.png',
+      '/images/products/tilla/generated/tilla8-angle-detail.png',
+    ],
+  }),
   makeProduct({ craft: 'Tilla', number: 9, title: 'Teal Copper Tilla Ensemble', color: 'Teal & copper', price: 23500, detailCount: 1 }),
   makeProduct({ craft: 'Tilla', number: 10, title: 'Burgundy Silver Tilla Ensemble', color: 'Burgundy', price: 22500, detailCount: 3 }),
 ];

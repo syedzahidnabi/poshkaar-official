@@ -623,7 +623,19 @@ const TILLA_PRODUCTS = [
       '/images/products/tilla/generated/tilla9-angle-detail.png',
     ],
   }),
-  makeProduct({ craft: 'Tilla', number: 10, title: 'Burgundy Silver Tilla Ensemble', color: 'Burgundy', price: 22500, detailCount: 3 }),
+  makeProduct({
+    craft: 'Tilla',
+    number: 10,
+    title: 'Burgundy Silver Tilla Ensemble',
+    color: 'Burgundy',
+    price: 22500,
+    detailCount: 3,
+    images: [
+      '/images/products/tilla/generated/tilla10-clean-front.png',
+      '/images/products/tilla/generated/tilla10-angle-side.png',
+      '/images/products/tilla/generated/tilla10-angle-detail.png',
+    ],
+  }),
 ];
 
 const DABKA_PRODUCTS = [

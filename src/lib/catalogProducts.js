@@ -610,7 +610,19 @@ const TILLA_PRODUCTS = [
       '/images/products/tilla/generated/tilla8-angle-detail.png',
     ],
   }),
-  makeProduct({ craft: 'Tilla', number: 9, title: 'Teal Copper Tilla Ensemble', color: 'Teal & copper', price: 23500, detailCount: 1 }),
+  makeProduct({
+    craft: 'Tilla',
+    number: 9,
+    title: 'Teal Copper Tilla Ensemble',
+    color: 'Teal & copper',
+    price: 23500,
+    detailCount: 1,
+    images: [
+      '/images/products/tilla/generated/tilla9-clean-front.png',
+      '/images/products/tilla/generated/tilla9-angle-side.png',
+      '/images/products/tilla/generated/tilla9-angle-detail.png',
+    ],
+  }),
   makeProduct({ craft: 'Tilla', number: 10, title: 'Burgundy Silver Tilla Ensemble', color: 'Burgundy', price: 22500, detailCount: 3 }),
 ];
 

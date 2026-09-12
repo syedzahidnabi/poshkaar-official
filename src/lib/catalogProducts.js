@@ -693,7 +693,21 @@ const DABKA_PRODUCTS = [
       '/images/products/dabka/generated/dabka4-angle-detail.png',
     ],
   }),
-  makeProduct({ craft: 'Dabka', number: 5, title: 'Maroon Dabka Ensemble', color: 'Maroon', price: 25500, detailCount: 1, category: 'Bridal', bestseller: true }),
+  makeProduct({
+    craft: 'Dabka',
+    number: 5,
+    title: 'Maroon Dabka Ensemble',
+    color: 'Maroon',
+    price: 25500,
+    detailCount: 1,
+    category: 'Bridal',
+    bestseller: true,
+    images: [
+      '/images/products/dabka/generated/dabka5-clean-front.png',
+      '/images/products/dabka/generated/dabka5-angle-side.png',
+      '/images/products/dabka/generated/dabka5-angle-detail.png',
+    ],
+  }),
   makeProduct({ craft: 'Dabka', number: 6, title: 'Forest Dabka Cape', color: 'Forest green', price: 23500, detailCount: 1 }),
   makeProduct({ craft: 'Dabka', number: 7, title: 'Ivory Gold Dabka Pheran', color: 'Ivory & gold', price: 21500, detailCount: 1 }),
 ];

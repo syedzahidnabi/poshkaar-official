@@ -639,7 +639,20 @@ const TILLA_PRODUCTS = [
 ];
 
 const DABKA_PRODUCTS = [
-  makeProduct({ craft: 'Dabka', number: 1, title: 'Midnight Fuchsia Dabka Ensemble', color: 'Midnight & fuchsia', price: 22500, detailCount: 2, bestseller: true }),
+  makeProduct({
+    craft: 'Dabka',
+    number: 1,
+    title: 'Midnight Fuchsia Dabka Ensemble',
+    color: 'Midnight & fuchsia',
+    price: 22500,
+    detailCount: 2,
+    bestseller: true,
+    images: [
+      '/images/products/dabka/generated/dabka1-clean-front.png',
+      '/images/products/dabka/generated/dabka1-angle-side.png',
+      '/images/products/dabka/generated/dabka1-angle-detail.png',
+    ],
+  }),
   makeProduct({ craft: 'Dabka', number: 2, title: 'Burnished Copper Dabka Ensemble', color: 'Burnished copper', price: 21500, detailCount: 1 }),
   makeProduct({ craft: 'Dabka', number: 3, title: 'Saffron Dabka Ensemble', color: 'Saffron', price: 19500, detailCount: 2 }),
   makeProduct({ craft: 'Dabka', number: 4, title: 'Sand Rose Dabka Ensemble', color: 'Sand & rose', price: 24500, detailCount: 1, category: 'Bridal' }),

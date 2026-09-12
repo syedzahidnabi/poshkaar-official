@@ -721,7 +721,19 @@ const DABKA_PRODUCTS = [
       '/images/products/dabka/generated/dabka6-angle-detail.png',
     ],
   }),
-  makeProduct({ craft: 'Dabka', number: 7, title: 'Ivory Gold Dabka Pheran', color: 'Ivory & gold', price: 21500, detailCount: 1 }),
+  makeProduct({
+    craft: 'Dabka',
+    number: 7,
+    title: 'Ivory Gold Dabka Pheran',
+    color: 'Ivory & gold',
+    price: 21500,
+    detailCount: 1,
+    images: [
+      '/images/products/dabka/generated/dabka7-clean-front.png',
+      '/images/products/dabka/generated/dabka7-angle-side.png',
+      '/images/products/dabka/generated/dabka7-angle-detail.png',
+    ],
+  }),
 ];
 
 const ZARI_PRODUCTS = [

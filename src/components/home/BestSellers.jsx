@@ -56,7 +56,7 @@ export const selectApprovedPhotography = (items = []) => items
     )
   ));
 
-export const ensureCraftCoverage = (approvedItems = [], fallbackItems = [], limit = 8) => {
+export const ensureCraftCoverage = (approvedItems = [], fallbackItems = [], limit = 51) => {
   const selected = [];
   const selectedIds = new Set();
 
@@ -85,7 +85,7 @@ export const ensureCraftCoverage = (approvedItems = [], fallbackItems = [], limi
 };
 
 export default function BestSellers() {
-  const fallbackProducts = useMemo(() => ensureCraftCoverage(selectApprovedPhotography(LOCAL_PRODUCTS), LOCAL_PRODUCTS, 8), []);
+  const fallbackProducts = useMemo(() => ensureCraftCoverage(selectApprovedPhotography(LOCAL_PRODUCTS), LOCAL_PRODUCTS, 51), []);
   const [products, setProducts] = useState(fallbackProducts);
   const [loading, setLoading] = useState(true);
 
@@ -96,10 +96,10 @@ export default function BestSellers() {
       return;
     }
 
-    base44.entities.Product.list('-review_count', 40)
+    base44.entities.Product.list('-review_count', 120)
       .then((items) => {
         const approvedProducts = selectApprovedPhotography(items);
-        const craftProducts = ensureCraftCoverage(approvedProducts, LOCAL_PRODUCTS, 8);
+        const craftProducts = ensureCraftCoverage(approvedProducts, LOCAL_PRODUCTS, 51);
         setProducts(craftProducts.length > 0 ? craftProducts : fallbackProducts);
       })
       .catch(() => {
@@ -115,7 +115,7 @@ export default function BestSellers() {
           <SectionHeading
             title="Pieces photographed and ready"
             subtitle="The Poshkaar Edit"
-            description="A balanced edit across Poshkaar crafts, from embroidery to walnut wood, papier mache, copperware and willow wicker."
+            description="The complete live product edit across embroidery, walnut wood, papier mache, copperware and willow wicker."
             align="left"
             className="md:mb-0"
           />
@@ -130,7 +130,7 @@ export default function BestSellers() {
 
         {loading ? (
           <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-5 md:grid-cols-4 md:gap-8">
-            {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+            {Array.from({ length: 12 }, (_, i) => i).map((i) => (
               <div key={i} className="animate-pulse">
                 <div className="aspect-[3/4] bg-gold/10 mb-4 shimmer" />
                 <div className="h-2.5 bg-gold/10 w-1/3 mb-2" />

@@ -39,6 +39,25 @@ const COLLECTION_SCHEMA_ID = 'poshkaar-collection-schema';
 const DEFAULT_SOCIAL_IMAGE = '/images/social/poshkaar-kashmir-og.png';
 
 const COLLECTION_MAP = {
+  all: {
+    title: 'All Kashmiri Products',
+    subtitle: 'Complete Poshkaar Catalogue',
+    filter: {},
+    image: '/images/social/poshkaar-kashmir-og.png',
+    seoTitle: 'Kashmiri Products Online | Pashmina, Papier Mache, Walnut Wood, Copperware | Poshkaar Kashmir',
+    seoDescription: 'Shop Kashmiri products online from Poshkaar Kashmir: Pashmina shawls, Papier Mache gifts, walnut wood carving, copperware, willow wicker baskets, Tilla, Aari, Zari and Dabka embroidery.',
+    intro: 'Browse the complete Poshkaar Kashmir catalogue across Kashmiri Pashmina, Papier Mache, walnut wood carving, copperware, willow wicker, Tilla embroidery, Aari work, Zari work and Dabka occasion wear. Each product page is prepared for real shopping decisions with photographs, prices, availability, material notes, care guidance and WhatsApp support.',
+    highlights: ['Kashmiri products across every craft category', 'Textiles, clothing, home decor and gifting pieces', 'Real product photography with material and care details'],
+    keywords: ['Kashmiri products online', 'Kashmir handicrafts online', 'Kashmiri Pashmina', 'Kashmiri Papier Mache', 'Kashmiri walnut wood carving', 'Kashmiri copperware', 'Kashmiri willow wicker', 'Kashmiri Tilla work', 'Kashmiri Aari work'],
+    guide: [
+      ['What buyers can compare here', 'Use the all-products catalogue to compare price, craft, material, colour, occasion, care and availability across Kashmiri shawls, embroidered clothing, copperware, wood carving, Papier Mache and willow wicker.'],
+      ['Popular searches this page answers', 'Kashmiri products online, Kashmir handicrafts online, Kashmiri gifts, Kashmiri clothing, Pashmina shawls, Papier Mache decor, walnut wood carving, copperware, willow wicker baskets, Tilla work and Aari embroidery.'],
+    ],
+    faqs: [
+      ['Can I buy different Kashmiri crafts from one catalogue?', 'Yes. Poshkaar Kashmir groups textiles, clothing, home decor and gifting pieces together so buyers can browse all available Kashmiri craft categories from one place.'],
+      ['Are product photographs and details included?', 'Each listed product is prepared with product images, pricing, availability, craft category and care or material context wherever available.'],
+    ],
+  },
   'new-arrivals': { title: 'New Arrivals', subtitle: 'The Latest Edit', filter: { collection: 'New Arrivals' }, image: '/images/main-banner.jpg' },
   'bridal': { title: 'The Wedding Edit', subtitle: 'Wedding Collection', filter: { category: 'Bridal' }, image: '/images/home/pashmina-jamawar-shawl.jpeg' },
   'pashmina': {
@@ -294,27 +313,16 @@ function updateCollectionStructuredData(slug, title, description, image, product
   const pageUrl = `${SITE_URL}${slug ? `/collections/${slug}` : '/collections'}`;
   const listedProducts = products
     .filter((product) => getProductSchemaName(product))
-    .slice(0, 24);
+    .slice(0, 50);
   const itemListElement = listedProducts.map((product, index) => {
     const productPath = product.slug || product.id;
     const productUrl = `${SITE_URL}/product/${productPath}`;
-    const productImage = absoluteUrl(product.images?.[0] || product.image_url || product.image);
     const productName = getProductSchemaName(product);
-    const productPrice = getProductSchemaPrice(product);
     return {
       '@type': 'ListItem',
       position: index + 1,
       name: productName,
       url: productUrl,
-      item: {
-        '@type': 'WebPage',
-        '@id': `${productUrl}#webpage`,
-        name: productName,
-        url: productUrl,
-        image: productImage,
-        description: getProductSchemaDescription(product, title),
-        ...(productPrice ? { offers: `From INR ${productPrice}` } : {}),
-      },
     };
   });
 
@@ -409,7 +417,7 @@ export default function Collections() {
   const [sortBy, setSortBy] = useState('-created_date');
   const [filtersOpen, setFiltersOpen] = useState(false);
 
-  const collectionInfo = slug ? COLLECTION_MAP[slug] : null;
+  const collectionInfo = slug ? COLLECTION_MAP[slug] : COLLECTION_MAP.all;
   const isUnknownCollection = Boolean(slug && !collectionInfo);
 
   useEffect(() => {

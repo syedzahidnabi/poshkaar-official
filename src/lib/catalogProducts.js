@@ -737,8 +737,34 @@ const DABKA_PRODUCTS = [
 ];
 
 const ZARI_PRODUCTS = [
-  makeProduct({ craft: 'Zari', number: 1, title: 'Black Coral Zari Ensemble', color: 'Black & coral', price: 19500, detailCount: 2, material: 'Velvet blend', bestseller: true }),
-  makeProduct({ craft: 'Zari', number: 2, title: 'Ivory Antique Gold Zari Pheran', color: 'Ivory & antique gold', price: 18500, detailCount: 0, studioPreview: true }),
+  makeProduct({
+    craft: 'Zari',
+    number: 1,
+    title: 'Black Coral Zari Ensemble',
+    color: 'Black & coral',
+    price: 19500,
+    detailCount: 2,
+    material: 'Velvet blend',
+    bestseller: true,
+    images: [
+      '/images/products/zari/generated/zari1-clean-front.png',
+      '/images/products/zari/generated/zari1-angle-side.png',
+      '/images/products/zari/generated/zari1-angle-detail.png',
+    ],
+  }),
+  makeProduct({
+    craft: 'Zari',
+    number: 2,
+    title: 'Ivory Antique Gold Zari Pheran',
+    color: 'Ivory & antique gold',
+    price: 18500,
+    detailCount: 0,
+    images: [
+      '/images/products/zari/generated/zari2-clean-front.png',
+      '/images/products/zari/generated/zari2-angle-side.png',
+      '/images/products/zari/generated/zari2-angle-detail.png',
+    ],
+  }),
 ];
 
 const COPPER_PRODUCTS = [

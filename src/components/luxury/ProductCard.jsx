@@ -24,17 +24,16 @@ import {
 } from '@/lib/wishlist';
 
 export default function ProductCard({ product, index = 0 }) {
-  const [isHovered, setIsHovered] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [adding, setAdding] = useState(false);
   const [added, setAdded] = useState(false);
   const [imageFallbackApplied, setImageFallbackApplied] = useState(false);
+  const [slideIndex, setSlideIndex] = useState(0);
   const { addItem } = useCart();
 
   const displayProduct = getProductPresentation(product);
-  const images = normalizeImageList(displayProduct.images, [DEFAULT_PRODUCT_IMAGE]).slice(0, 2);
-  const mainImage = images[0];
-  const hoverImage = images[1] || mainImage;
+  const images = normalizeImageList(displayProduct.images, [DEFAULT_PRODUCT_IMAGE]);
+  const mainImage = images[slideIndex] || images[0];
   const hasDiscount = hasCompareAtPrice(product);
   const hasVerifiedStock = product.stock_quantity !== null
     && product.stock_quantity !== undefined
@@ -55,15 +54,24 @@ export default function ProductCard({ product, index = 0 }) {
   const craftTag = product.embroidery_type || product.category || 'Kashmir craft';
   const whatsappText = encodeURIComponent(`Hello Poshkaar, I want help with ${displayProduct.title}.`);
 
-  const mainImageSrcSet = getLocalWebpSrcSet(mainImage);
-  const hoverImageSrcSet = getLocalWebpSrcSet(hoverImage);
-
   useEffect(() => {
     setIsWishlisted(isProductWishlisted(product.id));
     return subscribeToWishlist(() => {
       setIsWishlisted(isProductWishlisted(product.id));
     });
   }, [product.id]);
+
+  useEffect(() => {
+    setSlideIndex(0);
+    if (images.length < 2) return undefined;
+
+    const delay = 2600 + ((index % 4) * 180);
+    const timer = window.setInterval(() => {
+      setSlideIndex((current) => (current + 1) % images.length);
+    }, delay);
+
+    return () => window.clearInterval(timer);
+  }, [images.length, index, product.id]);
 
   const handleImageError = (event) => {
     const image = event.currentTarget;
@@ -138,53 +146,50 @@ export default function ProductCard({ product, index = 0 }) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, delay: (index % 4) * 0.1, ease: EASE_LUXURY }}
       whileHover={{ y: -2 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="block">
         <div className="relative mb-2.5 aspect-[4/5] overflow-hidden rounded-[0.15rem] border border-walnut/10 bg-beige md:mb-4 md:aspect-[3/4]">
-          {/* Main image */}
-          <motion.picture
-            className="absolute inset-0 h-full w-full object-cover"
-            animate={{ opacity: isHovered ? 0 : 1, scale: isHovered ? 1.035 : 1 }}
-            transition={{ duration: 0.7, ease: EASE_LUXURY }}
+          <div
+            className="flex h-full w-full transition-transform duration-700 ease-luxury"
+            style={{ transform: `translateX(-${slideIndex * 100}%)` }}
           >
-            {mainImageSrcSet && (
-              <source
-                srcSet={mainImageSrcSet}
-                type="image/webp"
-              />
-            )}
-            <img
-              src={mainImage}
-              alt={`${product.title}${displayProduct.image_is_studio_preview ? ' studio visualisation' : ''}`}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              onError={handleImageError}
-            />
-          </motion.picture>
-          {/* Hover image */}
-          <motion.picture
-            className="absolute inset-0 h-full w-full object-cover"
-            animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 1.035 }}
-            transition={{ duration: 0.7, ease: EASE_LUXURY }}
-          >
-            {hoverImageSrcSet && (
-              <source
-                srcSet={hoverImageSrcSet}
-                type="image/webp"
-              />
-            )}
-            <img
-              src={hoverImage}
-              alt={`${product.title} alternate view`}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-              decoding="async"
-              onError={handleImageError}
-            />
-          </motion.picture>
+            {images.map((image, imageIndex) => {
+              const imageSrcSet = getLocalWebpSrcSet(image);
+
+              return (
+                <picture key={`${image}-${imageIndex}`} className="block h-full w-full shrink-0">
+                  {imageSrcSet && (
+                    <source
+                      srcSet={imageSrcSet}
+                      type="image/webp"
+                    />
+                  )}
+                  <img
+                    src={image}
+                    alt={`${product.title}${imageIndex > 0 ? ` view ${imageIndex + 1}` : ''}${displayProduct.image_is_studio_preview ? ' studio visualisation' : ''}`}
+                    className="h-full w-full object-cover"
+                    loading={imageIndex === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    onError={handleImageError}
+                  />
+                </picture>
+              );
+            })}
+          </div>
+
+          {images.length > 1 && (
+            <div className="pointer-events-none absolute inset-x-2 bottom-2 z-20 flex justify-center gap-1.5 md:bottom-3">
+              {images.map((image, imageIndex) => (
+                <span
+                  key={`${image}-dot`}
+                  className={`h-1 w-4 rounded-full luxury-transition ${
+                    slideIndex === imageIndex ? 'bg-ivory' : 'bg-ivory/35'
+                  }`}
+                  aria-hidden="true"
+                />
+              ))}
+            </div>
+          )}
 
           {/* Badges */}
           <div className="absolute left-2 top-2 z-30 flex flex-col gap-2 md:left-4 md:top-4">

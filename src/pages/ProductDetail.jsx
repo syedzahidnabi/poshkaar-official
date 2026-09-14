@@ -485,6 +485,16 @@ export default function ProductDetail() {
     };
   }, [images.length, zoomOpen]);
 
+  useEffect(() => {
+    if (zoomOpen || images.length < 2) return undefined;
+
+    const timer = window.setInterval(() => {
+      setSelectedImage((current) => (current + 1) % images.length);
+    }, 3200);
+
+    return () => window.clearInterval(timer);
+  }, [images.length, product?.id, zoomOpen]);
+
   const updateMeasurement = (field, value) => {
     setMeasurements((currentMeasurements) => ({
       ...currentMeasurements,
@@ -616,28 +626,38 @@ export default function ProductDetail() {
           {/* Gallery */}
           <div>
             <motion.div
-              className="group mb-3 aspect-[3/4] overflow-hidden rounded-[0.35rem] border border-walnut/10 bg-beige shadow-[0_34px_110px_-78px_rgba(91,58,41,0.9)] md:mb-4"
-              key={selectedImage}
+              className="group relative mb-3 aspect-[3/4] overflow-hidden rounded-[0.35rem] border border-walnut/10 bg-beige shadow-[0_34px_110px_-78px_rgba(91,58,41,0.9)] md:mb-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
             >
-              <picture>
-                {activeImageSrcSet && (
-                  <source
-                    srcSet={activeImageSrcSet}
-                    type="image/webp"
-                  />
-                )}
-                <img
-                  src={activeImage}
-                  alt={`${product.title} view ${selectedImage + 1}`}
-                  className="h-full w-full object-cover transition duration-1000 ease-luxury group-hover:scale-105"
-                  loading={selectedImage === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                  onError={handleProductImageError}
-                />
-              </picture>
+              <div
+                className="flex h-full w-full transition-transform duration-700 ease-luxury"
+                style={{ transform: `translateX(-${selectedImage * 100}%)` }}
+              >
+                {images.map((image, imageIndex) => {
+                  const imageSrcSet = getLocalWebpSrcSet(image);
+
+                  return (
+                    <picture key={`${image}-${imageIndex}`} className="block h-full w-full shrink-0">
+                      {imageSrcSet && (
+                        <source
+                          srcSet={imageSrcSet}
+                          type="image/webp"
+                        />
+                      )}
+                      <img
+                        src={image}
+                        alt={`${product.title} view ${imageIndex + 1}`}
+                        className="h-full w-full object-cover"
+                        loading={imageIndex === 0 ? 'eager' : 'lazy'}
+                        decoding="async"
+                        onError={handleProductImageError}
+                      />
+                    </picture>
+                  );
+                })}
+              </div>
               <button
                 type="button"
                 onClick={() => setZoomOpen(true)}

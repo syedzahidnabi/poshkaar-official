@@ -2,6 +2,14 @@ import {
   DEFAULT_PRODUCT_IMAGE,
   normalizeImageList,
 } from './imageUtils.js';
+import { CATALOG_PRODUCTS } from './catalogProducts.js';
+
+const localCatalogueByIdentifier = CATALOG_PRODUCTS.reduce((catalogue, product) => {
+  [product.id, product.slug, product.sku].filter(Boolean).forEach((identifier) => {
+    catalogue.set(String(identifier).toLowerCase(), product);
+  });
+  return catalogue;
+}, new Map());
 
 export const CATALOG_PRESENTATION_PRESETS = [
   {
@@ -135,23 +143,38 @@ function getSafeDescription(product = {}) {
 }
 
 export function getProductPresentation(product = {}) {
+  const localProduct = [
+    product.id,
+    product.slug,
+    product.sku,
+  ]
+    .filter(Boolean)
+    .map((identifier) => localCatalogueByIdentifier.get(String(identifier).toLowerCase()))
+    .find(Boolean);
   const suppliedImages = normalizeImageList(
     [product.images, product.image],
     [],
   ).filter((image) => !isPlaceholderImage(image));
+  const localImages = normalizeImageList(localProduct?.images, [])
+    .filter((image) => !isPlaceholderImage(image));
   const preset = suppliedImages.length === 0 ? getPresentationPreset(product) : null;
   const hasPendingPhotography = Boolean(product.photography_status)
     && product.photography_status !== 'approved';
+  const canUseLocalImageSet = suppliedImages.length === 0
+    || suppliedImages.every((image) => image.startsWith('/images/'));
   const isStudioPreview = Boolean(
     preset
     || product.image_is_studio_preview
     || hasPendingPhotography,
   );
   const images = suppliedImages.length > 0
-    ? suppliedImages
+    ? canUseLocalImageSet && localImages.length > suppliedImages.length
+      ? localImages
+      : suppliedImages
     : preset
       ? [preset.image]
       : [DEFAULT_PRODUCT_IMAGE];
+  const hasLocalVerifiedImages = localImages.length > 0 && images === localImages;
 
   return {
     ...product,
@@ -159,8 +182,10 @@ export function getProductPresentation(product = {}) {
     image: images[0],
     short_description: product.short_description || getSafeShortDescription(product),
     description: product.description || getSafeDescription(product),
-    image_is_studio_preview: isStudioPreview,
-    image_disclosure: preset
+    image_is_studio_preview: hasLocalVerifiedImages ? false : isStudioPreview,
+    image_disclosure: hasLocalVerifiedImages
+      ? ''
+      : preset
       ? 'Studio visualisation. Ask our team for current photographs of the exact piece before ordering.'
       : product.image_disclosure
         || (hasPendingPhotography

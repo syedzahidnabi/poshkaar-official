@@ -141,7 +141,11 @@ const makeCopperProduct = ({
 }) => {
   const code = `copper-${String(number).padStart(2, '0')}`;
   const image = `/images/products/copperware/copper${number}-main.jpg`;
-  const images = ensureThreeImages([image], 'Copperware');
+  const images = [
+    image,
+    `/images/products/copperware/generated/copper${number}-angle-side.png`,
+    `/images/products/copperware/generated/copper${number}-angle-detail.png`,
+  ];
 
   return {
     id: code,
@@ -199,10 +203,11 @@ const makeWalnutProduct = ({
 }) => {
   const code = `walnut-${String(number).padStart(2, '0')}`;
   const image = `/images/products/walnut-wood/walnut${number}-main.jpg`;
-  const images = ensureThreeImages(
-    [image, `/images/products/walnut-wood/walnut${number}-main.png`],
-    'Walnut Wood',
-  );
+  const images = [
+    image,
+    `/images/products/walnut-wood/generated/walnut${number}-angle-side.png`,
+    `/images/products/walnut-wood/generated/walnut${number}-angle-detail.png`,
+  ];
 
   return {
     id: code,
@@ -260,10 +265,11 @@ const makePapierProduct = ({
 }) => {
   const code = `papier-${String(number).padStart(2, '0')}`;
   const image = `/images/products/papier-mache/papier${number}-main.jpg`;
-  const images = ensureThreeImages(
-    [image, `/images/products/papier-mache/papier${number}-main.png`],
-    'Papier Mache',
-  );
+  const images = [
+    image,
+    `/images/products/papier-mache/generated/papier${number}-angle-side.png`,
+    `/images/products/papier-mache/generated/papier${number}-angle-detail.png`,
+  ];
 
   return {
     id: code,
@@ -321,10 +327,11 @@ const makeWillowProduct = ({
 }) => {
   const code = `willow-${String(number).padStart(2, '0')}`;
   const image = `/images/products/willow-wicker/willow${number}-main.jpg`;
-  const images = ensureThreeImages(
-    [image, `/images/products/willow-wicker/willow${number}-main.png`],
-    'Willow Wicker',
-  );
+  const images = [
+    image,
+    `/images/products/willow-wicker/generated/willow${number}-angle-side.png`,
+    `/images/products/willow-wicker/generated/willow${number}-angle-detail.png`,
+  ];
 
   return {
     id: code,

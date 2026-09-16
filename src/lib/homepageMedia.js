@@ -1,16 +1,16 @@
 export const HOME_MEDIA = {
   heroSlides: [
     {
-      id: 'tilla-piece',
-      src: '/images/products/tilla/tilla1-main.jpg',
-      alt: 'A Poshkaar Tilla embroidered Kashmiri pheran shown as a ready product',
+      id: 'three-girls',
+      src: '/images/home/culture-gathering.webp',
+      alt: 'Three women in traditional Kashmiri clothing seated together with textiles',
       kind: 'photograph',
       credit: 'Image supplied by Poshkaar',
-      eyebrow: 'Shop Kashmir craft',
-      title: ['Ready pieces.', 'Made to feel', 'personal.'],
-      description: 'Explore embroidered clothing, gifts and home objects with clear prices and WhatsApp guidance.',
-      objectPosition: 'center 46%',
-      mobileObjectPosition: 'center 38%',
+      eyebrow: 'Poshkaar Kashmir',
+      title: ['Kashmir craft,', 'chosen for', 'your story.'],
+      description: 'Shop embroidered clothing, gifts and home objects with clear prices and personal WhatsApp guidance.',
+      objectPosition: 'center 50%',
+      mobileObjectPosition: 'center 42%',
     },
     {
       id: 'walnut-object',
@@ -126,8 +126,8 @@ export const HOME_MEDIA = {
   },
   visualEdit: {
     gathering: {
-      src: '/images/home/culture-gathering.webp',
-      alt: 'Three women in traditional Kashmiri clothing seated together with textiles',
+      src: '/images/home/hero-traditional-pheran.webp',
+      alt: 'A woman wearing a traditional Kashmiri pheran with embroidered detail',
       kind: 'photograph',
     },
     copper: {

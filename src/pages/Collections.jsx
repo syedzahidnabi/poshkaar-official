@@ -43,7 +43,7 @@ const COLLECTION_MAP = {
     title: 'All Kashmiri Products',
     subtitle: 'Complete Poshkaar Catalogue',
     filter: {},
-    image: '/images/social/poshkaar-kashmir-og.png',
+    image: '/images/main-banner.jpg',
     seoTitle: 'Kashmiri Products Online | Pashmina, Papier Mache, Walnut Wood, Copperware | Poshkaar Kashmir',
     seoDescription: 'Shop Kashmiri products online from Poshkaar Kashmir: Pashmina shawls, Papier Mache gifts, walnut wood carving, copperware, willow wicker baskets, Tilla, Aari, Zari and Dabka embroidery.',
     intro: 'Browse the complete Poshkaar Kashmir catalogue across Kashmiri Pashmina, Papier Mache, walnut wood carving, copperware, willow wicker, Tilla embroidery, Aari work, Zari work and Dabka occasion wear. Each product page is prepared for real shopping decisions with photographs, prices, availability, material notes, care guidance and WhatsApp support.',

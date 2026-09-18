@@ -5,7 +5,7 @@ import {
 import { CATALOG_PRODUCTS } from './catalogProducts.js';
 
 const localCatalogueByIdentifier = CATALOG_PRODUCTS.reduce((catalogue, product) => {
-  [product.id, product.slug, product.sku].filter(Boolean).forEach((identifier) => {
+  [product.id, product.slug, product.sku, product.title].filter(Boolean).forEach((identifier) => {
     catalogue.set(String(identifier).toLowerCase(), product);
   });
   return catalogue;
@@ -147,6 +147,7 @@ export function getProductPresentation(product = {}) {
     product.id,
     product.slug,
     product.sku,
+    product.title,
   ]
     .filter(Boolean)
     .map((identifier) => localCatalogueByIdentifier.get(String(identifier).toLowerCase()))
@@ -157,23 +158,23 @@ export function getProductPresentation(product = {}) {
   ).filter((image) => !isPlaceholderImage(image));
   const localImages = normalizeImageList(localProduct?.images, [])
     .filter((image) => !isPlaceholderImage(image));
-  const preset = suppliedImages.length === 0 ? getPresentationPreset(product) : null;
+  const preset = suppliedImages.length === 0 && localImages.length === 0
+    ? getPresentationPreset(product)
+    : null;
   const hasPendingPhotography = Boolean(product.photography_status)
     && product.photography_status !== 'approved';
-  const canUseLocalImageSet = suppliedImages.length === 0
-    || suppliedImages.every((image) => image.startsWith('/images/'));
   const isStudioPreview = Boolean(
     preset
     || product.image_is_studio_preview
     || hasPendingPhotography,
   );
-  const images = suppliedImages.length > 0
-    ? canUseLocalImageSet && localImages.length > suppliedImages.length
-      ? localImages
-      : suppliedImages
-    : preset
-      ? [preset.image]
-      : [DEFAULT_PRODUCT_IMAGE];
+  const images = localImages.length > 0
+    ? localImages
+    : suppliedImages.length > 0
+      ? suppliedImages
+      : preset
+        ? [preset.image]
+        : [DEFAULT_PRODUCT_IMAGE];
   const hasLocalVerifiedImages = localImages.length > 0 && images === localImages;
 
   return {

@@ -5,7 +5,7 @@ import {
   getProductPresentation,
 } from './catalogPresentation.js';
 
-test('matches a missing product image to the recorded craft', () => {
+test('matches a known product without images to its local product shoot', () => {
   const product = getProductPresentation({
     id: 'tilla-01',
     title: 'Ruby Tilla Work Shawl',
@@ -13,9 +13,13 @@ test('matches a missing product image to the recorded craft', () => {
     images: [],
   });
 
-  assert.equal(product.images[0], '/images/product-tilla-ivory.jpg');
-  assert.equal(product.image_is_studio_preview, true);
-  assert.match(product.image_disclosure, /Studio visualisation/);
+  assert.deepEqual(product.images, [
+    '/images/products/tilla/generated/tilla1-clean-front.png',
+    '/images/products/tilla/generated/tilla1-angle-side.png',
+    '/images/products/tilla/generated/tilla1-angle-detail.png',
+  ]);
+  assert.equal(product.image_is_studio_preview, false);
+  assert.equal(product.image_disclosure, '');
 });
 
 test('keeps supplied product photography unchanged', () => {
@@ -30,10 +34,26 @@ test('keeps supplied product photography unchanged', () => {
   assert.equal(product.image_is_studio_preview, false);
 });
 
+test('uses the exact local three-image shoot over stale backend images', () => {
+  const product = getProductPresentation({
+    id: 'base44-generated-id',
+    title: 'Cinnamon Silver Tilla Pheran',
+    images: ['https://example.com/duplicated-ivory-preview.jpg'],
+    photography_status: 'approved',
+  });
+
+  assert.deepEqual(product.images, [
+    '/images/products/tilla/generated/tilla2-clean-front.png',
+    '/images/products/tilla/generated/tilla2-angle-side.png',
+    '/images/products/tilla/generated/tilla2-angle-detail.png',
+  ]);
+  assert.equal(product.image_is_studio_preview, false);
+});
+
 test('labels supplied studio visuals while exact-piece photography is pending', () => {
   const product = getProductPresentation({
-    id: 'willow-01',
-    title: 'Crescent Willow Carry Basket',
+    id: 'unmatched-willow-preview',
+    title: 'Pending Willow Sample',
     images: ['https://example.com/willow1-main.jpg'],
     photography_status: 'pending',
   });

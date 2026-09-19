@@ -65,6 +65,11 @@ export function getLocalWebpSrcSet(src, widths = [1200, 800]) {
   if (!match) return '';
 
   const relativePath = match[1];
+  // Generated angle/detail PNGs are deployed without matching WebP derivatives.
+  // Do not advertise a source that would replace a valid PNG with a fallback.
+  if (relativePath.includes('/generated/') && !relativePath.endsWith('-clean-front')) {
+    return '';
+  }
   return widths.map((width) => `/images/webp/${relativePath}-${width}.webp ${width}w`).join(', ');
 }
 

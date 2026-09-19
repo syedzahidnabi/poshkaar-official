@@ -4,6 +4,7 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { CATALOG_PRODUCTS, CATALOG_PRODUCT_COUNT } from './catalogProducts.js';
+import { getLocalWebpSrcSet } from './imageUtils.js';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -82,5 +83,42 @@ test('every catalogue image and responsive primary image exists', () => {
       assert.ok(fs.existsSync(webp), `${product.id} is missing ${width}px WebP`);
     }
   }
+});
+
+test('each product gallery stays tied to the same product shoot', () => {
+  const productFamilies = new Set([
+    'aari',
+    'copper',
+    'dabka',
+    'papier',
+    'tilla',
+    'walnut',
+    'willow',
+    'zari',
+  ]);
+
+  for (const product of CATALOG_PRODUCTS) {
+    const [family, numberText] = product.id.split('-');
+    if (!productFamilies.has(family)) continue;
+
+    const expectedImageToken = `${family}${Number(numberText)}`;
+    for (const image of product.images) {
+      assert.ok(
+        image.includes(expectedImageToken),
+        `${product.id} gallery includes mismatched image ${image}; expected ${expectedImageToken}`,
+      );
+    }
+  }
+});
+
+test('generated angle images use their deployed PNG files', () => {
+  assert.equal(
+    getLocalWebpSrcSet('/images/products/aari/generated/aari1-angle-side.png'),
+    '',
+  );
+  assert.match(
+    getLocalWebpSrcSet('/images/products/aari/generated/aari1-clean-front.png'),
+    /aari1-clean-front-800\.webp/,
+  );
 });
 

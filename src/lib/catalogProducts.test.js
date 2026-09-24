@@ -111,6 +111,28 @@ test('each product gallery stays tied to the same product shoot', () => {
   }
 });
 
+test('every home craft product has exactly three gallery images', () => {
+  const homeCraftCategories = new Set([
+    'Papier Mache',
+    'Walnut Wood',
+    'Willow Wicker',
+    'Copperware',
+  ]);
+
+  const homeCraftProducts = CATALOG_PRODUCTS.filter((product) => (
+    homeCraftCategories.has(product.category)
+  ));
+
+  assert.equal(homeCraftProducts.length, 22);
+  for (const product of homeCraftProducts) {
+    assert.equal(
+      product.images.length,
+      3,
+      `${product.id} must have one main, one side and one detail image`,
+    );
+  }
+});
+
 test('generated angle images use their deployed PNG files', () => {
   assert.equal(
     getLocalWebpSrcSet('/images/products/aari/generated/aari1-angle-side.png'),
